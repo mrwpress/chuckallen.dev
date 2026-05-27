@@ -1,7 +1,7 @@
 # chuckallen.dev
 
 ## What this is
-Chuck Allen's developer portfolio and services site. Single-page scrollable model with anchor sections. Targets developers and agencies needing senior technical leadership.
+Chuck Allen's primary personal brand and parent company. "A ChuckAllen.dev Company" appears on mrwpress.com and chuckallen.ai. Single-page scrollable model with anchor sections. Targets developers and agencies needing senior technical leadership.
 
 ## Rules
 - **Performance first** — every decision filtered through performance impact
