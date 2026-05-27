@@ -1,0 +1,87 @@
+---
+/**
+ * Reusable decorative grid background.
+ * Renders subtle grid lines, floating block tiles, and ambient blobs.
+ * Requires .grid-bg and .blob from shared utilities.css.
+ */
+interface Props {
+  class?: string;
+  blobColor?: string;
+}
+
+const { class: className = '', blobColor = 'var(--color-accent-dim)' } = Astro.props;
+---
+
+<div class:list={['grid-backdrop', className]} aria-hidden="true">
+  <!-- Ambient glow blobs -->
+  <div class="grid-backdrop-blob grid-backdrop-blob--left" style={`background: ${blobColor};`}></div>
+  <div class="grid-backdrop-blob grid-backdrop-blob--right"></div>
+
+  <!-- Grid lines -->
+  <div class="grid-backdrop-lines grid-bg"></div>
+
+  <!-- Decorative floating blocks -->
+  <div class="grid-backdrop-block" style="top:10%;right:8%;"></div>
+  <div class="grid-backdrop-block" style="top:15%;right:13%;"></div>
+  <div class="grid-backdrop-block" style="bottom:20%;left:3%;"></div>
+  <div class="grid-backdrop-block" style="bottom:12%;left:8%;"></div>
+  <div class="grid-backdrop-block" style="top:30%;left:1%;"></div>
+
+  <!-- Corner accent tiles -->
+  <div class="grid-backdrop-tile" style="top:0;right:8%;"></div>
+  <div class="grid-backdrop-tile" style="top:0;left:4%;"></div>
+</div>
+
+<style>
+  .grid-backdrop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .grid-backdrop-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .grid-backdrop-blob--left {
+    width: 600px;
+    height: 600px;
+    top: -160px;
+    left: -128px;
+    opacity: 0.6;
+  }
+  .grid-backdrop-blob--right {
+    width: 400px;
+    height: 400px;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4;
+    background: rgba(99, 102, 241, 0.08);
+  }
+
+  .grid-backdrop-lines {
+    position: absolute;
+    inset: 0;
+  }
+
+  .grid-backdrop-block {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .grid-backdrop-tile {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.015);
+  }
+</style>

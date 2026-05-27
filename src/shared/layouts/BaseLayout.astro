@@ -1,0 +1,147 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import SEOHead from '../components/SEOHead.astro';
+import type { SiteConfig } from '../utils/config';
+import {
+  organizationSchema,
+  websiteSchema,
+  webPageSchema,
+  breadcrumbSchema,
+} from '../utils/schema';
+
+interface Props {
+  /** Site-level configuration — pass from your site's config */
+  site: SiteConfig;
+
+  /** Page title */
+  title: string;
+
+  /** Page meta description */
+  description: string;
+
+  /** Override canonical URL (defaults to current page URL) */
+  canonicalUrl?: string;
+
+  /** OG image path or full URL */
+  ogImage?: string;
+
+  /** Page type for OG and schema */
+  ogType?: 'website' | 'article';
+
+  /** ISO date string for article publish date */
+  articlePublished?: string;
+
+  /** ISO date string for article modified date */
+  articleModified?: string;
+
+  /** Block search engines (defaults to true during pre-launch) */
+  noindex?: boolean;
+
+  /** Additional Schema.org objects to inject */
+  extraSchemas?: Record<string, unknown>[];
+}
+
+const {
+  site,
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  ogType = 'website',
+  articlePublished,
+  articleModified,
+  noindex = true,
+  extraSchemas = [],
+} = Astro.props;
+
+const currentUrl = canonicalUrl || new URL(Astro.url.pathname, site.url).href;
+const ogImageUrl = ogImage
+  ? ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href
+  : undefined;
+
+// Build structured data
+const schemas = [
+  organizationSchema(site),
+  websiteSchema(site),
+  webPageSchema({
+    title,
+    description,
+    url: currentUrl,
+    site,
+    ogType,
+    articlePublished,
+    articleModified,
+    ogImage: ogImageUrl,
+  }),
+  breadcrumbSchema(Astro.url.pathname, site, title, ogType === 'article'),
+  ...extraSchemas,
+].filter(Boolean);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <SEOHead
+      title={title}
+      description={description}
+      siteName={site.name}
+      siteUrl={site.url}
+      author={site.author}
+      canonicalUrl={currentUrl}
+      ogImage={ogImageUrl}
+      ogType={ogType}
+      articlePublished={articlePublished}
+      articleModified={articleModified}
+      locale={site.locale}
+      twitterHandle={site.twitterHandle}
+      noindex={noindex}
+    />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.png?v=1" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- JSON-LD Structured Data -->
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <meta name="generator" content={Astro.generator} />
+
+    {site.gtmId && (
+      <script is:inline define:vars={{ gtmId: site.gtmId }}>
+        function loadGTM(){if(window._gtmLoaded)return;window._gtmLoaded=1;
+        var w=window,d=document,l='dataLayer';
+        w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var j=d.createElement('script');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+gtmId;
+        d.head.appendChild(j)}
+        function scheduleGTM(){if('requestIdleCallback' in window){requestIdleCallback(loadGTM)}else{setTimeout(loadGTM,50)}}
+        if(document.readyState==='complete'){scheduleGTM()}else{window.addEventListener('load',scheduleGTM)}
+      </script>
+    )}
+
+    <!-- Site-specific head content -->
+    <slot name="head" />
+
+    <ClientRouter />
+  </head>
+  <body>
+    {site.gtmId && (
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    )}
+
+    <slot />
+  </body>
+</html>

@@ -1,4 +1,4 @@
-import type { SiteConfig } from '@mrwpress/shared/utils/config';
+import type { SiteConfig } from '../shared/utils/config';
 
 export const site: SiteConfig = {
   name: 'Chuck Allen',

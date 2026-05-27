@@ -1,0 +1,156 @@
+/* ============================================================
+   Shared Utility Styles
+   Reusable patterns across all Chuck Allen sites.
+   ============================================================ */
+
+/* ── Layout ── */
+
+.section-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px-sm);
+  padding-right: var(--container-px-sm);
+}
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: var(--container-px-md);
+    padding-right: var(--container-px-md);
+  }
+}
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: var(--container-px-lg);
+    padding-right: var(--container-px-lg);
+  }
+}
+
+/* ── Buttons ── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-md);
+  transition: opacity var(--ease-fast), transform var(--ease-fast);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color var(--ease-fast), background-color var(--ease-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Cards ── */
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+/* ── Decorative ── */
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.blob {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(var(--blur-blob));
+  pointer-events: none;
+}
+
+/* ── Text ── */
+
+.accent-text {
+  color: var(--color-accent);
+}
+
+/* ── Dividers ── */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Forms ── */
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color var(--ease-fast);
+}
+.input:focus {
+  border-color: var(--color-accent);
+}
+
+.input-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ── Marquee ── */
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused !important;
+}
+
+/* ── Dialog ── */
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+dialog[open] {
+  display: flex;
+}

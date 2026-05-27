@@ -1,6 +1,6 @@
-@import '@mrwpress/shared/styles/tokens.css';
-@import '@mrwpress/shared/styles/reset.css';
-@import '@mrwpress/shared/styles/utilities.css';
+@import '../shared/styles/tokens.css';
+@import '../shared/styles/reset.css';
+@import '../shared/styles/utilities.css';
 
 /* ── chuckallen.dev palette: modern red/black ── */
 :root {

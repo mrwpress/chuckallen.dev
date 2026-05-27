@@ -1,0 +1,311 @@
+---
+/**
+ * iOS-style rolling badge picker.
+ * Displays a vertical wheel of badges that auto-cycles, with the center
+ * slot magnified. On mobile, falls back to an infinite marquee.
+ *
+ * Pass an array of { label, icon } items. Icons should be SVG paths in public/.
+ */
+
+interface BadgeItem {
+  label: string;
+  icon: string;
+}
+
+interface Props {
+  items: BadgeItem[];
+  /** Optional checkmark icon shown on the highlighted slot */
+  checkmarkIcon?: string;
+}
+
+const { items, checkmarkIcon = '' } = Astro.props;
+
+// Slot visual configs — diamond pattern: small edges → magnified center
+const slots = [
+  { width: 210, rounded: 12, textSize: 10, iconSize: 12, py: 14, fontWeight: 500, opacity: 0.45 },
+  { width: 250, rounded: 16, textSize: 12, iconSize: 14, py: 16, fontWeight: 500, opacity: 0.6 },
+  { width: 290, rounded: 20, textSize: 12, iconSize: 16, py: 18, fontWeight: 500, opacity: 0.8 },
+  { width: 360, rounded: 24, textSize: 16, iconSize: 20, py: 20, fontWeight: 600, opacity: 1, highlighted: true },
+  { width: 290, rounded: 20, textSize: 14, iconSize: 16, py: 18, fontWeight: 500, opacity: 0.8 },
+  { width: 250, rounded: 16, textSize: 10, iconSize: 14, py: 16, fontWeight: 500, opacity: 0.6 },
+  { width: 210, rounded: 12, textSize: 8, iconSize: 12, py: 14, fontWeight: 500, opacity: 0.45 },
+];
+---
+
+<!-- Desktop: vertical wheel -->
+<div class="wheel-wrapper" aria-label="Featured capabilities">
+  <div
+    class="badge-wheel"
+    data-items={JSON.stringify(items)}
+    data-slots={JSON.stringify(slots)}
+    data-checkmark={checkmarkIcon}
+  >
+    {slots.map((slot, i) => {
+      const item = items[i % items.length];
+      return (
+        <div
+          class="badge-slot"
+          style={[
+            `width:${slot.width}px`,
+            `border-radius:${slot.rounded}px`,
+            `padding:${slot.py}px 16px`,
+            `background:${slot.highlighted ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'}`,
+            `opacity:${slot.opacity}`,
+          ].join(';')}
+        >
+          <img
+            src={item.icon}
+            alt=""
+            class="badge-icon"
+            style={`width:${slot.iconSize}px;height:${slot.iconSize}px;`}
+          />
+          <span
+            class="badge-label"
+            style={`font-size:${slot.textSize}px;font-weight:${slot.fontWeight};`}
+          >
+            {item.label}
+          </span>
+          {slot.highlighted && checkmarkIcon && (
+            <img
+              src={checkmarkIcon}
+              alt=""
+              class="badge-checkmark"
+              style="width:22px;height:22px;right:-1px;top:-5px;"
+            />
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<!-- Mobile: infinite marquee -->
+<div class="wheel-marquee-wrapper" aria-label="Featured capabilities">
+  <div class="wheel-marquee-fade wheel-marquee-fade--left"></div>
+  <div class="wheel-marquee-fade wheel-marquee-fade--right"></div>
+  <div class="wheel-marquee">
+    {[0, 1].map(() => (
+      <div class="wheel-marquee-group">
+        {items.map((item) => (
+          <div class="wheel-marquee-badge">
+            <img src={item.icon} alt="" class="wheel-marquee-icon" loading="lazy" decoding="async" />
+            <span class="wheel-marquee-label">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  /* ── Desktop wheel ── */
+  .wheel-wrapper {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    width: 360px;
+    padding-bottom: 60px;
+  }
+  @media (min-width: 1024px) {
+    .wheel-wrapper {
+      display: flex;
+    }
+  }
+
+  .badge-wheel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .badge-slot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(105, 105, 105, 0.5);
+    flex-shrink: 0;
+    transition: width 0.6s ease, border-radius 0.6s ease, padding 0.6s ease, background 0.6s ease, opacity 0.6s ease;
+  }
+
+  .badge-icon {
+    flex-shrink: 0;
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .badge-label {
+    color: var(--color-text);
+    white-space: nowrap;
+    line-height: 1.2;
+    transition: font-size 0.6s ease;
+  }
+
+  .badge-checkmark {
+    position: absolute;
+  }
+
+  /* ── Mobile marquee ── */
+  .wheel-marquee-wrapper {
+    position: relative;
+    z-index: 10;
+    padding: 8px 0 32px;
+    overflow: hidden;
+  }
+  @media (min-width: 1024px) {
+    .wheel-marquee-wrapper {
+      display: none;
+    }
+  }
+
+  .wheel-marquee-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .wheel-marquee-fade--left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg), transparent);
+  }
+  .wheel-marquee-fade--right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg), transparent);
+  }
+
+  .wheel-marquee {
+    display: flex;
+    width: max-content;
+    animation: wheel-scroll 20s linear infinite;
+  }
+  .wheel-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes wheel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .wheel-marquee-group {
+    display: flex;
+    gap: 10px;
+    padding-right: 10px;
+  }
+
+  .wheel-marquee-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(105, 105, 105, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+  }
+
+  .wheel-marquee-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .wheel-marquee-label {
+    color: var(--color-text);
+    font-size: 14px;
+    white-space: nowrap;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const wheel = document.querySelector('.badge-wheel') as HTMLElement;
+    if (!wheel) return;
+
+    const items = JSON.parse(wheel.dataset.items || '[]');
+    const slots = JSON.parse(wheel.dataset.slots || '[]');
+    const slotEls = Array.from(wheel.querySelectorAll('.badge-slot')) as HTMLElement[];
+
+    if (!items.length || !slotEls.length) return;
+
+    let offset = 0;
+    let interval: ReturnType<typeof setInterval>;
+    let isAnimating = false;
+
+    function applySlotVisuals(el: HTMLElement, slot: any, item: any) {
+      el.style.width = slot.width + 'px';
+      el.style.borderRadius = slot.rounded + 'px';
+      el.style.padding = slot.py + 'px 16px';
+      el.style.background = slot.highlighted
+        ? 'rgba(255,255,255,0.08)'
+        : 'rgba(0,0,0,0.08)';
+      el.style.opacity = slot.opacity;
+
+      const icon = el.querySelector('.badge-icon') as HTMLImageElement;
+      if (icon) {
+        icon.src = item.icon;
+        icon.style.width = slot.iconSize + 'px';
+        icon.style.height = slot.iconSize + 'px';
+      }
+
+      const label = el.querySelector('.badge-label') as HTMLElement;
+      if (label) {
+        label.textContent = item.label;
+        label.style.fontSize = slot.textSize + 'px';
+        label.style.fontWeight = slot.fontWeight;
+      }
+
+      const checkmark = el.querySelector('.badge-checkmark') as HTMLElement;
+      if (checkmark) {
+        checkmark.style.display = slot.highlighted ? '' : 'none';
+      }
+    }
+
+    function applyState() {
+      slotEls.forEach((el, slotIndex) => {
+        const slot = slots[slotIndex];
+        const itemIndex = (slotIndex + offset) % items.length;
+        const item = items[itemIndex];
+        applySlotVisuals(el, slot, item);
+      });
+    }
+
+    const rollDistance = slotEls[0].offsetHeight + 8;
+
+    function cycle() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      wheel.style.transition = 'transform 0.4s cubic-bezier(0.33, 1, 0.68, 1)';
+      wheel.style.transform = `translateY(-${rollDistance}px)`;
+
+      setTimeout(() => {
+        wheel.style.transition = 'none';
+        wheel.style.transform = 'translateY(0)';
+
+        offset = (offset + 1) % items.length;
+        applyState();
+
+        requestAnimationFrame(() => {
+          isAnimating = false;
+        });
+      }, 400);
+    }
+
+    applyState();
+
+    setTimeout(cycle, 800);
+    interval = setInterval(cycle, 2500);
+
+    wheel.addEventListener('mouseenter', () => clearInterval(interval));
+    wheel.addEventListener('mouseleave', () => {
+      interval = setInterval(cycle, 2500);
+    });
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  siteName: string;
+  siteUrl: string;
+  author: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  articlePublished?: string;
+  articleModified?: string;
+  locale?: string;
+  twitterHandle?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  siteName,
+  siteUrl,
+  author,
+  canonicalUrl,
+  ogImage,
+  ogType = 'website',
+  articlePublished,
+  articleModified,
+  locale = 'en_US',
+  twitterHandle,
+  noindex = true,
+} = Astro.props;
+
+const currentUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = ogImage
+  ? ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href
+  : undefined;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+
+{noindex
+  ? <meta name="robots" content="noindex,nofollow" />
+  : <link rel="canonical" href={currentUrl} />
+}
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={locale} />
+{ogImageUrl && (
+  <>
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </>
+)}
+{articlePublished && <meta property="article:published_time" content={articlePublished} />}
+{articleModified && <meta property="article:modified_time" content={articleModified} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+{twitterHandle && <meta name="twitter:site" content={twitterHandle} />}

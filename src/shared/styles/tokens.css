@@ -1,0 +1,76 @@
+/* ============================================================
+   Design Tokens — Chuck Allen Brand
+   Derived from mrwpress.com visual language.
+   Import into any site's global stylesheet.
+   ============================================================ */
+
+:root {
+  /* ── Colors: Backgrounds ── */
+  --color-bg: #07080e;
+  --color-surface: #0d0e1c;
+  --color-surface-2: #111326;
+  --color-code-bg: #1a1b2e;
+
+  /* ── Colors: Borders ── */
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-light: rgba(255, 255, 255, 0.12);
+
+  /* ── Colors: Accent (Teal) ── */
+  --color-accent: #00769d;
+  --color-accent-light: #009ad0;
+  --color-accent-dim: rgba(0, 118, 157, 0.15);
+
+  /* ── Colors: Text ── */
+  --color-text: #ffffff;
+  --color-text-secondary: #d6d6d6;
+  --color-text-muted: #8b929e;
+  --color-text-dim: #555c6a;
+
+  /* ── Typography ── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+
+  /* ── Font Weights ── */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ── Spacing Scale ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* ── Border Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 54px;
+  --radius-full: 50%;
+
+  /* ── Container ── */
+  --container-max: 1440px;
+  --container-px-sm: 1.5rem;
+  --container-px-md: 2.5rem;
+  --container-px-lg: 100px;
+
+  /* ── Transitions ── */
+  --ease-fast: 0.2s ease;
+  --ease-medium: 0.3s ease;
+  --ease-smooth: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-slow: 0.6s ease;
+
+  /* ── Shadows & Effects ── */
+  --blur-blob: 120px;
+  --shadow-card: 0 -4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 36px 0 rgba(29, 37, 70, 0.1);
+}

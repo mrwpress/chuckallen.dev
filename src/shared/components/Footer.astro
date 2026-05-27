@@ -1,0 +1,251 @@
+---
+import type { SiteConfig } from '../utils/config';
+
+interface Props {
+  site: SiteConfig;
+}
+
+const { site } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <!-- Background decorations -->
+  <div class="footer-bg" aria-hidden="true">
+    <div class="footer-gradient"></div>
+    <div class="footer-blob footer-blob--left"></div>
+    <div class="footer-blob footer-blob--right"></div>
+    <div class="footer-grid grid-bg"></div>
+  </div>
+
+  <div class="footer-inner section-container">
+    <!-- Logo + nav -->
+    <div class="footer-top">
+      <a href="/" class="footer-logo" aria-label={`${site.name} home`}>
+        <slot name="logo" />
+      </a>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        {site.navItems.map((link) => (
+          <a href={link.href} class="footer-nav-link">{link.label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <!-- Bottom section -->
+    <div class="footer-bottom">
+      <!-- Social icons -->
+      {site.socialLinks.length > 0 && (
+        <div class="footer-social">
+          {site.socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label={social.label}
+            >
+              <Fragment set:html={social.icon} />
+            </a>
+          ))}
+        </div>
+      )}
+
+      <!-- Email -->
+      <a href={`mailto:${site.email}`} class="footer-email">{site.email}</a>
+
+      <!-- Legal links -->
+      {site.legalLinks.length > 0 && (
+        <nav class="footer-legal" aria-label="Legal links">
+          {site.legalLinks.map((link) => (
+            <a href={link.href} class="footer-legal-link">{link.label}</a>
+          ))}
+        </nav>
+      )}
+
+      <!-- Copyright -->
+      <p class="footer-copyright">
+        &copy; {year} {site.legalName} | All Rights Reserved
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ── Footer ── */
+  .site-footer {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+
+  /* ── Background ── */
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .footer-gradient {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 50%;
+    background: linear-gradient(to top, var(--color-accent-dim) 0%, transparent 100%);
+  }
+
+  .footer-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .footer-blob--left {
+    width: 600px;
+    height: 600px;
+    top: -160px;
+    left: -128px;
+    opacity: 0.4;
+    background: var(--color-accent-dim);
+  }
+  .footer-blob--right {
+    width: 400px;
+    height: 400px;
+    top: -80px;
+    right: 0;
+    opacity: 0.35;
+    background: var(--color-accent-dim);
+  }
+
+  .footer-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.7;
+  }
+
+  /* ── Content ── */
+  .footer-inner {
+    position: relative;
+    z-index: 10;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  @media (min-width: 768px) {
+    .footer-inner {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  .footer-logo {
+    display: block;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .footer-nav {
+      gap: 32px;
+    }
+  }
+
+  .footer-nav-link {
+    color: var(--color-text-secondary, #d6d6d6);
+    font-size: 16px;
+    transition: color 0.2s ease;
+  }
+  .footer-nav-link:hover {
+    color: var(--color-text);
+  }
+
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 48px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ── Social ── */
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    background: var(--color-accent);
+    transition: opacity 0.2s ease;
+  }
+  .footer-social-link:hover {
+    opacity: 0.8;
+  }
+
+  /* ── Email ── */
+  .footer-email {
+    color: var(--color-text-secondary, #d6d6d6);
+    font-size: 16px;
+    transition: color 0.2s ease;
+  }
+  .footer-email:hover {
+    color: var(--color-text);
+  }
+
+  /* ── Legal ── */
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+  @media (min-width: 768px) {
+    .footer-legal {
+      column-gap: 32px;
+    }
+  }
+
+  .footer-legal-link {
+    color: var(--color-text-secondary, #d6d6d6);
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+  .footer-legal-link:hover {
+    color: var(--color-text);
+  }
+
+  .footer-copyright {
+    color: var(--color-text-secondary, #d6d6d6);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+  }
+</style>
