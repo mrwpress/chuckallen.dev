@@ -1,0 +1,22 @@
+{
+  "name": "chuckallen-dev",
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/sitemap": "^3.7.2",
+    "@mrwpress/shared": "github:mrwpress/chuck-allen-shared",
+    "astro": "^6.3.8",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GridBackground from '@mrwpress/shared/components/GridBackground.astro';
+import BadgeWheel from '@mrwpress/shared/components/BadgeWheel.astro';
+import Contact from '@mrwpress/shared/components/Contact.astro';
+import { site } from '../config/site';
+import { yearsExperience } from '@mrwpress/shared/utils/config';
+
+const years = yearsExperience(site);
+
+const badgeItems = [
+  { label: 'Astro', icon: '/images/badge-performance.svg' },
+  { label: 'Next.js', icon: '/images/badge-react.svg' },
+  { label: 'Data Visualization', icon: '/images/badge-dataviz.svg' },
+  { label: 'Automation', icon: '/images/badge-automation.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Vue & React', icon: '/images/badge-react.svg' },
+  { label: 'Serverless Architecture', icon: '/images/badge-security.svg' },
+];
+---
+
+<Layout>
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-label">A ChuckAllen.ai Company</p>
+          <h1 class="hero-title">
+            Senior Developer.<br />
+            <span class="hero-accent">Technical Leader.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Experienced developer with over {years} years of engineering experience. Tailored solutions for automation, data visualization, alerts and notifications, scalable architecture, rapid deployment, and more for your enterprise needs.
+          </p>
+          <div class="hero-actions">
+            <a href="/#contact" class="btn-primary">Let's Talk</a>
+            <a href="/#work" class="btn-outline">See My Work</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <!-- Mobile marquee (BadgeWheel hides desktop version internally, but we need a second instance outside the hidden wrapper) -->
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="section-container">
+      <h2 class="section-title">What I Do</h2>
+      <p class="section-subtitle">
+        I focus on the hard problems so your team can move faster.
+      </p>
+      <div class="services-grid">
+        <div class="service-card card">
+          <h3 class="service-name">Modern Frameworks</h3>
+          <p class="service-desc">Astro, Next.js, Vue, React, Node — production-ready builds with performance baked in.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-name">API Integrations</h3>
+          <p class="service-desc">Google APIs, ShipStation, payment gateways, Outscraper, and custom connectors that just work.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-name">Data & Visualization</h3>
+          <p class="service-desc">Dashboards, reporting, real-time data — turning complex datasets into clear, actionable interfaces.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-name">Automation & Alerts</h3>
+          <p class="service-desc">Workflows, notifications, scheduled tasks — eliminate repetitive work and catch issues before they escalate.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-name">Scalable Architecture</h3>
+          <p class="service-desc">Serverless, edge functions, Cloudflare Workers — built to handle growth without rearchitecting.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-name">Technical Leadership</h3>
+          <p class="service-desc">I manage projects end-to-end. Planning, execution, communication — your vision, delivered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work / Portfolio -->
+  <section id="work" class="section">
+    <GridBackground blobColor="rgba(0,118,157,0.05)" />
+    <div class="section-container">
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-subtitle">
+        Case studies and demos coming soon.
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="section-container">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>I'm Chuck Allen — a developer with over {years} years of experience building for the web. I've worked with agencies, startups, and enterprise teams across every phase of a project.</p>
+        <p>I'm not on Upwork or Fiverr. I don't race to the bottom on price or cut corners to close a ticket. I invest in understanding your vision and I see it through.</p>
+        <p>Based in Colorado, available during US business hours. I communicate over calls, screen shares, and Slack — whatever works for your team. White-label friendly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Let's Build Something Together"
+    subtitle="I'm available for new projects. Pick the way that works best for you."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 140px 0 80px;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero {
+      padding: 180px 0 120px;
+    }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 60px;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile {
+      display: none;
+    }
+  }
+
+  .hero-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-accent-light);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 48px; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 64px; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 768px) {
+    .hero-subtitle { font-size: 18px; }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 64px 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section {
+      padding: 96px 0;
+    }
+  }
+
+  .section-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 36px; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 48px; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 16px;
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle { font-size: 18px; }
+  }
+
+  /* ── Services Grid ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-card {
+    padding: 24px;
+    transition: border-color 0.2s ease;
+  }
+  .service-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .service-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  /* ── About ── */
+  .about-content {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .about-content { font-size: 17px; }
+  }
+</style>

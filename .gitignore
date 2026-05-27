@@ -1,0 +1,40 @@
+# ── Dependencies ──
+node_modules/
+
+# ── Astro ──
+dist/
+.astro/
+
+# ── Environment ──
+.env
+.env.*
+!.env.example
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── IDE ──
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ── Build / Cache ──
+.cache/
+.turbo/
+*.tsbuildinfo
+
+# ── Logs ──
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Cloudflare ──
+.wrangler/
+.dev.vars
+
+# ── NOTE: .claude/ is intentionally tracked ──
+# We back up CLAUDE.md, settings, and project context in git.

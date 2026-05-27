@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@mrwpress/shared/layouts/BaseLayout.astro';
+import Header from '@mrwpress/shared/components/Header.astro';
+import Footer from '@mrwpress/shared/components/Footer.astro';
+import '../styles/global.css';
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  articlePublished?: string;
+  articleModified?: string;
+}
+
+const {
+  title = site.defaultTitle,
+  description = site.defaultDescription,
+  ogImage = site.defaultOgImage,
+  ogType = 'website',
+  articlePublished,
+  articleModified,
+} = Astro.props;
+---
+
+<BaseLayout
+  site={site}
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  ogType={ogType}
+  articlePublished={articlePublished}
+  articleModified={articleModified}
+>
+  <Header site={site}>
+    <a slot="logo" href="/" class="logo" aria-label="Chuck Allen home">
+      Chuck Allen<span class="logo-dot">.</span><span class="logo-dev">dev</span>
+    </a>
+  </Header>
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer site={site}>
+    <a slot="logo" href="/" class="logo" aria-label="Chuck Allen home">
+      Chuck Allen<span class="logo-dot">.</span><span class="logo-dev">dev</span>
+    </a>
+  </Footer>
+</BaseLayout>
+
+<style>
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  @media (min-width: 950px) {
+    .logo {
+      font-size: 28px;
+    }
+  }
+
+  .logo-dot {
+    color: var(--color-accent);
+  }
+
+  .logo-dev {
+    color: var(--color-accent-light);
+    font-weight: 600;
+  }
+</style>

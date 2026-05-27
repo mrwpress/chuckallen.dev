@@ -1,0 +1,46 @@
+@import '@mrwpress/shared/styles/tokens.css';
+@import '@mrwpress/shared/styles/reset.css';
+@import '@mrwpress/shared/styles/utilities.css';
+
+/* ── chuckallen.dev palette: modern red/black ── */
+:root {
+  --color-bg: #09090b;
+  --color-surface: #0f0f12;
+  --color-surface-2: #161619;
+  --color-code-bg: #1a1a1f;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-light: rgba(255, 255, 255, 0.10);
+  --color-accent: #dc2626;
+  --color-accent-light: #ef4444;
+  --color-accent-dim: rgba(220, 38, 38, 0.12);
+}
+
+/* ── Font Faces ── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+}
