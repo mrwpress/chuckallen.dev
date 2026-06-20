@@ -12,6 +12,7 @@ interface Props {
   ogType?: 'website' | 'article';
   articlePublished?: string;
   articleModified?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   ogType = 'website',
   articlePublished,
   articleModified,
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -32,6 +34,7 @@ const {
   ogType={ogType}
   articlePublished={articlePublished}
   articleModified={articleModified}
+  noindex={noindex}
 >
   <Header site={site}>
     <a slot="logo" href="/" class="logo" aria-label="Chuck Allen home">
