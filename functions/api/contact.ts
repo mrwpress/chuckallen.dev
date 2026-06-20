@@ -108,8 +108,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     if (!res.ok) {
       const err = await res.text();
-      console.error('Mailgun error:', res.status, err);
-      return jsonResponse({ error: 'Failed to send message. Please try again.' }, 500);
+      return jsonResponse({
+        error: 'Failed to send message. Please try again.',
+        debug: { status: res.status, body: err, domain: MAILGUN_DOMAIN },
+      }, 500);
     }
 
     return jsonResponse({ ok: true });
