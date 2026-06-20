@@ -69,13 +69,9 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         remoteip: context.request.headers.get('CF-Connecting-IP') || '',
       }),
     });
-    const turnstileData = await turnstileRes.json<{ success: boolean; 'error-codes'?: string[] }>();
+    const turnstileData = await turnstileRes.json<{ success: boolean }>();
     if (!turnstileData.success) {
-      console.error('Turnstile verification failed:', JSON.stringify(turnstileData));
-      return jsonResponse({
-        error: 'Verification failed. Please try again.',
-        debug: turnstileData,
-      }, 403);
+      return jsonResponse({ error: 'Verification failed. Please try again.' }, 403);
     }
 
     if (!email || !message) {

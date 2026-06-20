@@ -538,6 +538,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
       } catch (err) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
+        if (window.turnstile) window.turnstile.reset();
         const existing = form.querySelector('.form-error');
         if (existing) existing.remove();
         const errEl = document.createElement('p');
