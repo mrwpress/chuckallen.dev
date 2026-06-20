@@ -10,7 +10,7 @@ Chuck Allen's primary personal brand and parent company. "A ChuckAllen.dev Compa
 - **Images in `src/assets/`** — always use `<Picture />` from `astro:assets` for AVIF + WebP
 - **SVGs in `public/`** — they don't need processing
 - **Never push to main** — always branch → PR → merge
-- **noindex/nofollow on all pages** until told otherwise (pre-launch)
+- **Indexed and crawlable** — site is live. Layout.astro defaults `noindex=false`. Pass `noindex={true}` to Layout for any page that should be excluded.
 - **TypeScript strict mode**, ESNext target
 - **Shared components from `@mrwpress/shared`** — import BaseLayout, Header, Footer, Contact, etc.
 - **Site config in `src/config/site.ts`** — single `SiteConfig` object, one source of truth
