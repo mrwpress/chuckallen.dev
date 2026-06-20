@@ -24,6 +24,7 @@ export const site: SiteConfig = {
   priceRange: '$$',
   calendly: 'https://calendly.com/chuck-mrwpress/30min?timezone=America/Denver',
   timezone: 'America/Denver',
+  turnstileSiteKey: '0x4AAAAAADoUBaBwjmsdmruu',
 
   navItems: [
     { label: 'Services', href: '/#services' },
