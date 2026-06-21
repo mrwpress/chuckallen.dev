@@ -153,60 +153,61 @@ const turnstileSiteKey = site.turnstileSiteKey;
   /* ── Section ── */
   .contact-section {
     position: relative;
-    padding: 64px 0;
+    padding: 3rem 0;
     overflow: hidden;
     background: var(--color-bg);
   }
   @media (min-width: 768px) {
     .contact-section {
-      padding: 96px 0;
+      padding: 4.5rem 0;
     }
   }
 
   .contact-heading {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
     .contact-heading {
-      margin-bottom: 64px;
+      margin-bottom: 4rem;
     }
   }
 
   .contact-title {
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
   }
   @media (min-width: 768px) {
-    .contact-title { font-size: 36px; }
+    .contact-title { font-size: 2.25rem; }
   }
   @media (min-width: 1024px) {
-    .contact-title { font-size: 48px; }
+    .contact-title { font-size: 3rem; }
   }
 
   .contact-subtitle {
     color: var(--color-text-muted);
-    font-size: 16px;
+    font-size: 0.9375rem;
     max-width: 772px;
     margin: 0 auto;
   }
   @media (min-width: 768px) {
-    .contact-subtitle { font-size: 18px; }
+    .contact-subtitle { font-size: 1.125rem; }
   }
 
   /* ── Cards Grid ── */
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 48px;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
     .contact-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
     }
   }
 
@@ -249,19 +250,20 @@ const turnstileSiteKey = site.turnstileSiteKey;
   .contact-card-label {
     color: var(--color-text);
     font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 4px;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
   }
   @media (min-width: 768px) {
-    .contact-card-label { font-size: 20px; }
+    .contact-card-label { font-size: 1.25rem; }
   }
 
   .contact-card-value {
     color: var(--color-text-muted);
-    font-size: 12px;
+    font-size: 0.6875rem;
+    word-break: break-all;
   }
   @media (min-width: 768px) {
-    .contact-card-value { font-size: 14px; }
+    .contact-card-value { font-size: 0.875rem; }
   }
 
   /* ── CTA ── */
@@ -271,8 +273,8 @@ const turnstileSiteKey = site.turnstileSiteKey;
   }
 
   .contact-cta-btn {
-    font-size: 16px;
-    padding: 16px 40px;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
     width: 100%;
     justify-content: center;
   }
@@ -345,12 +347,12 @@ const turnstileSiteKey = site.turnstileSiteKey;
   .chat-name {
     color: var(--color-text);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .chat-status {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .chat-close {
@@ -390,7 +392,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--color-text);
     background: var(--color-accent);
@@ -400,7 +402,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
     border-radius: 16px;
     border-top-left-radius: 4px;
     padding: 10px 16px;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     background: rgba(255, 255, 255, 0.06);
@@ -416,7 +418,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
     width: 100%;
     border-radius: 8px;
     padding: 10px 16px;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--color-text);
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -440,7 +442,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
     border-radius: 8px;
     color: var(--color-text);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
     background: var(--color-accent);
     border: none;
     cursor: pointer;
@@ -499,7 +501,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
         if (existing) existing.remove();
         const errEl = document.createElement('p');
         errEl.className = 'form-error';
-        errEl.style.cssText = 'color: #f87171; font-size: 12px; text-align: center;';
+        errEl.style.cssText = 'color: #f87171; font-size: 0.75rem; text-align: center;';
         errEl.textContent = 'Please complete the verification.';
         form.appendChild(errEl);
         return;
@@ -526,10 +528,10 @@ const turnstileSiteKey = site.turnstileSiteKey;
           const confirm = document.createElement('div');
           confirm.style.cssText = 'display:flex;gap:10px;';
           const avatar = document.createElement('div');
-          avatar.style.cssText = 'width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;background:var(--color-accent);';
+          avatar.style.cssText = 'width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#fff;background:var(--color-accent);';
           avatar.textContent = document.querySelector('.chat-name')?.textContent?.charAt(0) ?? 'C';
           const bubble = document.createElement('div');
-          bubble.style.cssText = 'border-radius:16px;border-top-left-radius:4px;padding:10px 16px;font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;background:rgba(255,255,255,0.06);';
+          bubble.style.cssText = 'border-radius:16px;border-top-left-radius:4px;padding:10px 16px;font-size:0.875rem;color:rgba(255,255,255,0.9);line-height:1.6;background:rgba(255,255,255,0.06);';
           bubble.textContent = `Thanks! We got your message and will reach out to ${email} shortly.`;
           confirm.appendChild(avatar);
           confirm.appendChild(bubble);
@@ -543,7 +545,7 @@ const turnstileSiteKey = site.turnstileSiteKey;
         if (existing) existing.remove();
         const errEl = document.createElement('p');
         errEl.className = 'form-error';
-        errEl.style.cssText = 'color: #f87171; font-size: 12px; text-align: center;';
+        errEl.style.cssText = 'color: #f87171; font-size: 0.75rem; text-align: center;';
         errEl.textContent = err instanceof Error ? err.message : 'Failed to send. Please try again.';
         form.appendChild(errEl);
       }

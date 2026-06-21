@@ -16,6 +16,7 @@ html {
   color: var(--color-text);
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
