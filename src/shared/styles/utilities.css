@@ -115,6 +115,7 @@
   font-size: 0.875rem;
   outline: none;
   transition: border-color var(--ease-fast);
+  box-sizing: border-box;
 }
 .input:focus {
   border-color: var(--color-accent);

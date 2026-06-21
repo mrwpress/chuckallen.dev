@@ -182,12 +182,12 @@ const badgeItems = [
   /* ── Hero ── */
   .hero {
     position: relative;
-    padding: 140px 0 80px;
+    padding: 7rem 0 1.5rem;
     overflow: hidden;
   }
   @media (min-width: 768px) {
     .hero {
-      padding: 180px 0 120px;
+      padding: 11.25rem 0 7.5rem;
     }
   }
 
@@ -199,18 +199,19 @@ const badgeItems = [
   .hero-row {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 2.5rem;
   }
   @media (min-width: 1024px) {
     .hero-row {
       flex-direction: row;
       align-items: flex-start;
-      gap: 60px;
+      gap: 3.75rem;
     }
   }
 
   .hero-content {
     flex: 1;
+    min-width: 0;
   }
 
   .hero-wheel {
@@ -229,7 +230,7 @@ const badgeItems = [
   .hero-marquee-mobile {
     position: relative;
     z-index: 1;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   @media (min-width: 1024px) {
     .hero-marquee-mobile {
@@ -238,26 +239,29 @@ const badgeItems = [
   }
 
   .hero-label {
-    font-size: 14px;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--color-accent-light);
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
+  @media (min-width: 768px) {
+    .hero-label { font-size: 0.875rem; }
+  }
 
   .hero-title {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 500;
     color: var(--color-text);
     line-height: 1.2;
-    margin-bottom: 24px;
+    margin-bottom: 1.25rem;
   }
   @media (min-width: 768px) {
-    .hero-title { font-size: 48px; }
+    .hero-title { font-size: 3rem; }
   }
   @media (min-width: 1024px) {
-    .hero-title { font-size: 64px; }
+    .hero-title { font-size: 4rem; }
   }
 
   .hero-accent {
@@ -265,67 +269,73 @@ const badgeItems = [
   }
 
   .hero-subtitle {
-    font-size: 16px;
+    font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--color-text-muted);
     max-width: 600px;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
-    .hero-subtitle { font-size: 18px; }
+    .hero-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
   }
 
   .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
   /* ── Sections ── */
   .section {
     position: relative;
-    padding: 64px 0;
+    padding: 3rem 0;
     overflow: hidden;
   }
   @media (min-width: 768px) {
     .section {
-      padding: 96px 0;
+      padding: 4.5rem 0;
     }
   }
 
   .section-title {
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
   }
   @media (min-width: 768px) {
-    .section-title { font-size: 36px; }
+    .section-title { font-size: 2.25rem; }
   }
   @media (min-width: 1024px) {
-    .section-title { font-size: 48px; }
+    .section-title { font-size: 3rem; }
   }
 
   .section-subtitle {
     color: var(--color-text-muted);
-    font-size: 16px;
+    font-size: 0.9375rem;
     max-width: 600px;
-    margin-bottom: 48px;
+    margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
-    .section-subtitle { font-size: 18px; }
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
   }
 
   /* ── Services Grid ── */
   .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 0.75rem;
   }
   @media (min-width: 768px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 1.25rem;
     }
   }
   @media (min-width: 1024px) {
@@ -335,85 +345,103 @@ const badgeItems = [
   }
 
   .service-card {
-    padding: 24px;
+    padding: 1.25rem;
     transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .service-card { padding: 1.5rem; }
   }
   .service-card:hover {
     border-color: rgba(255, 255, 255, 0.15);
   }
 
   .service-name {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .service-name { font-size: 1.125rem; }
   }
 
   .service-desc {
-    font-size: 14px;
+    font-size: 0.8125rem;
     line-height: 1.6;
     color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .service-desc { font-size: 0.875rem; }
   }
 
   /* ── About ── */
   .about-row {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 2rem;
     align-items: center;
   }
   @media (min-width: 768px) {
     .about-row {
       flex-direction: row;
-      gap: 60px;
-      align-items: center;
+      gap: 3.75rem;
+      align-items: flex-start;
     }
   }
 
   .about-photo {
     flex-shrink: 0;
+    max-width: 100%;
   }
 
   .about-img {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     height: auto;
-    border-radius: 16px;
+    border-radius: 1rem;
     border: 1px solid var(--color-border-light);
   }
   @media (min-width: 768px) {
     .about-img {
-      width: 360px;
+      max-width: 360px;
     }
   }
 
   .about-content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0.875rem;
     color: var(--color-text-muted);
-    font-size: 16px;
+    font-size: 0.9375rem;
     line-height: 1.7;
+    min-width: 0;
   }
   @media (min-width: 768px) {
-    .about-content { font-size: 17px; }
+    .about-content {
+      font-size: 1.0625rem;
+      gap: 1rem;
+    }
   }
 
   /* ── Cost of Inaction ── */
   .cost-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 0.75rem;
   }
   @media (min-width: 768px) {
     .cost-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 1.25rem;
     }
   }
 
   .cost-item {
-    padding: 24px;
+    padding: 1.25rem;
     transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .cost-item { padding: 1.5rem; }
   }
   .cost-item:hover {
     border-color: rgba(255, 255, 255, 0.15);
@@ -421,37 +449,43 @@ const badgeItems = [
 
   .cost-stat {
     display: block;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-accent-light);
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
   @media (min-width: 768px) {
-    .cost-stat { font-size: 32px; }
+    .cost-stat { font-size: 2rem; }
   }
 
   .cost-desc {
-    font-size: 14px;
+    font-size: 0.8125rem;
     line-height: 1.6;
     color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .cost-desc { font-size: 0.875rem; }
   }
 
   /* ── Results Grid ── */
   .results-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 0.75rem;
   }
   @media (min-width: 768px) {
     .results-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 1.25rem;
     }
   }
 
   .result-item {
-    padding: 24px;
+    padding: 1.25rem;
     transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .result-item { padding: 1.5rem; }
   }
   .result-item:hover {
     border-color: rgba(255, 255, 255, 0.15);
@@ -459,18 +493,21 @@ const badgeItems = [
 
   .result-number {
     display: block;
-    font-size: 24px;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-accent-light);
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
   @media (min-width: 768px) {
-    .result-number { font-size: 28px; }
+    .result-number { font-size: 1.75rem; }
   }
 
   .result-label {
-    font-size: 14px;
+    font-size: 0.8125rem;
     line-height: 1.6;
     color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .result-label { font-size: 0.875rem; }
   }
 </style>
