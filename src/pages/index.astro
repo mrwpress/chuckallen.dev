@@ -32,9 +32,15 @@ const badgeItems = [
           <p class="hero-rotating">
             <span class="rotating-word"><span class="rw-text"></span></span>
           </p>
-          <p class="hero-subtitle">
-            Is a buggy or slow site costing conversions? Are manual workflows eating up hours that could be spent growing the business? Has the last developer stopped delivering the quality the project deserves? With {years}+ years of experience, I help teams solve exactly these problems — and I stick around to make sure they stay solved.
-          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">🪳</span>Clean, bug-free code</li>
+            <li><svg class="hero-icon hero-icon-speed" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="17" stroke="#1e3a1e" stroke-width="3"/><circle cx="20" cy="20" r="17" stroke="#0cce6b" stroke-width="3" stroke-dasharray="106.8" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 20 20)"/><text x="20" y="24" text-anchor="middle" fill="#0cce6b" font-size="13" font-weight="700">100</text></svg>Speed that converts</li>
+            <li><span class="hero-icon" aria-hidden="true">🤖</span>Less manual, more automated</li>
+            <li><span class="hero-icon" aria-hidden="true">🪨</span>Stability you can count on</li>
+            <li><span class="hero-icon" aria-hidden="true">👻</span>A developer who doesn't ghost</li>
+            <li><span class="hero-icon" aria-hidden="true">⚙️</span>Architecture that scales</li>
+          </ul>
+          <p class="hero-closer">{years}+ years solving exactly these problems — and I stick around to make sure they stay solved.</p>
           <div class="hero-actions">
             <a href="/#contact" class="btn-primary">Get Started</a>
             <a href="/#services" class="btn-outline">See How I Help</a>
@@ -196,9 +202,9 @@ const badgeItems = [
       let charIndex = 0;
       let isDeleting = false;
 
-      const typingSpeed = 110;
-      const deletingSpeed = 60;
-      const pauseAfterTyped = 1400;
+      const typingSpeed = 70;
+      const deletingSpeed = 40;
+      const pauseAfterTyped = 1000;
 
       const typeLoop = () => {
         const currentWord = words[wordIndex];
@@ -375,15 +381,56 @@ const badgeItems = [
     }
   }
 
-  .hero-subtitle {
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points {
+      gap: 1rem 2.5rem;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .hero-icon {
+    font-size: 2.25rem;
+    flex-shrink: 0;
+  }
+
+  .hero-icon-speed {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-closer {
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--color-text-muted);
-    max-width: 600px;
     margin-bottom: 2rem;
   }
   @media (min-width: 768px) {
-    .hero-subtitle {
+    .hero-closer {
       font-size: 1.125rem;
       margin-bottom: 2.5rem;
     }
