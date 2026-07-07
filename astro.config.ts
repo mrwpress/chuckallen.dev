@@ -3,7 +3,11 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://chuckallen.dev',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !new URL(page).pathname.startsWith('/ppc/'),
+    }),
+  ],
   build: {
     inlineStylesheets: 'always',
   },

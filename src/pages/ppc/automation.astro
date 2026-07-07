@@ -1,0 +1,640 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+
+const years = yearsExperience(site);
+
+const badgeItems = [
+  { label: 'Workflow Automation', icon: '/images/badge-automation.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Data Visualization', icon: '/images/badge-dataviz.svg' },
+  { label: 'Custom Solutions', icon: '/images/badge-performance.svg' },
+  { label: 'Error Handling', icon: '/images/badge-security.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-react.svg' },
+  { label: 'US Business Hours', icon: '/images/badge-dataviz.svg' },
+];
+---
+
+<Layout
+  title="Business Workflow Automation Consulting — Chuck Allen"
+  description={`Custom workflow automation for small businesses. Eliminate manual processes, save hours every week. ${years}+ years experience. Free strategy call.`}
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Workflow Automation Consulting</p>
+          <h1 class="hero-title">Stop doing the<br /><span class="hero-accent">same work twice.</span></h1>
+          <p class="hero-sub">
+            Your team deserves to spend their time on work that matters — not copying numbers
+            between spreadsheets or rebuilding the same report every Monday.
+            {years}+ years building custom automation that gives businesses their hours back.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">📋</span>Eliminate manual data entry</li>
+            <li><span class="hero-icon" aria-hidden="true">📊</span>Reports that build themselves</li>
+            <li><span class="hero-icon" aria-hidden="true">🔗</span>Connect disconnected systems</li>
+            <li><span class="hero-icon" aria-hidden="true">🔔</span>Alerts that actually reach you</li>
+            <li><span class="hero-icon" aria-hidden="true">🛡️</span>Real error handling built in</li>
+            <li><span class="hero-icon" aria-hidden="true">⏱️</span>Get 12+ hours back per week</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#what-gets-automated" class="btn-outline">See What Gets Automated</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">What's Eating Your Time?</h2>
+      <p class="section-subtitle">
+        These are the workflows that drain hours from small businesses every single week. Any of them sound familiar?
+      </p>
+      <div class="pain-grid">
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">📋</span> Manual data entry</h3>
+          <p class="pain-desc">Someone on your team is copying numbers between systems by hand. Every day. It's slow, error-prone, and nobody enjoys it.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">📊</span> Reports built from scratch weekly</h3>
+          <p class="pain-desc">Every Monday starts with someone pulling data from three different tools, pasting it into a spreadsheet, and formatting it for the team.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🔔</span> Missed follow-ups and alerts</h3>
+          <p class="pain-desc">Leads go cold because nobody caught them in time. Issues escalate because the alert was buried in an inbox.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🔗</span> Disconnected systems</h3>
+          <p class="pain-desc">Your CRM doesn't talk to your invoicing. Your invoicing doesn't talk to your project management. Everything is an island.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🧑‍💻</span> Skilled people doing unskilled work</h3>
+          <p class="pain-desc">Your best people are spending 30% of their time on tasks that don't require their expertise. That's expensive.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🔧</span> Duct-taped automations that break</h3>
+          <p class="pain-desc">Someone set up a Zapier chain two years ago. It breaks every month. Nobody knows how it works. Nobody wants to touch it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Gets Automated -->
+  <section id="what-gets-automated" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What Gets Automated</h2>
+      <p class="section-subtitle">
+        These are the workflows that eat hours from small businesses every week. Each one can be automated.
+      </p>
+      <div class="auto-grid">
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Data sync between systems</h3>
+          <p class="auto-desc">CRM to invoicing, inventory to storefront, project management to time tracking. Real-time, two-way, with error handling.</p>
+        </div>
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Automated reporting</h3>
+          <p class="auto-desc">Daily, weekly, or monthly reports generated and delivered automatically. Dashboards that update themselves.</p>
+        </div>
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Lead routing and follow-up</h3>
+          <p class="auto-desc">New lead comes in, gets scored, assigned to the right person, and followed up with — all before anyone touches it.</p>
+        </div>
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Multi-step business workflows</h3>
+          <p class="auto-desc">Order received → invoice created → team notified → status updated → customer emailed. All automatic, all tracked.</p>
+        </div>
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Alert and escalation systems</h3>
+          <p class="auto-desc">Something goes wrong? The right person knows immediately. Not buried in email — Slack, SMS, or whatever your team actually checks.</p>
+        </div>
+        <div class="auto-card card">
+          <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Document and invoice generation</h3>
+          <p class="auto-desc">Proposals, invoices, reports, and contracts generated from your data and sent automatically. Consistent formatting every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">The Numbers Behind Automation</h2>
+      <p class="section-subtitle">
+        These aren't sales claims. These are industry-wide findings from research on businesses that automated manual processes.
+      </p>
+      <div class="roi-grid">
+        <div class="roi-item card">
+          <span class="roi-stat">30–60%</span>
+          <p class="roi-desc">Cost reduction in operations centers that automated repetitive tasks — with higher delivery quality. <a href="https://www.mckinsey.com/capabilities/operations/our-insights/operations-management-reshaped-by-robotic-automation" target="_blank" rel="noopener" class="roi-cite">McKinsey</a></p>
+        </div>
+        <div class="roi-item card">
+          <span class="roi-stat">12+ hrs/week</span>
+          <p class="roi-desc">Average time saved by automating a single manual reporting workflow for a mid-size operations team.</p>
+        </div>
+        <div class="roi-item card">
+          <span class="roi-stat">7x more likely</span>
+          <p class="roi-desc">To qualify a lead when response happens within an hour. Automated workflows respond in seconds. <a href="https://ainora.lt/blog/lead-response-time-statistics-every-study-2026" target="_blank" rel="noopener" class="roi-cite">HBR Study via AInora</a></p>
+        </div>
+        <div class="roi-item card">
+          <span class="roi-stat">30–90 days</span>
+          <p class="roi-desc">Typical payback period for business process automation. Most automations pay for themselves within the first quarter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        You shouldn't have to reshape your business around someone else's platform. Your automation gets built around how you actually operate.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Audit your workflows</h3>
+          <p class="step-desc">Free strategy call. Walk through the processes eating your team's time. You'll see exactly what can be automated and how many hours you'll get back.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Build and test</h3>
+          <p class="step-desc">Your automation gets built with real error handling and monitoring — not a fragile chain that breaks silently. You see it work before it goes live.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> Deploy and support</h3>
+          <p class="step-desc">It goes live, your team gets trained on it, and I stick around to monitor, adjust, and expand as your needs evolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not Off-the-Shelf -->
+  <section class="section">
+    <div class="section-container">
+      <div class="diff-row">
+        <div class="diff-content">
+          <h2 class="section-title">Not Another SaaS Tool</h2>
+          <p class="diff-text">
+            Off-the-shelf automation platforms work great — until they don't. When you hit their limits,
+            you're stuck. You can't customize the logic, you can't handle edge cases, and you're paying
+            monthly for something that doesn't quite fit.
+          </p>
+          <p class="diff-text">
+            Your automation should fit your business, not the other way around. Custom code means
+            no monthly platform fees, no feature limitations, and no vendor lock-in. You own it.
+          </p>
+          <p class="diff-text diff-highlight">
+            {years}+ years building custom solutions. US-based. Post-launch support included.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Ready to Get Those Hours Back?"
+    subtitle="Book a free 30-minute call. Tell me what's eating your team's time — I'll tell you what it would take to automate it."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Pain Grid (inline icon + title) ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .pain-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .pain-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pain-card {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .pain-card { padding: 1.5rem; }
+  }
+  .pain-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .pain-header { font-size: 1.125rem; }
+  }
+
+  .pain-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .pain-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .pain-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Automation Grid (checkmark + title inline) ── */
+  .auto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .auto-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .auto-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .auto-card {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .auto-card { padding: 1.5rem; }
+  }
+  .auto-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .auto-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .auto-header { font-size: 1.125rem; }
+  }
+
+  .auto-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .auto-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.125rem;
+  }
+  @media (min-width: 768px) {
+    .auto-desc { font-size: 0.875rem; }
+  }
+
+  /* ── ROI Grid ── */
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .roi-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .roi-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .roi-item { padding: 1.5rem; }
+  }
+  .roi-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .roi-stat {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .roi-stat { font-size: 2rem; }
+  }
+
+  .roi-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .roi-desc { font-size: 0.875rem; }
+  }
+
+  .roi-cite {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+  .roi-cite:hover {
+    opacity: 1;
+    color: var(--color-accent-light);
+  }
+
+  /* ── Steps (inline number + title) ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Differentiator ── */
+  .diff-row {
+    max-width: 680px;
+  }
+
+  .diff-text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 768px) {
+    .diff-text { font-size: 1.0625rem; }
+  }
+
+  .diff-highlight {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+</style>
