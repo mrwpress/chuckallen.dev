@@ -522,6 +522,9 @@ const turnstileSiteKey = site.turnstileSiteKey;
           throw new Error(err?.error || 'Something went wrong.');
         }
 
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'contact_form_success' });
+
         const body = form.parentElement;
         if (body) {
           form.remove();
