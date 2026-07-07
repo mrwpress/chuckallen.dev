@@ -25,6 +25,7 @@ export const site: SiteConfig = {
   calendly: 'https://calendly.com/chuck-mrwpress/30min?timezone=America/Denver',
   timezone: 'America/Denver',
   turnstileSiteKey: '0x4AAAAAADoUBaBwjmsdmruu',
+  gtmId: 'GTM-TPNHQVVD',
 
   navItems: [
     { label: 'Services', href: '/#services' },
