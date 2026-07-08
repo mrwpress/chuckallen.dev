@@ -1,0 +1,569 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+
+const years = yearsExperience(site);
+
+const badgeItems = [
+  { label: 'White-Label Ready', icon: '/images/badge-security.svg' },
+  { label: 'Astro', icon: '/images/badge-performance.svg' },
+  { label: 'Next.js', icon: '/images/badge-react.svg' },
+  { label: 'Overflow Support', icon: '/images/badge-automation.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Vue & React', icon: '/images/badge-react.svg' },
+  { label: 'US Business Hours', icon: '/images/badge-dataviz.svg' },
+];
+---
+
+<Layout
+  title="White-Label Web Development Partner — Chuck Allen"
+  description={`White-label web development for agencies. ${years}+ years building under your brand. US-based, reliable, no client-facing headaches.`}
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">White-Label Development Partner</p>
+          <h1 class="hero-title">Your brand.<br /><span class="hero-accent">My code.</span></h1>
+          <p class="hero-sub">
+            Your agency gets a senior developer on demand — under your brand, on your timeline,
+            invisible to your clients. {years}+ years of experience, none of the overhead of a full-time hire.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">🏢</span>White-label friendly</li>
+            <li><span class="hero-icon" aria-hidden="true">🤝</span>Under your brand, always</li>
+            <li><span class="hero-icon" aria-hidden="true">⏰</span>US business hours</li>
+            <li><span class="hero-icon" aria-hidden="true">🔒</span>Your clients stay yours</li>
+            <li><span class="hero-icon" aria-hidden="true">📋</span>Clean code, clean handoffs</li>
+            <li><span class="hero-icon" aria-hidden="true">💰</span>No full-time overhead</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#how-it-works" class="btn-outline">See How It Works</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Sound Familiar?</h2>
+      <p class="section-subtitle">
+        Running an agency means juggling client expectations with capacity constraints. These are the moments when the cracks start to show.
+      </p>
+      <div class="pain-grid">
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">📈</span> More work than your team can handle</h3>
+          <p class="pain-desc">You're turning down projects or pushing timelines because your developers are maxed out. New hires take months to ramp up.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🌏</span> Offshore didn't work out</h3>
+          <p class="pain-desc">The timezone gap, the communication issues, the code you had to rewrite anyway. It was supposed to save money. It cost you a client.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🎭</span> Freelancers who go rogue</h3>
+          <p class="pain-desc">They missed the deadline. They contacted your client directly. They delivered code your team can't maintain. Never again.</p>
+        </div>
+        <div class="pain-card card">
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">💰</span> Full-time cost for part-time need</h3>
+          <p class="pain-desc">You don't need a senior developer 40 hours a week. You need one when a project demands it — without the salary, benefits, and bench time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">How the Partnership Works</h2>
+      <p class="section-subtitle">
+        Simple, transparent, built around how agencies actually operate.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> You bring the project</h3>
+          <p class="step-desc">Send me the specs, designs, or just the problem statement. I'll scope it and give you a timeline and cost your team can plan around.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Your project gets built</h3>
+          <p class="step-desc">Your clients never see the handoff. Your repos, your conventions, your Slack. Clean code, clean handoffs — every time.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> You deliver and look great</h3>
+          <p class="step-desc">On time, on spec, on budget. Your clients get the quality they're paying for. You keep the margin and the relationship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Handle -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">What Your Agency Gets</h2>
+      <div class="service-grid">
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Full Stack Builds</h3>
+          <p class="service-desc">Complete web applications from scratch — Astro, Next.js, Vue, React. Frontend to backend, database to deployment.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Overflow Projects</h3>
+          <p class="service-desc">Your team is slammed. The overflow gets handled at the same quality standard your clients expect — without the hiring scramble.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Performance Rescue</h3>
+          <p class="service-desc">Client site running slow? It gets audited, optimized, and migrated if needed. Core Web Vitals scores that keep everyone happy.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Integrations & APIs</h3>
+          <p class="service-desc">Payment gateways, CRMs, shipping APIs, custom connectors. Robust error handling and monitoring built in.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Maintenance & Support</h3>
+          <p class="service-desc">Ongoing support for sites you've already launched. Bug fixes, feature adds, security updates — under your brand.</p>
+        </div>
+        <div class="service-card card">
+          <h3 class="service-header"><span class="service-check" aria-hidden="true">&#10003;</span> Technical Architecture</h3>
+          <p class="service-desc">Need an architect to spec out a complex build before assigning to your team? Your project gets a scalable blueprint that won't need a rebuild in six months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Agencies Choose Me -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Why Agencies Keep Coming Back</h2>
+      <div class="trust-grid">
+        <div class="trust-item card">
+          <span class="trust-stat">{years}+ years</span>
+          <p class="trust-desc">Your partner has been building for agencies, startups, and enterprise teams — and understands how the agency model works.</p>
+        </div>
+        <div class="trust-item card">
+          <span class="trust-stat">US hours</span>
+          <p class="trust-desc">Colorado-based. Available during your business day. No timezone roulette.</p>
+        </div>
+        <div class="trust-item card">
+          <span class="trust-stat">Zero drama</span>
+          <p class="trust-desc">Your clients stay yours. Deadlines get met. Code stays maintainable. No surprises, no rogue behavior.</p>
+        </div>
+        <div class="trust-item card">
+          <span class="trust-stat">No contracts required</span>
+          <p class="trust-desc">Start with one project. If the work speaks for itself, we keep going. No lock-ins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Let's Talk About Your Next Project"
+    subtitle="Book a free 30-minute call. Describe what your agency needs — you'll get a straight answer on how it gets done."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Pain Grid (inline icon + title) ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .pain-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .pain-card {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .pain-card { padding: 1.5rem; }
+  }
+  .pain-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .pain-header { font-size: 1.125rem; }
+  }
+
+  .pain-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .pain-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .pain-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Steps (inline number + title) ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Service Grid (checkmark + title inline) ── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-card {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .service-card { padding: 1.5rem; }
+  }
+  .service-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .service-header { font-size: 1.125rem; }
+  }
+
+  .service-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .service-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.125rem;
+  }
+  @media (min-width: 768px) {
+    .service-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Trust Grid ── */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .trust-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .trust-item { padding: 1.5rem; }
+  }
+  .trust-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .trust-stat {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .trust-stat { font-size: 1.75rem; }
+  }
+
+  .trust-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .trust-desc { font-size: 0.875rem; }
+  }
+</style>
