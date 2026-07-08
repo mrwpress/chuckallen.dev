@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
+---
+
+<Layout
+  title="Terms & Conditions — Chuck Allen"
+  description="Terms and conditions for using chuckallen.dev."
+>
+  <section class="legal-page">
+    <div class="section-container">
+      <div class="prose">
+        <h1>Terms &amp; Conditions</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> July 8, 2026</p>
+
+        <p>
+          These Terms & Conditions ("Terms") govern your use of <a href="https://chuckallen.dev">chuckallen.dev</a>,
+          operated by Chuck Allen ("I," "me," "my"). By accessing or using this site, you agree to be
+          bound by these Terms. If you do not agree, do not use this site.
+        </p>
+
+        <hr />
+
+        <h2>Description of Site</h2>
+        <p>
+          This site is a professional portfolio and marketing site for web development services. It provides
+          information about my services, experience, and how to get in touch. The site itself is informational —
+          actual project work, deliverables, timelines, and payment terms are governed by separate written
+          agreements between me and each client.
+        </p>
+
+        <hr />
+
+        <h2>No Client Relationship</h2>
+        <p>
+          Visiting this site, submitting the contact form, or booking a consultation call does not create a
+          client relationship, contract, or obligation on either party. A client relationship begins only
+          when both parties agree to a written scope of work or service agreement.
+        </p>
+
+        <hr />
+
+        <h2>Intellectual Property</h2>
+        <p>
+          All content on this site — including text, design, code, graphics, and logos — is the property of
+          Chuck Allen unless otherwise noted. You may not copy, reproduce, distribute, or create
+          derivative works from this site's content without prior written permission.
+        </p>
+        <p>
+          Third-party trademarks, logos, and brand names referenced on this site (such as technology
+          logos in the services section) remain the property of their respective owners and are used for
+          identification purposes only.
+        </p>
+
+        <hr />
+
+        <h2>Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use this site for any unlawful purpose</li>
+          <li>Submit false, misleading, or malicious content through the contact form</li>
+          <li>Attempt to interfere with the site's operation, security, or infrastructure</li>
+          <li>Scrape, crawl, or harvest data from this site using automated tools</li>
+          <li>Attempt to gain unauthorized access to any part of the site or its systems</li>
+        </ul>
+
+        <hr />
+
+        <h2>Contact Form and Communications</h2>
+        <p>
+          The contact form is provided as a convenience for reaching out about potential projects. By submitting
+          the form, you consent to receiving a response via the email address you provide. I am not obligated to
+          respond within a specific timeframe, though I make every effort to reply promptly during US business hours.
+        </p>
+        <p>
+          Messages submitted through the contact form are delivered via Mailgun and processed in accordance
+          with the <a href="/privacy">Privacy Policy</a>.
+        </p>
+
+        <hr />
+
+        <h2>Scheduling and Consultations</h2>
+        <p>
+          Consultation calls are booked through Calendly, a third-party scheduling service. By booking a call,
+          you agree to Calendly's <a href="https://calendly.com/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>.
+          An initial consultation does not constitute a commitment to provide services.
+        </p>
+
+        <hr />
+
+        <h2>Third-Party Links and Services</h2>
+        <p>
+          This site may contain links to third-party websites (LinkedIn, GitHub, Calendly, etc.). I am not
+          responsible for the content, privacy practices, or terms of any third-party site. Visiting those
+          links is at your own discretion.
+        </p>
+
+        <hr />
+
+        <h2>Disclaimer of Warranties</h2>
+        <p>
+          This site is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties
+          of any kind, either express or implied. I do not guarantee that the site will be uninterrupted,
+          error-free, or free of harmful components. I make no warranties regarding the accuracy, reliability,
+          or completeness of any content on this site.
+        </p>
+
+        <hr />
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          To the fullest extent permitted by law, Chuck Allen shall not be liable for any indirect,
+          incidental, special, consequential, or punitive damages arising from your use of or inability to use
+          this site. This includes, without limitation, damages for loss of profits, data, or other intangible
+          losses — even if I have been advised of the possibility of such damages.
+        </p>
+        <p>
+          My total liability for any claim arising from your use of this site shall not exceed the amount
+          you paid to access the site (which is zero).
+        </p>
+
+        <hr />
+
+        <h2>Indemnification</h2>
+        <p>
+          You agree to indemnify and hold harmless Chuck Allen from any claims, damages, losses, or
+          expenses (including reasonable legal fees) arising out of your use of this site, your violation of
+          these Terms, or your violation of any third party's rights.
+        </p>
+
+        <hr />
+
+        <h2>Governing Law and Jurisdiction</h2>
+        <p>
+          These Terms are governed by the laws of the State of Colorado, without regard to conflict of law principles.
+          Any disputes arising from these Terms or your use of this site shall be resolved exclusively in the
+          state or federal courts located in Colorado.
+        </p>
+
+        <hr />
+
+        <h2>Severability</h2>
+        <p>
+          If any provision of these Terms is found to be unenforceable or invalid, that provision will be
+          limited or removed to the minimum extent necessary, and the remaining provisions will remain in
+          full force and effect.
+        </p>
+
+        <hr />
+
+        <h2>Changes to These Terms</h2>
+        <p>
+          I may update these Terms from time to time. Changes will be posted on this page with an updated
+          effective date. Continued use of the site after changes constitutes acceptance of the revised Terms.
+        </p>
+
+        <hr />
+
+        <h2>Contact</h2>
+        <p>If you have questions about these Terms, contact me at:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:+1${site.phone}`}>{site.phoneFormatted}</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+  }
+
+  .legal-page h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .effective-date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* --- Vertical rhythm overrides for legal content --- */
+
+  .legal-page .prose hr {
+    margin: 3rem 0;
+  }
+
+  .legal-page .prose h2 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-page .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-page .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-page .prose ul,
+  .legal-page .prose ol {
+    padding-left: 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .legal-page .prose li {
+    margin-bottom: 0.625rem;
+  }
+</style>
