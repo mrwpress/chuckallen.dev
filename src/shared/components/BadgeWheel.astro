@@ -33,7 +33,7 @@ const slots = [
 ---
 
 <!-- Desktop: vertical wheel -->
-<div class="wheel-wrapper" aria-label="Featured capabilities">
+<div class="wheel-wrapper" role="region" aria-label="Featured capabilities">
   <div
     class="badge-wheel"
     data-items={JSON.stringify(items)}
@@ -80,7 +80,7 @@ const slots = [
 </div>
 
 <!-- Mobile: infinite marquee -->
-<div class="wheel-marquee-wrapper" aria-label="Featured capabilities">
+<div class="wheel-marquee-wrapper" role="region" aria-label="Featured capabilities">
   <div class="wheel-marquee-fade wheel-marquee-fade--left"></div>
   <div class="wheel-marquee-fade wheel-marquee-fade--right"></div>
   <div class="wheel-marquee">
