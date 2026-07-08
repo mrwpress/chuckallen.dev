@@ -1,0 +1,533 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/custom-dashboards/', site.url).href;
+
+const schema = serviceSchema({
+  name: 'Custom Dashboard Development',
+  description: 'Custom-built dashboards for operations, sales, logistics, and executive reporting. Real-time data, no BI tool learning curve.',
+  url: pageUrl,
+  site,
+});
+
+const badgeItems = [
+  { label: 'Custom Dashboards', icon: '/images/badge-dataviz.svg' },
+  { label: 'Real-Time Data', icon: '/images/badge-performance.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Automation', icon: '/images/badge-automation.svg' },
+  { label: 'Serverless', icon: '/images/badge-security.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-react.svg' },
+];
+---
+
+<Layout
+  title="Custom Dashboard Development — Chuck Allen"
+  description={`Custom-built dashboards for business operations, sales, logistics, and reporting. Real-time data, no BI tool learning curve. ${years}+ years experience.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Custom Dashboard Development</p>
+          <h1 class="hero-title">Your team needs answers,<br /><span class="hero-accent">not another BI tool.</span></h1>
+          <p class="hero-sub">
+            You've probably tried a BI platform. It was powerful, expensive, and abandoned within
+            two months because nobody on the team could figure out the query builder. Your business
+            doesn't need a general-purpose analytics tool. It needs a dashboard built around the
+            specific questions your team asks every day.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">📊</span>Built for your KPIs</li>
+            <li><span class="hero-icon" aria-hidden="true">⚡</span>Real-time data</li>
+            <li><span class="hero-icon" aria-hidden="true">🔗</span>Connected to your tools</li>
+            <li><span class="hero-icon" aria-hidden="true">🔔</span>Threshold alerts</li>
+            <li><span class="hero-icon" aria-hidden="true">📱</span>Works on any device</li>
+            <li><span class="hero-icon" aria-hidden="true">🧑‍💼</span>No training required</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#dashboard-types" class="btn-outline">See Dashboard Types</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">What's Slowing Your Team Down?</h2>
+      <p class="section-subtitle">
+        The data exists. The problem is how long it takes to get to it — and what shape it's in when you do.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📋</span> Spreadsheets as dashboards</h3>
+          <p class="card-desc">Someone maintains a master spreadsheet that everyone relies on. It's slow, fragile, and the person who built it is the only one who understands it.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔐</span> BI tools gathering dust</h3>
+          <p class="card-desc">You paid for Tableau, Power BI, or Looker. Six months later, two people use it and everyone else still asks for a spreadsheet export.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🕐</span> Stale numbers driving decisions</h3>
+          <p class="card-desc">By the time the report is compiled, the data is three days old. Your team is making decisions based on where things were, not where they are.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🧩</span> Six logins for the full picture</h3>
+          <p class="card-desc">Sales numbers in one tool. Support tickets in another. Revenue in a third. Getting a complete view means mentally stitching together six different screens.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔔</span> Problems caught too late</h3>
+          <p class="card-desc">The metric dipped weeks ago. Nobody noticed until the monthly review. Real-time alerts would have caught it in minutes — but your current tools don't support that.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🤷</span> Different numbers from different people</h3>
+          <p class="card-desc">Two people pull the "same" report and get different results. When there's no single source of truth, every meeting starts with "which numbers are right?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Types -->
+  <section id="dashboard-types" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">Dashboards That Actually Get Used</h2>
+      <p class="section-subtitle">
+        Every dashboard is built for a specific audience and a specific set of decisions. Here's what that looks like.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Operations dashboards</h3>
+          <p class="card-desc">Order volume, fulfillment status, inventory levels, shipping delays — everything your ops team needs to keep things moving, updated in real time.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Sales &amp; revenue dashboards</h3>
+          <p class="card-desc">Pipeline value, conversion rates, revenue by channel, rep performance. One screen that tells your sales team exactly where they stand.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Executive scorecards</h3>
+          <p class="card-desc">High-level KPIs for leadership — revenue, growth, churn, margins. Clean, focused, no noise. The numbers that matter for strategic decisions.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Logistics &amp; fulfillment</h3>
+          <p class="card-desc">Shipment tracking, carrier performance, delivery success rates, return volumes. Built for teams that need to see the supply chain in real time.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Support &amp; ticket dashboards</h3>
+          <p class="card-desc">Open tickets, response times, resolution rates, customer satisfaction trends. Spot bottlenecks before they become backlogs.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Client-facing portals</h3>
+          <p class="card-desc">White-label dashboards your clients log into — project status, deliverables, metrics. Branded to your company, hosted on your domain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        Your dashboard gets built around the decisions your team makes — not around what a BI tool thinks you should measure.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Define what matters</h3>
+          <p class="step-desc">Free strategy call. Walk me through your data sources, the questions your team asks daily, and where the current gaps are. You'll see exactly what's possible.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Build with your real data</h3>
+          <p class="step-desc">Connected to live sources, designed for clarity, tested with your team. You see it working with real numbers before it goes live — not placeholder data.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> Launch and evolve</h3>
+          <p class="step-desc">Your team starts using it immediately. New data sources, new metrics, new team members — the dashboard grows with your business. Post-launch support included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Related Services</h2>
+      <p class="section-subtitle">Custom dashboards often pair with these.</p>
+      <div class="related-row">
+        <a href="/services/api-integrations" class="related-card card">
+          <h3 class="related-name">Third-Party API Integrations</h3>
+          <p class="related-desc">Your dashboard is only as good as its data sources. Robust API connections keep everything flowing in real time.</p>
+        </a>
+        <a href="/services/automation" class="related-card card">
+          <h3 class="related-name">Workflow Automation</h3>
+          <p class="related-desc">Dashboards show the data. Automation acts on it — alerts, reports, and workflows triggered by what the numbers say.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Your Team Deserves Better Than Spreadsheets"
+    subtitle="Book a free 30-minute call. Tell me what your team needs to see every morning and I'll show you what that dashboard looks like."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Related Services ── */
+  .related-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .related-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .related-card {
+    display: block;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .related-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .related-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .related-name { font-size: 1.125rem; }
+  }
+
+  .related-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .related-desc { font-size: 0.875rem; }
+  }
+</style>

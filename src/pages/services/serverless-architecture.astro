@@ -1,0 +1,576 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/serverless-architecture/', site.url).href;
+
+const schema = serviceSchema({
+  name: 'Serverless Architecture & Edge Deployment',
+  description: 'Serverless architecture on Cloudflare Workers and Pages. Auto-scaling, edge-deployed, zero server maintenance.',
+  url: pageUrl,
+  site,
+});
+
+const badgeItems = [
+  { label: 'Serverless Design', icon: '/images/badge-security.svg' },
+  { label: 'Cloudflare Workers', icon: '/images/badge-performance.svg' },
+  { label: 'Edge Functions', icon: '/images/badge-api.svg' },
+  { label: 'Astro / Next.js', icon: '/images/badge-react.svg' },
+  { label: 'API Integrations', icon: '/images/badge-automation.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-dataviz.svg' },
+];
+---
+
+<Layout
+  title="Serverless Architecture & Edge Deployment — Chuck Allen"
+  description={`Serverless architecture built on Cloudflare Workers, edge functions, and modern frameworks. Scale without managing servers. ${years}+ years experience.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Serverless Architecture &amp; Edge Deployment</p>
+          <h1 class="hero-title">Scale without<br /><span class="hero-accent">managing servers.</span></h1>
+          <p class="hero-sub">
+            Traditional hosting means paying for capacity you're not using, managing infrastructure
+            that has nothing to do with your product, and hoping your server can handle the next
+            traffic spike. Serverless architecture eliminates all of that — your code runs at the edge,
+            scales automatically, and you pay for what you use.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">⚡</span>Edge-deployed globally</li>
+            <li><span class="hero-icon" aria-hidden="true">📈</span>Auto-scaling built in</li>
+            <li><span class="hero-icon" aria-hidden="true">💰</span>Pay for what you use</li>
+            <li><span class="hero-icon" aria-hidden="true">🔒</span>No servers to patch</li>
+            <li><span class="hero-icon" aria-hidden="true">🚀</span>Sub-second cold starts</li>
+            <li><span class="hero-icon" aria-hidden="true">🌍</span>Low latency everywhere</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#what-serverless-looks-like" class="btn-outline">See How It Works</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Does This Sound Like Your Infrastructure?</h2>
+      <p class="section-subtitle">
+        Most businesses don't want to think about servers. But traditional hosting forces you to — and the costs add up in ways that aren't always obvious.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">💸</span> Paying for idle capacity</h3>
+          <p class="card-desc">Your server runs 24/7 whether anyone visits or not. You're paying for a box that sits at 5% utilization 90% of the time — and can't handle the other 10%.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📉</span> Traffic spikes bring it down</h3>
+          <p class="card-desc">A successful campaign, a viral moment, a seasonal rush — and your site goes down right when it matters most. Scaling traditional servers takes hours. Your customers don't wait.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔧</span> Server maintenance as a second job</h3>
+          <p class="card-desc">OS patches, security updates, SSL renewals, disk space monitoring. None of this builds your product — but skipping it means vulnerabilities and downtime.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🌍</span> Slow for users far from your server</h3>
+          <p class="card-desc">Your server is in Virginia. Your customer is in Tokyo. Every request travels 7,000 miles. Edge deployment means your code runs where your users are.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🏗️</span> Rebuilding for scale</h3>
+          <p class="card-desc">The architecture that worked at 100 users doesn't work at 10,000. Traditional setups often mean tearing things apart and rebuilding when you outgrow the original design.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔒</span> Security surface you don't need</h3>
+          <p class="card-desc">Every running server is an attack surface. Open ports, exposed services, unpatched software. Serverless eliminates most of that surface area by design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Serverless Looks Like -->
+  <section id="what-serverless-looks-like" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What Serverless Architecture Gives You</h2>
+      <p class="section-subtitle">
+        Your application deployed to the edge — running in 300+ data centers worldwide, scaling automatically, with zero infrastructure to manage.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Cloudflare Workers</h3>
+          <p class="card-desc">Server-side logic running at the edge — API endpoints, form handlers, auth, redirects. Sub-millisecond cold starts, deployed globally. No origin server required.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Cloudflare Pages</h3>
+          <p class="card-desc">Static sites and SSR applications deployed to Cloudflare's global network. Instant deploys from Git, automatic preview branches, built-in CDN. This site runs on it.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Edge-first data</h3>
+          <p class="card-desc">Cloudflare D1, KV, R2, Durable Objects — databases and storage that live at the edge, not in a single data center. Your data is close to your users.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Modern frameworks</h3>
+          <p class="card-desc">Astro, Next.js, Vue, React — built with server-side rendering or static generation, optimized for edge deployment. Performance as a feature, not an afterthought.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Automatic scaling</h3>
+          <p class="card-desc">Ten visitors or ten thousand — your application handles it without configuration changes, server upgrades, or load balancer tuning. Scale is built into the platform.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> CI/CD from Git</h3>
+          <p class="card-desc">Push to main, it deploys. Every branch gets a preview URL. No SSH, no FTP, no deployment scripts. Your Git history is your deployment history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prose -->
+  <section class="section">
+    <div class="section-container">
+      <div class="prose-block">
+        <h2 class="section-title">Serverless Isn't Always the Answer</h2>
+        <p class="prose-text">
+          Serverless architecture is the right choice for most web applications, marketing sites, APIs,
+          and business tools. But it's not the right choice for everything. Long-running background jobs,
+          WebSocket-heavy applications, or workloads with sustained high compute have different needs.
+        </p>
+        <p class="prose-text">
+          I'll tell you honestly whether serverless fits your project. If it does, you get a modern,
+          scalable, low-maintenance architecture. If it doesn't, we'll talk about what does — and
+          I'll build that instead.
+        </p>
+        <p class="prose-text prose-highlight">
+          {years}+ years designing systems that handle real-world traffic patterns. I build on Cloudflare
+          because it's the best edge platform available — not because it's the only one I know.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        Whether it's a new build or a migration from traditional hosting, the process starts with understanding what your application actually needs.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Assess your requirements</h3>
+          <p class="step-desc">Free strategy call. Walk me through your application, traffic patterns, and infrastructure pain points. You'll know whether serverless is the right fit before committing.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Design and build</h3>
+          <p class="step-desc">Architecture designed for your specific workload. Edge functions, data layer, CDN strategy, CI/CD pipeline — built and tested against real traffic patterns.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> Deploy and support</h3>
+          <p class="step-desc">Goes live on Cloudflare's global network. Monitoring, logging, and documentation in place. Post-launch support included — as your application grows, the architecture adapts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Related Services</h2>
+      <p class="section-subtitle">Serverless architecture pairs well with these.</p>
+      <div class="related-row">
+        <a href="/services/api-integrations" class="related-card card">
+          <h3 class="related-name">Third-Party API Integrations</h3>
+          <p class="related-desc">Edge functions are ideal for API middleware — transforming, routing, and orchestrating data between your services and external APIs.</p>
+        </a>
+        <a href="/services/automation" class="related-card card">
+          <h3 class="related-name">Workflow Automation</h3>
+          <p class="related-desc">Scheduled workers, event-driven functions, and cron triggers — serverless is the natural home for business automation.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Your Infrastructure Should Scale With You"
+    subtitle="Book a free 30-minute call. Tell me about your application and I'll show you what it looks like on the edge."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Prose Block ── */
+  .prose-block {
+    max-width: 680px;
+  }
+
+  .prose-text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .prose-text { font-size: 1.0625rem; }
+  }
+
+  .prose-highlight {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Related Services ── */
+  .related-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .related-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .related-card {
+    display: block;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .related-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .related-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .related-name { font-size: 1.125rem; }
+  }
+
+  .related-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .related-desc { font-size: 0.875rem; }
+  }
+</style>

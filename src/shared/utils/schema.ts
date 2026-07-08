@@ -6,6 +6,30 @@
 
 import type { SiteConfig } from './config';
 
+export function serviceSchema(options: {
+  name: string;
+  description: string;
+  url: string;
+  site: SiteConfig;
+}): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: options.name,
+    description: options.description,
+    url: options.url,
+    provider: {
+      '@type': 'ProfessionalService',
+      name: options.site.name,
+      url: options.site.url,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'US',
+    },
+  };
+}
+
 export function organizationSchema(site: SiteConfig): Record<string, unknown> {
   const logo = site.defaultOgImage.startsWith('http')
     ? site.defaultOgImage
@@ -112,12 +136,13 @@ export function breadcrumbSchema(
       ...segments.map((segment, i) => {
         const isLast = i === segments.length - 1;
         const path = segments.slice(0, i + 1).join('/') + '/';
+        const label = isLast && pageTitle
+          ? pageTitle.replace(new RegExp(` — ${site.name}$`), '')
+          : segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
         return {
           '@type': 'ListItem',
           position: i + 2,
-          name: isLast && isArticle && pageTitle
-            ? pageTitle
-            : segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' '),
+          name: label,
           item: new URL(path, site.url).href,
         };
       }),

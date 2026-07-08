@@ -90,30 +90,36 @@ const badgeItems = [
         Maybe it's the site that takes forever to load. The reports your team builds by hand every week. The integrations that break every time a vendor updates their API. Here's how I fix that.
       </p>
       <div class="services-grid">
-        <div class="service-card card">
+        <a href="/services/serverless-architecture" class="service-card card">
           <h3 class="service-name">Performance That Pays For Itself</h3>
           <p class="service-desc">Your slow site is costing you customers — every second of delay cuts conversions. I build on Astro, Next.js, Vue, and React with performance as a requirement, not an afterthought.</p>
-        </div>
-        <div class="service-card card">
+          <span class="service-link">Learn more →</span>
+        </a>
+        <a href="/services/api-integrations" class="service-card card">
           <h3 class="service-name">Integrations That Don't Break</h3>
           <p class="service-desc">Tired of duct-taped API connections that fail silently? I build robust integrations — payment gateways, shipping APIs, CRMs, and custom connectors — with error handling and alerts built in.</p>
-        </div>
-        <div class="service-card card">
+          <span class="service-link">Learn more →</span>
+        </a>
+        <a href="/services/custom-dashboards" class="service-card card">
           <h3 class="service-name">Dashboards You'll Actually Use</h3>
           <p class="service-desc">Your data is buried in spreadsheets and nobody's acting on it. I build real-time dashboards that surface what matters — so your team spots problems in minutes, not days.</p>
-        </div>
-        <div class="service-card card">
+          <span class="service-link">Learn more →</span>
+        </a>
+        <a href="/services/automation" class="service-card card">
           <h3 class="service-name">Automation That Gives You Hours Back</h3>
           <p class="service-desc">Your team shouldn't be doing the same manual work every week. I build workflows, scheduled tasks, and intelligent alerts that eliminate the repetitive stuff and catch issues before your customers do.</p>
-        </div>
-        <div class="service-card card">
+          <span class="service-link">Learn more →</span>
+        </a>
+        <a href="/services/serverless-architecture" class="service-card card">
           <h3 class="service-name">Architecture That Scales With You</h3>
           <p class="service-desc">Don't rebuild everything the moment you grow. Serverless, edge functions, Cloudflare Workers — I design systems that handle ten times the traffic without ten times the cost.</p>
-        </div>
-        <div class="service-card card">
+          <span class="service-link">Learn more →</span>
+        </a>
+        <a href="/services/rescue-projects" class="service-card card">
           <h3 class="service-name">A Developer Who Stays</h3>
           <p class="service-desc">No vanishing acts. No handoff to a junior. I manage your project end-to-end — planning, building, communicating, and supporting it after launch. Your point of contact is the person writing the code.</p>
-        </div>
+          <span class="service-link">Learn more →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -499,14 +505,18 @@ const badgeItems = [
   }
 
   .service-card {
+    display: flex;
+    flex-direction: column;
     padding: 1.25rem;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
   }
   @media (min-width: 768px) {
     .service-card { padding: 1.5rem; }
   }
   .service-card:hover {
     border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
   }
 
   .service-name {
@@ -523,9 +533,17 @@ const badgeItems = [
     font-size: 0.8125rem;
     line-height: 1.6;
     color: var(--color-text-muted);
+    flex: 1;
   }
   @media (min-width: 768px) {
     .service-desc { font-size: 0.875rem; }
+  }
+
+  .service-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent-light);
+    margin-top: 0.75rem;
   }
 
   /* ── About ── */
