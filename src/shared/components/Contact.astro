@@ -471,6 +471,47 @@ const turnstileSiteKey = site.turnstileSiteKey;
       document.head.appendChild(s);
     }
 
+    // ── Calendly Popup Widget ──
+    let calendlyLoaded = false;
+    function loadCalendly(): Promise<void> {
+      if (calendlyLoaded) return Promise.resolve();
+      calendlyLoaded = true;
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(css);
+      return new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        s.onload = () => resolve();
+        document.head.appendChild(s);
+      });
+    }
+
+    // Intercept all Calendly links on the page (Contact cards, CTAs, PPC hero buttons)
+    document.addEventListener('click', async (e) => {
+      const link = (e.target as Element).closest('a[href*="calendly.com"]') as HTMLAnchorElement | null;
+      if (!link) return;
+      e.preventDefault();
+      await loadCalendly();
+      if (typeof (window as any).Calendly?.initPopupWidget === 'function') {
+        (window as any).Calendly.initPopupWidget({ url: link.href });
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'calendly_click' });
+      } else {
+        window.open(link.href, '_blank');
+      }
+    });
+
+    // Listen for Calendly scheduling completion
+    window.addEventListener('message', (e) => {
+      if (e.data?.event === 'calendly.event_scheduled') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'calendly_booked' });
+      }
+    });
+
     function openChat(e: Event) {
       e.preventDefault();
       loadTurnstile();
