@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
+---
+
+<Layout
+  title="Privacy Policy — Chuck Allen"
+  description="Privacy policy for chuckallen.dev. How your data is collected, used, and protected."
+>
+  <section class="legal-page">
+    <div class="section-container">
+      <div class="prose">
+        <h1>Privacy Policy</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> July 8, 2026</p>
+
+        <p>
+          Chuck Allen ("I," "me," "my") operates <a href="https://chuckallen.dev">chuckallen.dev</a>.
+          This Privacy Policy explains what information is collected when you visit this site, how it's used,
+          and what rights you have regarding your data.
+        </p>
+
+        <hr />
+
+        <h2>Information I Collect</h2>
+
+        <h3>Information You Provide</h3>
+        <p>When you use the contact form or book a call, you may provide:</p>
+        <ul>
+          <li>Name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Message content</li>
+        </ul>
+        <p>This information is submitted voluntarily. I only receive what you choose to send.</p>
+
+        <h3>Information Collected Automatically</h3>
+        <p>When you visit this site, certain data is collected automatically through third-party services:</p>
+        <ul>
+          <li><strong>Usage data</strong> — pages visited, time spent, referral source, browser type, device type, screen resolution</li>
+          <li><strong>IP address</strong> — collected by Cloudflare (hosting) and Google Analytics</li>
+          <li><strong>Cookies and similar technologies</strong> — used by Google Analytics and Cloudflare for site functionality and analytics (see Cookies section below)</li>
+        </ul>
+
+        <hr />
+
+        <h2>How Your Information Is Used</h2>
+        <ul>
+          <li><strong>Contact form submissions</strong> — to respond to your inquiry via email</li>
+          <li><strong>Scheduling</strong> — to book and manage consultation calls through Calendly</li>
+          <li><strong>Analytics</strong> — to understand how visitors use the site and improve the experience</li>
+          <li><strong>Bot protection</strong> — to prevent spam and abuse through Cloudflare Turnstile</li>
+        </ul>
+        <p>I do not use your information for marketing, profiling, or targeted advertising. I do <strong>not</strong> sell, rent, or share your personal information with third parties for their own marketing purposes.</p>
+
+        <hr />
+
+        <h2>Third-Party Services</h2>
+        <p>This site uses the following third-party services that may collect data as described in their respective privacy policies:</p>
+
+        <ul>
+          <li>
+            <strong>Google Analytics 4 (GA4)</strong> — site analytics and usage tracking.
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>
+          </li>
+          <li>
+            <strong>Google Tag Manager (GTM)</strong> — manages analytics and tracking tags.
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>
+          </li>
+          <li>
+            <strong>Cloudflare</strong> — site hosting, CDN, DNS, and Turnstile CAPTCHA for bot protection.
+            <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>
+          </li>
+          <li>
+            <strong>Calendly</strong> — consultation scheduling.
+            <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">Calendly Privacy Policy</a>
+          </li>
+          <li>
+            <strong>Mailgun</strong> — email delivery for contact form submissions.
+            <a href="https://www.mailgun.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Mailgun Privacy Policy</a>
+          </li>
+        </ul>
+
+        <p>These services operate under their own privacy policies. I encourage you to review them.</p>
+
+        <hr />
+
+        <h2>Cookies and Tracking Technologies</h2>
+        <p>This site uses cookies set by the following services:</p>
+
+        <ul>
+          <li><strong>Google Analytics</strong> (<code>_ga</code>, <code>_ga_*</code>) — distinguish unique visitors and sessions. Expire after 2 years and 24 hours, respectively.</li>
+          <li><strong>Cloudflare</strong> (<code>__cf_bm</code>) — bot management. Expires after 30 minutes.</li>
+          <li><strong>Cloudflare Turnstile</strong> — session-based challenge data for spam protection.</li>
+        </ul>
+
+        <p>No advertising cookies are used on this site. I do not run retargeting, remarketing, or interest-based advertising.</p>
+
+        <h3>Opting Out</h3>
+        <p>
+          You can disable cookies through your browser settings. You can also opt out of Google Analytics by installing the
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-Out Browser Add-On</a>.
+        </p>
+        <p>
+          This site honors <strong>Global Privacy Control (GPC)</strong> signals. If your browser sends a GPC signal,
+          analytics tracking will be treated as opted out in accordance with applicable state privacy laws.
+        </p>
+
+        <hr />
+
+        <h2>Data Retention</h2>
+        <ul>
+          <li><strong>Contact form data</strong> — retained in email as long as needed to respond to and follow up on your inquiry, then deleted.</li>
+          <li><strong>Analytics data</strong> — retained by Google Analytics per their default retention settings (14 months).</li>
+          <li><strong>Calendly data</strong> — retained per Calendly's data retention policies.</li>
+        </ul>
+
+        <hr />
+
+        <h2>Your Privacy Rights</h2>
+        <p>
+          Depending on your state of residence, you may have rights under laws such as the
+          <strong>Colorado Privacy Act (CPA)</strong>, the <strong>California Consumer Privacy Act (CCPA)</strong>,
+          or similar state privacy laws. These rights may include:
+        </p>
+        <ul>
+          <li>The right to know what personal data is collected about you</li>
+          <li>The right to request deletion of your personal data</li>
+          <li>The right to correct inaccurate personal data</li>
+          <li>The right to opt out of the sale or sharing of personal data</li>
+          <li>The right to opt out of targeted advertising and profiling</li>
+          <li>The right to non-discrimination for exercising your privacy rights</li>
+        </ul>
+        <p>
+          <strong>I do not sell your personal information.</strong> I do not share your data for cross-context behavioral advertising.
+        </p>
+        <p>
+          To exercise any of these rights, contact me at
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+          I will respond within the timeframe required by applicable law.
+        </p>
+
+        <hr />
+
+        <h2>Children's Privacy</h2>
+        <p>
+          This site is not directed at individuals under the age of 13. I do not knowingly collect personal
+          information from children. If you believe a child has submitted personal information through this site,
+          contact me and I will delete it promptly.
+        </p>
+
+        <hr />
+
+        <h2>Security</h2>
+        <p>
+          This site is served over HTTPS and hosted on Cloudflare's global network. I take reasonable
+          measures to protect submitted information, but no method of transmission or storage is 100% secure.
+        </p>
+
+        <hr />
+
+        <h2>Changes to This Policy</h2>
+        <p>
+          I may update this Privacy Policy from time to time. Changes will be posted on this page with
+          an updated effective date. Continued use of the site after changes constitutes acceptance of the revised policy.
+        </p>
+
+        <hr />
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this Privacy Policy or want to exercise your privacy rights, contact me at:
+        </p>
+        <ul>
+          <li><strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><strong>Phone:</strong> <a href={`tel:+1${site.phone}`}>{site.phoneFormatted}</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+  }
+
+  .legal-page h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .effective-date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* --- Vertical rhythm overrides for legal content --- */
+
+  .legal-page .prose hr {
+    margin: 3rem 0;
+  }
+
+  .legal-page .prose h2 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-page .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-page .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-page .prose ul,
+  .legal-page .prose ol {
+    padding-left: 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .legal-page .prose li {
+    margin-bottom: 0.625rem;
+  }
+</style>
