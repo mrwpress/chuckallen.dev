@@ -1,0 +1,575 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/api-integrations/', site.url).href;
+
+const schema = serviceSchema({
+  name: 'Third-Party API Integration Services',
+  description: 'Robust API integrations with proper error handling, retry logic, and monitoring. Payment gateways, CRMs, shipping APIs, and custom connectors.',
+  url: pageUrl,
+  site,
+});
+
+const badgeItems = [
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Data Pipelines', icon: '/images/badge-dataviz.svg' },
+  { label: 'Automation', icon: '/images/badge-automation.svg' },
+  { label: 'Error Handling', icon: '/images/badge-security.svg' },
+  { label: 'Custom Solutions', icon: '/images/badge-performance.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-react.svg' },
+];
+---
+
+<Layout
+  title="Third-Party API Integration Services — Chuck Allen"
+  description={`Robust API integrations that connect your tools and stay connected. Payment gateways, CRMs, shipping APIs, and custom connectors. ${years}+ years experience.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Third-Party API Integration Services</p>
+          <h1 class="hero-title">Your tools should<br /><span class="hero-accent">talk to each other.</span></h1>
+          <p class="hero-sub">
+            Every business runs on a stack of tools — CRMs, payment processors, shipping platforms,
+            project management, accounting. The problem isn't the tools. It's that they don't connect.
+            Data lives in silos, manual work fills the gaps, and things break when a vendor updates their API.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">🔗</span>Systems that stay in sync</li>
+            <li><span class="hero-icon" aria-hidden="true">💳</span>Payment gateway integrations</li>
+            <li><span class="hero-icon" aria-hidden="true">📦</span>Shipping &amp; logistics APIs</li>
+            <li><span class="hero-icon" aria-hidden="true">🛡️</span>Error handling &amp; retries</li>
+            <li><span class="hero-icon" aria-hidden="true">🔔</span>Failure alerts built in</li>
+            <li><span class="hero-icon" aria-hidden="true">📄</span>Proper documentation</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#what-gets-connected" class="btn-outline">See What Gets Connected</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Is This What Integration Looks Like For You?</h2>
+      <p class="section-subtitle">
+        Most "integrations" are really just manual processes with extra steps. Copy-paste, CSV exports, and duct-taped connections that fail when you're not watching.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📋</span> Manual data transfer between tools</h3>
+          <p class="card-desc">Someone on your team is the human bridge — copying orders from one system, pasting them into another, updating a third. Every day. It's slow, error-prone, and shouldn't require a person.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">💥</span> Integrations that break silently</h3>
+          <p class="card-desc">The connection stops working and nobody notices for days. Orders don't sync. Payments don't reconcile. By the time someone catches it, you're untangling a week of mismatched data.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔄</span> API changes that break everything</h3>
+          <p class="card-desc">A vendor updates their API and your entire workflow goes down. The original developer who built it is long gone. Now it's an emergency with no one who understands the code.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🧩</span> Tools that almost connect</h3>
+          <p class="card-desc">The native integration covers 80% of what you need. The last 20% — the part that matters for your specific workflow — requires custom work that the vendor doesn't support.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📊</span> Data that doesn't match across systems</h3>
+          <p class="card-desc">Same customer, different records. Same order, different totals. When your systems aren't truly synced, someone spends hours reconciling data that should agree automatically.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔧</span> Middleware you've outgrown</h3>
+          <p class="card-desc">Zapier, Make, or some middleware that worked at first but now hits rate limits, can't handle your volume, or costs more per month than a custom solution would cost to build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Gets Connected -->
+  <section id="what-gets-connected" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What Your Integration Looks Like</h2>
+      <p class="section-subtitle">
+        Properly built API integrations that handle the edge cases, retry on failure, and alert you when something needs attention.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Payment gateways</h3>
+          <p class="card-desc">Stripe, Square, PayPal, Braintree — connected to your systems with proper webhook handling, reconciliation, and failure recovery. Payments flow through cleanly.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> CRM &amp; sales tools</h3>
+          <p class="card-desc">Salesforce, HubSpot, Pipedrive, custom CRMs. Bi-directional sync so your sales data stays consistent everywhere — no more duplicate records or stale contact info.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Shipping &amp; logistics</h3>
+          <p class="card-desc">ShipStation, EasyPost, FedEx, UPS — order data flows in, tracking numbers flow back. Rate shopping, label generation, and status updates handled automatically.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Accounting &amp; invoicing</h3>
+          <p class="card-desc">QuickBooks, Xero, FreshBooks. Invoices generated from order data, payments reconciled, and your books stay accurate without manual journal entries.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Communication platforms</h3>
+          <p class="card-desc">Slack, Teams, email, SMS. Notifications routed to the right channel based on urgency and context — not everything dumped into a single inbox.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Custom &amp; internal APIs</h3>
+          <p class="card-desc">Legacy systems, internal tools, proprietary platforms. If it has an API — or even just a database — it can be connected. If it doesn't, we build one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes It Different -->
+  <section class="section">
+    <div class="section-container">
+      <div class="prose-block">
+        <h2 class="section-title">Built to Last — Not Just to Connect</h2>
+        <p class="prose-text">
+          Anyone can wire up an API call. The hard part is everything around it — what happens when
+          the external service is down, when the data format changes, when rate limits get hit, when
+          a webhook arrives out of order.
+        </p>
+        <p class="prose-text">
+          Every integration I build includes proper error handling, retry logic, logging, and failure
+          alerts. When something goes wrong — and eventually something always does — you know about it
+          immediately, and the system recovers gracefully instead of silently dropping data.
+        </p>
+        <p class="prose-text prose-highlight">
+          {years}+ years building integrations that survive API version changes, vendor migrations,
+          and traffic spikes. Your integration comes with documentation your next developer can actually follow.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        Your integration gets scoped around your actual data flow — not a generic connector that covers 80% and leaves you stuck on the rest.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Map your data flow</h3>
+          <p class="step-desc">Free strategy call. Walk me through your tools, where data needs to move, and where the current gaps are. You'll get a clear picture of what the integration looks like before committing.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Build with real error handling</h3>
+          <p class="step-desc">The integration gets built with retry logic, rate limit handling, data validation, and failure alerts. Tested against real data — not just the happy path.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> Deploy with documentation</h3>
+          <p class="step-desc">Goes live with monitoring, logging, and documentation your team can reference. When APIs change or new requirements come up, support continues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Related Services</h2>
+      <p class="section-subtitle">API integrations often pair with these.</p>
+      <div class="related-row">
+        <a href="/services/automation" class="related-card card">
+          <h3 class="related-name">Workflow Automation</h3>
+          <p class="related-desc">Connected systems are the foundation. Automation is what turns those connections into workflows that run themselves.</p>
+        </a>
+        <a href="/services/data-visualization" class="related-card card">
+          <h3 class="related-name">Data Visualization &amp; Dashboards</h3>
+          <p class="related-desc">Once your data flows freely between systems, dashboards give your team a unified view of everything that matters.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Your Tools Should Work Together"
+    subtitle="Book a free 30-minute call. Tell me what's disconnected and I'll show you how to connect it — properly."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Prose Block ── */
+  .prose-block {
+    max-width: 680px;
+  }
+
+  .prose-text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .prose-text { font-size: 1.0625rem; }
+  }
+
+  .prose-highlight {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Related Services ── */
+  .related-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .related-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .related-card {
+    display: block;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .related-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .related-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .related-name { font-size: 1.125rem; }
+  }
+
+  .related-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .related-desc { font-size: 0.875rem; }
+  }
+</style>

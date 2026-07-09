@@ -1,0 +1,575 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/automation/', site.url).href;
+
+const schema = serviceSchema({
+  name: 'Workflow Automation Services',
+  description: 'Custom workflow automation that eliminates manual processes, connects systems, and saves hours every week.',
+  url: pageUrl,
+  site,
+});
+
+const badgeItems = [
+  { label: 'Workflow Automation', icon: '/images/badge-automation.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Data Pipelines', icon: '/images/badge-dataviz.svg' },
+  { label: 'Error Handling', icon: '/images/badge-security.svg' },
+  { label: 'Custom Solutions', icon: '/images/badge-performance.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-react.svg' },
+];
+---
+
+<Layout
+  title="Workflow Automation Services — Chuck Allen"
+  description={`Custom workflow automation that eliminates manual processes and connects your systems. ${years}+ years building automation for small businesses and agencies.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Workflow Automation Services</p>
+          <h1 class="hero-title">Your team is doing<br /><span class="hero-accent">work that should run itself.</span></h1>
+          <p class="hero-sub">
+            Every business has them — the processes that eat hours every week because nobody's had time to fix them.
+            Data copied between systems by hand. Reports rebuilt from scratch every Monday. Follow-ups that slip
+            through the cracks because there's no system catching them.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">📋</span>Data entry, automated</li>
+            <li><span class="hero-icon" aria-hidden="true">📊</span>Reports that build themselves</li>
+            <li><span class="hero-icon" aria-hidden="true">🔗</span>Systems that finally talk</li>
+            <li><span class="hero-icon" aria-hidden="true">🔔</span>Alerts where you see them</li>
+            <li><span class="hero-icon" aria-hidden="true">🛡️</span>Real error handling</li>
+            <li><span class="hero-icon" aria-hidden="true">⏱️</span>Hours back every week</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#what-gets-automated" class="btn-outline">See What Gets Automated</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Sound Familiar?</h2>
+      <p class="section-subtitle">
+        These are the workflows that quietly drain hours from small businesses every week. Most teams just accept it as the cost of doing business — but it doesn't have to be.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📋</span> Manual data entry between systems</h3>
+          <p class="card-desc">Someone on your team is copying data from one tool into another, every day. It's slow, error-prone, and burning time that could go toward actual work.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">📊</span> Reports rebuilt from scratch every cycle</h3>
+          <p class="card-desc">Same spreadsheet, same formatting, same data sources — just different numbers. If the process is identical every time, it shouldn't need a person.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔔</span> Follow-ups falling through the cracks</h3>
+          <p class="card-desc">Leads go cold because the notification was buried. Issues escalate because nobody saw the alert. When response time depends on someone checking their inbox, you lose.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔗</span> Disconnected tools and platforms</h3>
+          <p class="card-desc">Your CRM doesn't sync with invoicing. Your project management doesn't feed your time tracking. You end up as the bridge between tools that should be talking to each other.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🧑‍💻</span> Skilled people doing unskilled work</h3>
+          <p class="card-desc">Your best team members spend a third of their time on tasks that don't need their expertise. That's expensive talent doing inexpensive work.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔧</span> Fragile automations that keep breaking</h3>
+          <p class="card-desc">Someone set up a Zapier chain two years ago. It breaks monthly. Nobody knows how it works. You deserve automation that holds up — not duct tape with a subscription fee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Gets Automated -->
+  <section id="what-gets-automated" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What Your Automation Looks Like</h2>
+      <p class="section-subtitle">
+        Every business runs differently. Your automation gets built around how you actually operate — not forced into someone else's template.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Systems that stay in sync</h3>
+          <p class="card-desc">CRM to invoicing, inventory to storefront, project management to time tracking. Real-time, two-way data sync with proper error handling and retry logic.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Reports delivered automatically</h3>
+          <p class="card-desc">Daily, weekly, monthly — generated from your live data and delivered where your team actually looks. Dashboards that update themselves, not spreadsheets that need rebuilding.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Leads followed up instantly</h3>
+          <p class="card-desc">New lead comes in, gets scored, assigned to the right person, and followed up — all before anyone touches it. No more lost deals from slow response times.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> End-to-end workflows</h3>
+          <p class="card-desc">Order received → invoice created → team notified → status updated → customer emailed. Multi-step processes that run themselves and stay tracked.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Alerts where you see them</h3>
+          <p class="card-desc">Something goes wrong, the right person knows immediately. Slack, SMS, email — wherever your team actually looks, not buried in an inbox nobody checks.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Documents generated from data</h3>
+          <p class="card-desc">Proposals, invoices, reports, contracts — created from your data and sent automatically. Consistent formatting every time, no manual templates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Custom -->
+  <section class="section">
+    <div class="section-container">
+      <div class="prose-block">
+        <h2 class="section-title">Why Custom Automation — Not Another SaaS Tool</h2>
+        <p class="prose-text">
+          Off-the-shelf automation platforms work great until you hit their limits. Then you're stuck — you can't
+          customize the logic, you can't handle your edge cases, and you're paying monthly for something that
+          doesn't quite fit.
+        </p>
+        <p class="prose-text">
+          Custom workflow automation means no monthly platform fees, no feature ceilings, and no vendor lock-in.
+          Your automation runs on your infrastructure, handles your specific business logic, and scales without
+          per-seat pricing. You own it completely.
+        </p>
+        <p class="prose-text prose-highlight">
+          {years}+ years building automation for businesses that outgrew the off-the-shelf tools. If your workflows
+          are too complex for Zapier but too small for an enterprise platform, that's exactly where I work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        No 90-day discovery phase. No committee meetings. Your automation gets scoped, built, and deployed with a process that respects your time.
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Show me what's eating your time</h3>
+          <p class="step-desc">Free strategy call. Walk me through the processes draining your team's hours. You'll know exactly what can be automated and how much time you'll get back — before committing to anything.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> Your automation gets built right</h3>
+          <p class="step-desc">Custom-built with real error handling, monitoring, and logging. Not a fragile chain that breaks silently. You see it work before it goes live.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> Launch with support that lasts</h3>
+          <p class="step-desc">It goes live, your team gets trained, and I stick around as your needs evolve. Post-launch support is included — not an upsell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Related Services</h2>
+      <p class="section-subtitle">Automation often works best alongside these.</p>
+      <div class="related-row">
+        <a href="/services/data-visualization" class="related-card card">
+          <h3 class="related-name">Data Visualization &amp; Dashboards</h3>
+          <p class="related-desc">Automated data needs somewhere to land. Real-time dashboards that surface what matters.</p>
+        </a>
+        <a href="/services/api-integrations" class="related-card card">
+          <h3 class="related-name">Third-Party API Integrations</h3>
+          <p class="related-desc">Connecting your tools is often the first step toward full workflow automation.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Your Team Deserves Their Time Back"
+    subtitle="Book a free 30-minute call. Walk me through what's eating your hours and I'll tell you what it would take to automate it."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Prose Block ── */
+  .prose-block {
+    max-width: 680px;
+  }
+
+  .prose-text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .prose-text { font-size: 1.0625rem; }
+  }
+
+  .prose-highlight {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Related Services ── */
+  .related-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .related-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .related-card {
+    display: block;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .related-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .related-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .related-name { font-size: 1.125rem; }
+  }
+
+  .related-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .related-desc { font-size: 0.875rem; }
+  }
+</style>

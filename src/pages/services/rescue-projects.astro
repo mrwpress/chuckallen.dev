@@ -1,0 +1,576 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/rescue-projects/', site.url).href;
+
+const schema = serviceSchema({
+  name: 'Project Rescue & Code Recovery',
+  description: 'Rescue stalled, broken, or abandoned web projects. Honest code audit, targeted fixes, and a clear path forward.',
+  url: pageUrl,
+  site,
+});
+
+const badgeItems = [
+  { label: 'Code Rescue', icon: '/images/badge-security.svg' },
+  { label: 'Performance Fixes', icon: '/images/badge-performance.svg' },
+  { label: 'API Integrations', icon: '/images/badge-api.svg' },
+  { label: 'Automation', icon: '/images/badge-automation.svg' },
+  { label: 'Architecture', icon: '/images/badge-react.svg' },
+  { label: 'Post-Launch Support', icon: '/images/badge-dataviz.svg' },
+];
+---
+
+<Layout
+  title="Rescue Projects & Code Recovery — Chuck Allen"
+  description={`Rescue stalled, broken, or abandoned web projects. Fix what the last developer left behind and get your project back on track. ${years}+ years experience.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Project Rescue &amp; Code Recovery</p>
+          <h1 class="hero-title">Your last developer<br /><span class="hero-accent">left you holding the bag.</span></h1>
+          <p class="hero-sub">
+            Maybe they disappeared mid-project. Maybe they delivered something that barely works.
+            Maybe the codebase is so tangled that nobody wants to touch it. Whatever happened,
+            you're stuck with a project that's broken, stalled, or both — and a deadline that
+            hasn't moved.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">🔍</span>Full code audit</li>
+            <li><span class="hero-icon" aria-hidden="true">🛠️</span>Fix what's broken</li>
+            <li><span class="hero-icon" aria-hidden="true">🏗️</span>Stabilize the architecture</li>
+            <li><span class="hero-icon" aria-hidden="true">⚡</span>Performance recovery</li>
+            <li><span class="hero-icon" aria-hidden="true">📄</span>Documentation that's missing</li>
+            <li><span class="hero-icon" aria-hidden="true">🤝</span>Honest assessment upfront</li>
+          </ul>
+          <div class="hero-actions">
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
+            <a href="#what-rescue-looks-like" class="btn-outline">See What Rescue Looks Like</a>
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How Did You Get Here?</h2>
+      <p class="section-subtitle">
+        It almost always starts the same way. A project that seemed like it was going fine — until suddenly it wasn't.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">👻</span> The developer disappeared</h3>
+          <p class="card-desc">Replies got slower, then stopped completely. Now you have a half-finished project, no documentation, and credentials you're not sure you have access to.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🪳</span> It was delivered — but it barely works</h3>
+          <p class="card-desc">The project was technically "done" but it's slow, buggy, and breaks in ways that shouldn't be possible. Every fix creates two new problems.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🍝</span> The code is unmaintainable</h3>
+          <p class="card-desc">No documentation, no tests, no structure. The next developer who looks at it says "this needs to be rewritten from scratch" — and you don't know if that's true or if they just don't want to deal with it.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">💸</span> The budget is already spent</h3>
+          <p class="card-desc">You've paid for a finished product and what you got isn't one. Now you need to spend more just to get back to where you should have been in the first place.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">⏰</span> The deadline hasn't moved</h3>
+          <p class="card-desc">Clients are waiting, the launch date was set months ago, and now you're scrambling to find someone who can pick up the pieces fast enough to salvage the timeline.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔒</span> You're not sure what you own</h3>
+          <p class="card-desc">Is the code in a repo you control? Are the hosting credentials yours? Is the domain registered under your account? Sometimes the first rescue step is just getting access to your own project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Rescue Looks Like -->
+  <section id="what-rescue-looks-like" class="section">
+    <GridBackground blobColor="rgba(220,38,38,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What a Rescue Actually Looks Like</h2>
+      <p class="section-subtitle">
+        Not every project needs a full rewrite. Most need a clear-eyed assessment, targeted fixes, and a path forward that respects what's already been built.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Honest code audit</h3>
+          <p class="card-desc">I'll tell you exactly what's wrong, what's salvageable, and what the real cost is to fix it. No sugarcoating, no inflating the scope to justify a rewrite.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Stabilize first, improve second</h3>
+          <p class="card-desc">Priority one is making what exists work reliably. Once the fires are out, we can talk about improvements — but nothing gets refactored until the foundation is solid.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Fix the critical bugs</h3>
+          <p class="card-desc">The broken features, the data loss, the security issues, the performance problems. Triaged by impact so the most damaging issues get fixed first.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Write the missing documentation</h3>
+          <p class="card-desc">Architecture decisions, deployment steps, environment variables, API endpoints. The documentation the last developer should have written — so the next one doesn't start blind.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Secure your access</h3>
+          <p class="card-desc">Repos, hosting, domains, API keys, DNS — verified and transferred to your control. Your project lives on your accounts, period.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> A clear path forward</h3>
+          <p class="card-desc">After the rescue: a documented plan for what comes next. Whether that's ongoing maintenance, a phased rebuild, or a handoff to your internal team — you'll know your options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prose -->
+  <section class="section">
+    <div class="section-container">
+      <div class="prose-block">
+        <h2 class="section-title">Rewrite vs. Rescue — An Honest Take</h2>
+        <p class="prose-text">
+          Not every struggling project needs to be thrown away. Sometimes the architecture is sound and the
+          problems are surface-level — bad deployment, missing error handling, performance bottlenecks that
+          have specific fixes. A rescue is faster, cheaper, and preserves work that's already been done.
+        </p>
+        <p class="prose-text">
+          But sometimes a rewrite is genuinely the right call. If the tech stack is fundamentally wrong for
+          what the project needs, or if the codebase has been patched so many times that every change breaks
+          something else — a clean start can cost less than continuing to bandage the existing code.
+        </p>
+        <p class="prose-text prose-highlight">
+          I'll tell you which one your project actually needs. {years}+ years of experience means I've seen
+          enough of both to know the difference — and I have no incentive to push one over the other.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">
+        Rescue projects move fast by nature. Here's how we get from "everything is broken" to "here's the plan."
+      </p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Tell me what happened</h3>
+          <p class="step-desc">Free strategy call. Walk me through the situation — what was supposed to be delivered, what actually was, and where things stand now. No judgment. I've seen it all.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> I audit the code and infrastructure</h3>
+          <p class="step-desc">Full technical assessment: code quality, architecture, security, performance, deployment, and access. You get a written report with a prioritized list of what needs fixing.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> We fix it — or rebuild it right</h3>
+          <p class="step-desc">Targeted fixes for rescue, or a phased rebuild plan if that's the better path. Either way, you get clear communication, regular updates, and post-launch support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Related Services</h2>
+      <p class="section-subtitle">Rescue projects often lead into these.</p>
+      <div class="related-row">
+        <a href="/services/serverless-architecture" class="related-card card">
+          <h3 class="related-name">Serverless Architecture</h3>
+          <p class="related-desc">Many rescue projects benefit from migrating to a modern, scalable architecture that eliminates the infrastructure problems that caused the original failure.</p>
+        </a>
+        <a href="/services/api-integrations" class="related-card card">
+          <h3 class="related-name">Third-Party API Integrations</h3>
+          <p class="related-desc">Broken integrations are one of the most common rescue triggers. Rebuilding them properly prevents the same failure from happening again.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title="Your Project Isn't a Lost Cause"
+    subtitle="Book a free 30-minute call. Tell me what happened and I'll give you an honest assessment of what it will take to fix it."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 7rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 11.25rem 0 2rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Prose Block ── */
+  .prose-block {
+    max-width: 680px;
+  }
+
+  .prose-text {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .prose-text { font-size: 1.0625rem; }
+  }
+
+  .prose-highlight {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Related Services ── */
+  .related-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .related-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .related-card {
+    display: block;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  .related-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .related-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .related-name { font-size: 1.125rem; }
+  }
+
+  .related-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .related-desc { font-size: 0.875rem; }
+  }
+</style>

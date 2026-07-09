@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import GridBackground from '../../shared/components/GridBackground.astro';
 import BadgeWheel from '../../shared/components/BadgeWheel.astro';
 import Contact from '../../shared/components/Contact.astro';
+import MockDashboard from '../../components/visuals/MockDashboard.astro';
+import TechMarquee from '../../components/visuals/TechMarquee.astro';
 import { site } from '../../config/site';
 import { yearsExperience } from '../../shared/utils/config';
 
@@ -31,17 +33,18 @@ const badgeItems = [
       <div class="hero-row">
         <div class="hero-content">
           <p class="hero-eyebrow">Freelance Senior Web Developer for Hire</p>
-          <h1 class="hero-title">Your project deserves<br /><span class="hero-accent">better.</span></h1>
+          <h1 class="hero-title">Your project<br /><span class="hero-accent">Deserves better.</span></h1>
           <p class="hero-sub">
             You shouldn't have to chase your developer for updates. You shouldn't have to
             wonder whether the code they shipped will survive next quarter. And you definitely
             shouldn't have to start over because someone disappeared mid-project.
+            You need:
           </p>
           <ul class="hero-points">
-            <li><span class="hero-icon" aria-hidden="true">👻</span>You deserve a dev who shows up</li>
+            <li><span class="hero-icon" aria-hidden="true">👻</span>A developer that doesn't ghost</li>
             <li><span class="hero-icon" aria-hidden="true">🪨</span>{years}+ years, senior-level</li>
             <li><span class="hero-icon" aria-hidden="true">🤝</span>One developer, one contact</li>
-            <li><span class="hero-icon" aria-hidden="true">🛡️</span>Post-launch support included</li>
+            <li><span class="hero-icon" aria-hidden="true">🚀</span>Post-launch support</li>
             <li><span class="hero-icon" aria-hidden="true">⚡</span>Performance-first architecture</li>
             <li><span class="hero-icon" aria-hidden="true">🇺🇸</span>US-based, US business hours</li>
           </ul>
@@ -69,7 +72,7 @@ const badgeItems = [
       </p>
       <div class="pain-grid">
         <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">👻</span> You hired someone who vanished</h3>
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">💨</span> You hired someone who vanished</h3>
           <p class="pain-desc">One week they're responsive. The next, silence. You're left scrambling to find someone who can untangle what they left behind — and you're paying twice for the same work. You deserve better than that.</p>
         </div>
         <div class="pain-card card">
@@ -77,7 +80,7 @@ const badgeItems = [
           <p class="pain-desc">Every update breaks something new. Every fix creates two more problems. You shouldn't have to hold your breath every time a change goes live. You deserve code that works — and keeps working.</p>
         </div>
         <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🕳️</span> You're always chasing updates</h3>
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">📭</span> You're always chasing updates</h3>
           <p class="pain-desc">You send a message Monday. Thursday, still nothing. You shouldn't have to hunt someone down to find out where your own project stands. You are right to expect consistent communication.</p>
         </div>
         <div class="pain-card card">
@@ -130,6 +133,35 @@ const badgeItems = [
           <p class="value-desc">You deserve a developer who's available during your business day. Colorado-based, US hours — no timezone roulette, no 48-hour response gaps.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Visual Demo -->
+  <section class="section">
+    <div class="section-container">
+      <div class="visual-row">
+        <div class="visual-panel">
+          <MockDashboard variant="project" />
+        </div>
+        <div class="visual-text">
+          <h2 class="section-title">This Is How Your Project Runs</h2>
+          <p class="section-subtitle" style="margin-bottom:1rem;">
+            Clear milestones. Consistent commits. Response times measured in hours, not days. You always know exactly where your project stands.
+          </p>
+          <p class="section-subtitle">
+            No chasing. No surprises. The kind of transparency you should expect from every developer you hire.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section tech-stack-section">
+    <div class="section-container tech-stack-container">
+      <h2 class="section-title tech-stack-title">Tools in My Toolbox</h2>
+      <p class="section-subtitle tech-stack-sub">The frameworks, platforms, and services I build with every day.</p>
+      <TechMarquee />
     </div>
   </section>
 
@@ -459,8 +491,8 @@ const badgeItems = [
     width: 1.5rem;
     height: 1.5rem;
     border-radius: var(--radius-full);
-    background: var(--color-accent-dim);
-    color: var(--color-accent-light);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
     font-size: 0.75rem;
     font-weight: 700;
     flex-shrink: 0;
@@ -474,6 +506,51 @@ const badgeItems = [
   }
   @media (min-width: 768px) {
     .value-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Tech Stack ── */
+  .tech-stack-container {
+    text-align: center;
+  }
+
+  .tech-stack-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .tech-stack-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Visual Demo ── */
+  .visual-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .visual-row {
+      flex-direction: row;
+      gap: 3.75rem;
+      align-items: center;
+    }
+  }
+
+  .visual-panel {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media (min-width: 768px) {
+    .visual-panel { max-width: 500px; }
+  }
+  @media (min-width: 1024px) {
+    .visual-panel { flex: 1.2; max-width: none; }
+  }
+
+  .visual-text {
+    flex: 1;
+    min-width: 0;
   }
 
   /* ── Results Grid ── */

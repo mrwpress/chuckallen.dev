@@ -13,6 +13,7 @@ interface Props {
   articlePublished?: string;
   articleModified?: string;
   noindex?: boolean;
+  extraSchemas?: Record<string, unknown>[];
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   articlePublished,
   articleModified,
   noindex = false,
+  extraSchemas = [],
 } = Astro.props;
 ---
 
@@ -35,11 +37,12 @@ const {
   articlePublished={articlePublished}
   articleModified={articleModified}
   noindex={noindex}
+  extraSchemas={extraSchemas}
 >
   <Header site={site}>
-    <a slot="logo" href="/" class="logo" aria-label="Chuck Allen home">
+    <span slot="logo" class="logo">
       ChuckAllen<span class="logo-dot">.</span><span class="logo-dev">dev</span>
-    </a>
+    </span>
   </Header>
 
   <main>
@@ -47,9 +50,9 @@ const {
   </main>
 
   <Footer site={site}>
-    <a slot="logo" href="/" class="logo" aria-label="Chuck Allen home">
+    <span slot="logo" class="logo">
       ChuckAllen<span class="logo-dot">.</span><span class="logo-dev">dev</span>
-    </a>
+    </span>
   </Footer>
 </BaseLayout>
 
