@@ -13,8 +13,8 @@ export const site: SiteConfig = {
   defaultOgImage: '/images/og-default.png',
 
   email: 'chuck@chuckallen.dev',
-  phone: '7204349189',
-  phoneFormatted: '(720) 434-9189',
+  phone: '7207847604',
+  phoneFormatted: '(720) 784-7604',
   address: {
     region: 'CO',
     country: 'US',

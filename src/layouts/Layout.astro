@@ -39,6 +39,35 @@ const {
   noindex={noindex}
   extraSchemas={extraSchemas}
 >
+  <Fragment slot="head">
+    <style is:inline>
+      a[href^="tel:"] { opacity: 0; transition: opacity .3s ease; }
+      a[href^="tel:"].cr-ready { opacity: 1; }
+    </style>
+    <script is:inline src="//cdn.callrail.com/companies/607445411/a2b0f83e6ee08356359e/12/swap.js" async></script>
+    <script is:inline>
+      (function(){
+        var target='7207847604',max=3000,step=200,t=0;
+        function reveal(){
+          var els=document.querySelectorAll('a[href^="tel:"]');
+          for(var i=0;i<els.length;i++) els[i].classList.add('cr-ready');
+        }
+        function poll(){
+          t+=step;
+          var els=document.querySelectorAll('a[href^="tel:"]');
+          if(!els.length){if(t<max)setTimeout(poll,step);return}
+          var swapped=false;
+          for(var i=0;i<els.length;i++){
+            if(els[i].getAttribute('href').indexOf(target)===-1){swapped=true;break}
+          }
+          if(swapped||t>=max) reveal(); else setTimeout(poll,step);
+        }
+        if(document.readyState==='loading')
+          document.addEventListener('DOMContentLoaded',function(){setTimeout(poll,step)});
+        else setTimeout(poll,step);
+      })();
+    </script>
+  </Fragment>
   <Header site={site}>
     <span slot="logo" class="logo">
       ChuckAllen<span class="logo-dot">.</span><span class="logo-dev">dev</span>
