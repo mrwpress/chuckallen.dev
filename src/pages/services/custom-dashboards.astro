@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import GridBackground from '../../shared/components/GridBackground.astro';
 import BadgeWheel from '../../shared/components/BadgeWheel.astro';
 import Contact from '../../shared/components/Contact.astro';
+import MockDashboard from '../../components/visuals/MockDashboard.astro';
 import { site } from '../../config/site';
 import { yearsExperience } from '../../shared/utils/config';
 import { serviceSchema } from '../../shared/utils/schema';
@@ -137,6 +138,26 @@ const badgeItems = [
         <div class="card-item card">
           <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Client-facing portals</h3>
           <p class="card-desc">White-label dashboards your clients log into — project status, deliverables, metrics. Branded to your company, hosted on your domain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Demo -->
+  <section class="section">
+    <div class="section-container">
+      <div class="visual-row">
+        <div class="visual-panel">
+          <MockDashboard variant="operations" />
+        </div>
+        <div class="visual-text">
+          <h2 class="section-title">Your Team's Morning View</h2>
+          <p class="section-subtitle" style="margin-bottom:1rem;">
+            Open orders, fulfillment rates, revenue tracking — everything your operations team needs on one screen. No pivot tables, no CSV exports, no waiting for someone to compile the numbers.
+          </p>
+          <p class="section-subtitle">
+            Built around the questions your team asks every day. Not the questions a BI vendor thinks you should be asking.
+          </p>
         </div>
       </div>
     </div>
@@ -486,6 +507,37 @@ const badgeItems = [
   }
   @media (min-width: 768px) {
     .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Visual Demo ── */
+  .visual-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .visual-row {
+      flex-direction: row;
+      gap: 3.75rem;
+      align-items: center;
+    }
+  }
+
+  .visual-panel {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media (min-width: 768px) {
+    .visual-panel { max-width: 500px; }
+  }
+  @media (min-width: 1024px) {
+    .visual-panel { flex: 1.2; max-width: none; }
+  }
+
+  .visual-text {
+    flex: 1;
+    min-width: 0;
   }
 
   /* ── Related Services ── */

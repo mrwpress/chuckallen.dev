@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import GridBackground from '../../shared/components/GridBackground.astro';
 import BadgeWheel from '../../shared/components/BadgeWheel.astro';
 import Contact from '../../shared/components/Contact.astro';
+import MockDashboard from '../../components/visuals/MockDashboard.astro';
 import { site } from '../../config/site';
 import { yearsExperience } from '../../shared/utils/config';
 
@@ -129,6 +130,26 @@ const badgeItems = [
         <div class="auto-card card">
           <h3 class="auto-header"><span class="auto-check" aria-hidden="true">&#10003;</span> Your documents, generated from data</h3>
           <p class="auto-desc">Proposals, invoices, reports, and contracts — created from your data and sent automatically. You deserve consistent formatting every time, not manual templates with copy-paste errors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Demo -->
+  <section class="section">
+    <div class="section-container">
+      <div class="visual-row">
+        <div class="visual-panel">
+          <MockDashboard variant="workflow" />
+        </div>
+        <div class="visual-text">
+          <h2 class="section-title">This Is What Running Looks Like</h2>
+          <p class="section-subtitle" style="margin-bottom:1rem;">
+            Every workflow monitored. Every task tracked. Every error caught before your team even knows about it.
+          </p>
+          <p class="section-subtitle">
+            No more checking five tools to see if things ran. One view, real-time, built around your actual processes.
+          </p>
         </div>
       </div>
     </div>
@@ -617,6 +638,37 @@ const badgeItems = [
   }
   @media (min-width: 768px) {
     .step-desc { font-size: 0.875rem; }
+  }
+
+  /* ── Visual Demo ── */
+  .visual-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .visual-row {
+      flex-direction: row;
+      gap: 3.75rem;
+      align-items: center;
+    }
+  }
+
+  .visual-panel {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media (min-width: 768px) {
+    .visual-panel { max-width: 500px; }
+  }
+  @media (min-width: 1024px) {
+    .visual-panel { flex: 1.2; max-width: none; }
+  }
+
+  .visual-text {
+    flex: 1;
+    min-width: 0;
   }
 
   /* ── Differentiator ── */
