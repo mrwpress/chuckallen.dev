@@ -62,13 +62,6 @@ const badgeItems = [
     </div>
   </section>
 
-  <!-- Tech Stack -->
-  <section class="section tech-stack-section">
-    <div class="section-container">
-      <TechMarquee />
-    </div>
-  </section>
-
   <!-- Pain Points -->
   <section class="section">
     <div class="section-container">
@@ -159,6 +152,15 @@ const badgeItems = [
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section tech-stack-section">
+    <div class="section-container">
+      <h2 class="section-title tech-stack-title">Tools in My Toolbox</h2>
+      <p class="section-subtitle">The frameworks, platforms, and services I build with every day.</p>
+      <TechMarquee />
     </div>
   </section>
 
@@ -505,14 +507,9 @@ const badgeItems = [
     .value-desc { font-size: 0.875rem; }
   }
 
-  /* ── Tech Stack Marquee ── */
-  .tech-stack-section {
-    padding: 0.5rem 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-  @media (min-width: 768px) {
-    .tech-stack-section { padding: 0.75rem 0; }
+  /* ── Tech Stack ── */
+  .tech-stack-title {
+    margin-bottom: 0.25rem;
   }
 
   /* ── Visual Demo ── */
