@@ -5,7 +5,10 @@ export default defineConfig({
   site: 'https://chuckallen.dev',
   integrations: [
     sitemap({
-      filter: (page) => !new URL(page).pathname.startsWith('/ppc/'),
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return !path.startsWith('/ppc/') && !path.startsWith('/services/');
+      },
     }),
   ],
   build: {
