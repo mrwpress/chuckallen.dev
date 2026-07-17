@@ -2,7 +2,7 @@ import type { SiteConfig } from '../shared/utils/config';
 
 export const site: SiteConfig = {
   name: 'Chuck Allen',
-  legalName: 'ChuckAllen.ai LLC',
+  legalName: 'ChuckAllen.dev',
   url: 'https://chuckallen.dev',
   locale: 'en_US',
   author: 'Chuck Allen',
