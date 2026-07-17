@@ -6,6 +6,8 @@ import Contact from '../../shared/components/Contact.astro';
 import MockDashboard from '../../components/visuals/MockDashboard.astro';
 import TechMarquee from '../../components/visuals/TechMarquee.astro';
 import { site } from '../../config/site';
+import Testimonials from '../../components/Testimonials.astro';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
 import { yearsExperience } from '../../shared/utils/config';
 
 const years = yearsExperience(site);
@@ -33,25 +35,22 @@ const badgeItems = [
       <div class="hero-row">
         <div class="hero-content">
           <p class="hero-eyebrow">Freelance Senior Web Developer for Hire</p>
-          <h1 class="hero-title">Your project deserves<br /><span class="hero-accent">a better developer.</span></h1>
-          <p class="hero-sub">
-            You shouldn't have to chase your developer for updates. You shouldn't have to
-            wonder whether the code they shipped will survive next quarter. And you definitely
-            shouldn't have to start over because someone disappeared mid-project.
-            You need:
-          </p>
+          <h1 class="hero-title">Hire a developer<br /><span class="hero-accent">who actually follows through.</span></h1>
+          <p class="hero-proof">{years}+ years · 500+ projects delivered · Zero disappearing acts</p>
           <ul class="hero-points">
-            <li><span class="hero-icon" aria-hidden="true">👻</span>A developer that doesn't ghost</li>
-            <li><span class="hero-icon" aria-hidden="true">🪨</span>{years}+ years, senior-level</li>
+            <li><span class="hero-icon" aria-hidden="true">👻</span>No ghosting, ever</li>
             <li><span class="hero-icon" aria-hidden="true">🤝</span>One developer, one contact</li>
-            <li><span class="hero-icon" aria-hidden="true">🚀</span>Post-launch support</li>
+            <li><span class="hero-icon" aria-hidden="true">🚀</span>Post-launch support included</li>
             <li><span class="hero-icon" aria-hidden="true">⚡</span>Performance-first architecture</li>
             <li><span class="hero-icon" aria-hidden="true">🇺🇸</span>US-based, US business hours</li>
+            <li><span class="hero-icon" aria-hidden="true">💰</span>Clear scope, no surprise invoices</li>
           </ul>
           <div class="hero-actions">
             <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
-            <a href="#what-you-get" class="btn-outline">See What You Get</a>
+            <a href="#results" class="btn-outline">See Results</a>
+            <GoogleReviewBadge />
           </div>
+          <p class="hero-availability">Currently booking for August 2026</p>
         </div>
         <div class="hero-wheel">
           <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
@@ -63,37 +62,53 @@ const badgeItems = [
     </div>
   </section>
 
-  <!-- Pain Points -->
+  <!-- Results (moved up — lead with proof) -->
+  <section id="results" class="section">
+    <div class="section-container">
+      <h2 class="section-title">What Happens When You Hire the Right Developer</h2>
+      <div class="results-grid">
+        <div class="result-item card">
+          <span class="result-number">4.2s → 0.8s</span>
+          <p class="result-label">A legacy WordPress migration cut page load by 80% — because performance was designed in, not bolted on.</p>
+        </div>
+        <div class="result-item card">
+          <span class="result-number">12 hrs/week</span>
+          <p class="result-label">Automating one manual reporting workflow gave a 50-person operations team their Mondays back.</p>
+        </div>
+        <div class="result-item card">
+          <span class="result-number">Real-time</span>
+          <p class="result-label">Custom dashboards replaced spreadsheet-based tracking for logistics and fulfillment teams.</p>
+        </div>
+        <div class="result-item card">
+          <span class="result-number">Zero downtime</span>
+          <p class="result-label">Serverless architecture handling 10x traffic spikes without anyone scrambling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials title="What People Say After Hiring Me" />
+
+  <!-- Pain Points (condensed to 3) -->
   <section class="section">
     <div class="section-container">
-      <h2 class="section-title">Does Any of This Sound Familiar?</h2>
+      <h2 class="section-title">Sound Familiar?</h2>
       <p class="section-subtitle">
-        You're not wrong for being cautious. If you've hired a freelance web developer before and it went sideways, you already know what's at stake.
+        If you've hired a freelance web developer before and it went sideways, you already know what's at stake.
       </p>
       <div class="pain-grid">
         <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">💨</span> You hired someone who vanished</h3>
-          <p class="pain-desc">One week they're responsive. The next, silence. You're left scrambling to find someone who can untangle what they left behind — and you're paying twice for the same work. You deserve better than that.</p>
-        </div>
-        <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🔥</span> Your codebase is falling apart</h3>
-          <p class="pain-desc">Every update breaks something new. Every fix creates two more problems. You shouldn't have to hold your breath every time a change goes live. You deserve code that works — and keeps working.</p>
-        </div>
-        <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">📭</span> You're always chasing updates</h3>
-          <p class="pain-desc">You send a message Monday. Thursday, still nothing. You shouldn't have to hunt someone down to find out where your own project stands. You are right to expect consistent communication.</p>
+          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">💨</span> Your last developer vanished</h3>
+          <p class="pain-desc">One week they're responsive. The next, silence. You're left scrambling to find someone who can untangle what they left behind — paying twice for the same work.</p>
         </div>
         <div class="pain-card card">
           <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">💸</span> The budget kept growing</h3>
-          <p class="pain-desc">The estimate said $5K. The invoice said $12K. You are right to expect a clear scope and honest pricing — not "unforeseen complexities" that show up on the bill after the work is done.</p>
-        </div>
-        <div class="pain-card card">
-          <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🚪</span> You got launched, then abandoned</h3>
-          <p class="pain-desc">Your site went live and your developer moved on. Now something's broken and there's nobody to call. You should never have to worry about what happens after launch.</p>
+          <p class="pain-desc">The estimate said $5K. The invoice said $12K. You deserve a clear scope and honest pricing — not "unforeseen complexities" that show up on the bill after the work is done.</p>
         </div>
         <div class="pain-card card">
           <h3 class="pain-header"><span class="pain-icon" aria-hidden="true">🤷</span> You paid for senior, got junior</h3>
-          <p class="pain-desc">You hired "senior-level" and got someone Googling the basics. You are right to expect real architecture decisions from the person you're paying senior rates to — not guesswork that costs you months to undo.</p>
+          <p class="pain-desc">You hired "senior-level" and got someone Googling the basics. You deserve real architecture decisions — not guesswork that costs you months to undo.</p>
         </div>
       </div>
     </div>
@@ -103,9 +118,9 @@ const badgeItems = [
   <section id="what-you-get" class="section">
     <GridBackground blobColor="rgba(220,38,38,0.04)" />
     <div class="section-container">
-      <h2 class="section-title">What You Deserve Instead</h2>
+      <h2 class="section-title">What You Get When You Hire Me</h2>
       <p class="section-subtitle">
-        What if the next freelance developer you hired actually followed through? What if hiring a web developer didn't have to feel like a gamble?
+        What if the next freelance web developer you hired actually followed through? What if hiring a developer didn't have to feel like a gamble?
       </p>
       <div class="value-grid">
         <div class="value-card card">
@@ -165,36 +180,11 @@ const badgeItems = [
     </div>
   </section>
 
-  <!-- Results -->
-  <section class="section">
-    <div class="section-container">
-      <h2 class="section-title">What Your Results Could Look Like</h2>
-      <div class="results-grid">
-        <div class="result-item card">
-          <span class="result-number">4.2s → 0.8s</span>
-          <p class="result-label">Your users shouldn't wait. A legacy WordPress migration cut page load by 80% — because performance was designed in, not bolted on.</p>
-        </div>
-        <div class="result-item card">
-          <span class="result-number">12 hrs/week</span>
-          <p class="result-label">Your team's time matters. Automating one manual reporting workflow gave a 50-person operations team their Mondays back.</p>
-        </div>
-        <div class="result-item card">
-          <span class="result-number">Real-time</span>
-          <p class="result-label">You deserve data you can act on now. Custom dashboards replaced spreadsheet-based tracking for logistics and fulfillment teams.</p>
-        </div>
-        <div class="result-item card">
-          <span class="result-number">Zero downtime</span>
-          <p class="result-label">Your site should handle the traffic you worked hard to earn. Serverless architecture handling 10x spikes without anyone scrambling.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- How It Works -->
   <section class="section">
     <div class="section-container">
       <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">You shouldn't need a procurement process to hire a freelance web developer. Three steps, no gatekeeping.</p>
+      <p class="section-subtitle">Hiring a freelance web developer shouldn't require a procurement process. Three steps, no gatekeeping.</p>
       <div class="steps-row">
         <div class="step-card card">
           <h3 class="step-header"><span class="step-num">1</span> Tell me what you need</h3>
@@ -303,15 +293,22 @@ const badgeItems = [
     color: var(--color-accent-light);
   }
 
-  .hero-sub {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-    margin-bottom: 1.25rem;
-    max-width: 560px;
+  .hero-proof {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
   }
   @media (min-width: 768px) {
-    .hero-sub { font-size: 1.125rem; }
+    .hero-proof { font-size: 1.0625rem; }
+  }
+
+  .hero-availability {
+    font-size: 0.8125rem;
+    color: var(--color-accent-light);
+    margin-top: 1rem;
+    font-weight: 500;
   }
 
   .hero-points {
@@ -654,4 +651,5 @@ const badgeItems = [
   @media (min-width: 768px) {
     .step-desc { font-size: 0.875rem; }
   }
+
 </style>

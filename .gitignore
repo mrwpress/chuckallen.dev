@@ -21,6 +21,9 @@ Thumbs.db
 *.swo
 *~
 
+# ── Data (fetched at build time) ──
+src/data/reviews.json
+
 # ── Build / Cache ──
 .cache/
 .turbo/
