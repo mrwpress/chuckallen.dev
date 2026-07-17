@@ -75,6 +75,8 @@ try {
     reviews,
   };
 
+  const dir = path.dirname(OUT);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(result));
   console.log(`[fetch-reviews] Wrote ${reviews.length} reviews to reviews.json`);
 } catch (err) {
