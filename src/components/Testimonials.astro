@@ -1,0 +1,372 @@
+---
+import reviewsData from '../data/reviews.json';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'What Clients Say' } = Astro.props;
+---
+
+<section id="testimonials" class="testimonials-section">
+  <div class="section-container">
+    <!-- Heading -->
+    <div class="testimonials-header">
+      <h2 class="section-title">{title}</h2>
+      <div class="testimonials-meta">
+        <svg class="google-icon" aria-label="Google"><use href="#icon-google"/></svg>
+        <span id="ts-rating" class="rating-value"></span>
+        <span id="ts-count" class="rating-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee — full-width -->
+  <div class="ts-marquee" aria-roledescription="carousel" aria-label="Client testimonials">
+    <div class="ts-marquee-track" id="ts-track"></div>
+  </div>
+
+  <div class="section-container">
+    <div class="testimonials-footer">
+      <a id="ts-all-reviews" href="#" target="_blank" rel="noopener noreferrer" class="all-reviews-link">
+        See all reviews &rarr;
+      </a>
+      <a href="#" id="ts-google-attr" target="_blank" rel="noopener noreferrer" class="google-attr">
+        <img src="/images/powered-by-google.svg" alt="Powered by Google" width="144" height="18" loading="lazy" decoding="async" />
+      </a>
+    </div>
+  </div>
+</section>
+
+{reviewsData && <script type="application/json" id="ts-data" set:html={JSON.stringify(reviewsData)} />}
+
+<!-- Review card template -->
+<template id="ts-card-template">
+  <div class="ts-card-wrap" role="group" aria-roledescription="slide">
+    <div class="testimonial-card">
+      <!-- Stars + Google icon -->
+      <div class="card-top">
+        <div class="ts-stars"></div>
+        <div class="card-google-icon">
+          <svg aria-label="Google"><use href="#icon-google"/></svg>
+        </div>
+      </div>
+      <hr class="card-divider" />
+      <p class="ts-text"></p>
+      <a class="ts-read-more" target="_blank" rel="noopener noreferrer">Read Full Review</a>
+      <div class="card-author">
+        <a class="ts-avatar-link" target="_blank" rel="noopener noreferrer"></a>
+        <div>
+          <a class="ts-name-link" target="_blank" rel="noopener noreferrer"></a>
+          <div class="ts-time"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .testimonials-section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .testimonials-section { padding: 4.5rem 0; }
+  }
+
+  .testimonials-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .testimonials-header { margin-bottom: 3.75rem; }
+  }
+
+  .testimonials-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .google-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .rating-value {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .rating-count {
+    color: var(--color-text-muted);
+  }
+
+  /* Marquee */
+  .ts-marquee {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+  .ts-marquee-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    will-change: transform;
+  }
+  .ts-marquee:hover .ts-marquee-track {
+    animation-play-state: paused !important;
+  }
+
+  /* Cards */
+  .ts-card-wrap {
+    flex-shrink: 0;
+    width: 380px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  @media (max-width: 639px) {
+    .ts-card-wrap { width: 320px; }
+  }
+
+  .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 325px;
+    max-height: 325px;
+    overflow: hidden;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .card-google-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .card-google-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    margin: 0;
+  }
+
+  .ts-stars {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .ts-text {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  .ts-read-more {
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: none;
+    cursor: pointer;
+  }
+  .ts-read-more:hover {
+    text-decoration: underline;
+  }
+
+  .card-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+  }
+
+  .ts-avatar-link {
+    flex-shrink: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .ts-name-link {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .ts-name-link:hover {
+    text-decoration: underline;
+  }
+
+  .ts-time {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    margin-top: 0.125rem;
+  }
+
+  /* Footer */
+  .testimonials-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .all-reviews-link {
+    color: var(--color-accent-light);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .all-reviews-link:hover {
+    text-decoration: underline;
+  }
+
+  .google-attr {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+  .google-attr:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+  const track = document.getElementById('ts-track');
+  const template = document.getElementById('ts-card-template') as HTMLTemplateElement;
+  const ratingEl = document.getElementById('ts-rating');
+  const countEl = document.getElementById('ts-count');
+  const marquee = document.querySelector('.ts-marquee') as HTMLElement;
+
+  if (!track || !template || !marquee) return;
+
+  function starSvg() {
+    return '<svg style="width:28px;height:28px;color:#facc15;fill:currentColor" aria-hidden="true"><use href="#icon-star"/></svg>';
+  }
+
+  function buildCard(review: any) {
+    const clone = template.content.cloneNode(true) as DocumentFragment;
+
+    const starsWrap = clone.querySelector('.ts-stars') as HTMLElement;
+    starsWrap.innerHTML = starSvg().repeat(review.rating);
+
+    const textEl = clone.querySelector('.ts-text') as HTMLElement;
+    textEl.textContent = `"${review.text}"`;
+
+    // Avatar linked to review
+    const avatarLink = clone.querySelector('.ts-avatar-link') as HTMLAnchorElement;
+    avatarLink.setAttribute('aria-label', `${review.name}'s review on Google`);
+    if (review.url) avatarLink.href = review.url;
+    if (review.avatar) {
+      avatarLink.innerHTML = `<img src="${review.avatar}" alt="" style="width:59px;height:59px;border-radius:9999px;object-fit:cover" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`;
+    } else {
+      avatarLink.innerHTML = `<div style="width:59px;height:59px;border-radius:9999px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.125rem;background:linear-gradient(135deg,rgba(220,38,38,0.4),rgba(220,38,38,0.15))" aria-hidden="true">${review.name.charAt(0)}</div>`;
+    }
+
+    // Name linked to review
+    const nameLink = clone.querySelector('.ts-name-link') as HTMLAnchorElement;
+    nameLink.textContent = review.name;
+    if (review.url) nameLink.href = review.url;
+
+    // "Read Full Review" link
+    const readMore = clone.querySelector('.ts-read-more') as HTMLAnchorElement;
+    if (review.url) readMore.href = review.url;
+    readMore.dataset.checkTruncation = 'true';
+
+    (clone.querySelector('.ts-time') as HTMLElement).textContent = review.time;
+
+    return clone;
+  }
+
+  function renderReviews(data: any) {
+    if (ratingEl) ratingEl.textContent = data.rating.toFixed(1);
+    if (countEl) countEl.textContent = `(${data.count} reviews)`;
+
+    // Update links with Google Maps URL
+    const allReviewsLink = document.getElementById('ts-all-reviews') as HTMLAnchorElement;
+    if (allReviewsLink && data.mapsUrl) {
+      allReviewsLink.href = data.mapsUrl;
+      allReviewsLink.textContent = `See all ${data.count} reviews →`;
+    }
+    const googleAttr = document.getElementById('ts-google-attr') as HTMLAnchorElement;
+    if (googleAttr && data.mapsUrl) googleAttr.href = data.mapsUrl;
+
+    // Only show 5-star reviews
+    const fiveStarReviews = data.reviews.filter((r: any) => r.rating === 5);
+    if (!fiveStarReviews.length) return;
+
+    track.innerHTML = '';
+
+    // Render all cards twice for seamless loop
+    for (let copy = 0; copy < 2; copy++) {
+      fiveStarReviews.forEach((review: any) => {
+        track.appendChild(buildCard(review));
+      });
+    }
+
+    // Show "Read Full Review" on cards where text is truncated
+    requestAnimationFrame(() => {
+      track.querySelectorAll('.ts-text').forEach((el) => {
+        const textEl = el as HTMLElement;
+        if (textEl.scrollHeight > textEl.clientHeight) {
+          const readMore = textEl.parentElement?.querySelector('.ts-read-more') as HTMLElement;
+          if (readMore) readMore.style.display = 'inline';
+        }
+      });
+    });
+
+    // ~12 seconds per card
+    const singleSetWidth = fiveStarReviews.length * (window.innerWidth < 640 ? 320 : 380);
+    const duration = fiveStarReviews.length * 12;
+
+    track.style.animation = `marquee-scroll ${duration}s linear infinite`;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${singleSetWidth}px); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  const dataEl = document.getElementById('ts-data');
+  if (dataEl) {
+    try {
+      const data = JSON.parse(dataEl.textContent || '');
+      if (data.reviews?.length) renderReviews(data);
+    } catch {}
+  }
+  });
+</script>
