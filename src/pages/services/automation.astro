@@ -6,6 +6,8 @@ import Contact from '../../shared/components/Contact.astro';
 import { site } from '../../config/site';
 import { yearsExperience } from '../../shared/utils/config';
 import { serviceSchema } from '../../shared/utils/schema';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
+import Testimonials from '../../components/Testimonials.astro';
 
 const years = yearsExperience(site);
 const pageUrl = new URL('/services/automation/', site.url).href;
@@ -56,6 +58,7 @@ const badgeItems = [
           <div class="hero-actions">
             <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
             <a href="#what-gets-automated" class="btn-outline">See What Gets Automated</a>
+            <GoogleReviewBadge />
           </div>
         </div>
         <div class="hero-wheel">
@@ -205,6 +208,9 @@ const badgeItems = [
       </div>
     </div>
   </section>
+
+  <!-- Testimonials -->
+  <Testimonials />
 
   <!-- Contact -->
   <Contact
