@@ -18,6 +18,8 @@ function hasExistingData() {
 }
 
 function ensureFile() {
+  const dir = path.dirname(OUT);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   if (!fs.existsSync(OUT)) fs.writeFileSync(OUT, JSON.stringify(null));
 }
 
