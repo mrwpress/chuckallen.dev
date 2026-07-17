@@ -7,6 +7,8 @@ import BadgeWheel from '../shared/components/BadgeWheel.astro';
 import Contact from '../shared/components/Contact.astro';
 import { site } from '../config/site';
 import { yearsExperience } from '../shared/utils/config';
+import GoogleReviewBadge from '../components/GoogleReviewBadge.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 const years = yearsExperience(site);
 
@@ -44,6 +46,7 @@ const badgeItems = [
           <div class="hero-actions">
             <a href="/#contact" class="btn-primary">Get Started</a>
             <a href="/#services" class="btn-outline">See How I Help</a>
+            <GoogleReviewBadge />
           </div>
         </div>
         <div class="hero-wheel">
@@ -174,6 +177,9 @@ const badgeItems = [
       </div>
     </div>
   </section>
+
+  <!-- Testimonials -->
+  <Testimonials />
 
   <!-- Contact -->
   <Contact

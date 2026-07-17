@@ -6,6 +6,8 @@ import Contact from '../../shared/components/Contact.astro';
 import { site } from '../../config/site';
 import { yearsExperience } from '../../shared/utils/config';
 import { serviceSchema } from '../../shared/utils/schema';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
+import Testimonials from '../../components/Testimonials.astro';
 
 const years = yearsExperience(site);
 const pageUrl = new URL('/services/serverless-architecture/', site.url).href;
@@ -57,6 +59,7 @@ const badgeItems = [
           <div class="hero-actions">
             <a href={site.calendly} target="_blank" rel="noopener" class="btn-primary">Book a Free Strategy Call</a>
             <a href="#what-serverless-looks-like" class="btn-outline">See How It Works</a>
+            <GoogleReviewBadge />
           </div>
         </div>
         <div class="hero-wheel">
@@ -206,6 +209,9 @@ const badgeItems = [
       </div>
     </div>
   </section>
+
+  <!-- Testimonials -->
+  <Testimonials />
 
   <!-- Contact -->
   <Contact

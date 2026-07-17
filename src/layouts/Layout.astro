@@ -41,15 +41,15 @@ const {
 >
   <Fragment slot="head">
     <style is:inline>
-      a[href^="tel:"] { opacity: 0; transition: opacity .3s ease; }
-      a[href^="tel:"].cr-ready { opacity: 1; }
+      .cr-phone-value { opacity: 0; transition: opacity .3s ease; }
+      .cr-phone-value.cr-ready { opacity: 1; }
     </style>
     <script is:inline src="//cdn.callrail.com/companies/607445411/a2b0f83e6ee08356359e/12/swap.js" async></script>
     <script is:inline>
       (function(){
-        var target='7207847604',max=3000,step=200,t=0;
+        var target='7207847604',max=2000,step=200,t=0;
         function reveal(){
-          var els=document.querySelectorAll('a[href^="tel:"]');
+          var els=document.querySelectorAll('.cr-phone-value');
           for(var i=0;i<els.length;i++) els[i].classList.add('cr-ready');
         }
         function poll(){
