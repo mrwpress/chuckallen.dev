@@ -6,9 +6,10 @@ interface Props {
 }
 
 const { title = 'What Clients Say' } = Astro.props;
+const hasReviews = reviewsData && Array.isArray(reviewsData.reviews) && reviewsData.reviews.length > 0;
 ---
 
-<section id="testimonials" class="testimonials-section">
+{hasReviews && <section id="testimonials" class="testimonials-section">
   <div class="section-container">
     <!-- Heading -->
     <div class="testimonials-header">
@@ -36,9 +37,9 @@ const { title = 'What Clients Say' } = Astro.props;
       </a>
     </div>
   </div>
-</section>
+</section>}
 
-{reviewsData && <script type="application/json" id="ts-data" set:html={JSON.stringify(reviewsData)} />}
+{hasReviews && <script type="application/json" id="ts-data" set:html={JSON.stringify(reviewsData)} />}
 
 <!-- Review card template -->
 <template id="ts-card-template">
