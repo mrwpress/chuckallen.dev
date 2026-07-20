@@ -22,7 +22,7 @@ Thumbs.db
 *~
 
 # ── Data (fetched at build time) ──
-src/data/reviews.json
+# src/data/reviews.json  ← temporarily tracked while GBP is suspended
 
 # ── Build / Cache ──
 .cache/
