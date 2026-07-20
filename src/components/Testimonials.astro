@@ -29,12 +29,9 @@ const hasReviews = reviewsData && Array.isArray(reviewsData.reviews) && reviewsD
 
   <div class="section-container">
     <div class="testimonials-footer">
-      <a id="ts-all-reviews" href="#" target="_blank" rel="noopener noreferrer" class="all-reviews-link">
-        See all reviews &rarr;
-      </a>
-      <a href="#" id="ts-google-attr" target="_blank" rel="noopener noreferrer" class="google-attr">
+      <span class="google-attr">
         <img src="/images/powered-by-google.svg" alt="Powered by Google" width="144" height="18" loading="lazy" decoding="async" />
-      </a>
+      </span>
     </div>
   </div>
 </section>}
@@ -284,24 +281,21 @@ const hasReviews = reviewsData && Array.isArray(reviewsData.reviews) && reviewsD
     const textEl = clone.querySelector('.ts-text') as HTMLElement;
     textEl.textContent = `"${review.text}"`;
 
-    // Avatar linked to review
+    // Avatar (link disabled while GBP suspended)
     const avatarLink = clone.querySelector('.ts-avatar-link') as HTMLAnchorElement;
     avatarLink.setAttribute('aria-label', `${review.name}'s review on Google`);
-    if (review.url) avatarLink.href = review.url;
     if (review.avatar) {
       avatarLink.innerHTML = `<img src="${review.avatar}" alt="" style="width:59px;height:59px;border-radius:9999px;object-fit:cover" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`;
     } else {
       avatarLink.innerHTML = `<div style="width:59px;height:59px;border-radius:9999px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.125rem;background:linear-gradient(135deg,rgba(220,38,38,0.4),rgba(220,38,38,0.15))" aria-hidden="true">${review.name.charAt(0)}</div>`;
     }
 
-    // Name linked to review
+    // Name (link disabled while GBP suspended)
     const nameLink = clone.querySelector('.ts-name-link') as HTMLAnchorElement;
     nameLink.textContent = review.name;
-    if (review.url) nameLink.href = review.url;
 
-    // "Read Full Review" link
+    // "Read Full Review" link (disabled while GBP suspended)
     const readMore = clone.querySelector('.ts-read-more') as HTMLAnchorElement;
-    if (review.url) readMore.href = review.url;
     readMore.dataset.checkTruncation = 'true';
 
     (clone.querySelector('.ts-time') as HTMLElement).textContent = review.time;
@@ -313,14 +307,7 @@ const hasReviews = reviewsData && Array.isArray(reviewsData.reviews) && reviewsD
     if (ratingEl) ratingEl.textContent = data.rating.toFixed(1);
     if (countEl) countEl.textContent = `(${data.count} reviews)`;
 
-    // Update links with Google Maps URL
-    const allReviewsLink = document.getElementById('ts-all-reviews') as HTMLAnchorElement;
-    if (allReviewsLink && data.mapsUrl) {
-      allReviewsLink.href = data.mapsUrl;
-      allReviewsLink.textContent = `See all ${data.count} reviews →`;
-    }
-    const googleAttr = document.getElementById('ts-google-attr') as HTMLAnchorElement;
-    if (googleAttr && data.mapsUrl) googleAttr.href = data.mapsUrl;
+    if (ratingEl) ratingEl.textContent; // mapsUrl links removed while GBP suspended
 
     // Only show 5-star reviews
     const fiveStarReviews = data.reviews.filter((r: any) => r.rating === 5);
