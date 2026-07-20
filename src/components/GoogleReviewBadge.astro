@@ -8,7 +8,7 @@ const mapsUrl = hasReviews ? reviewsData.mapsUrl : '#';
 ---
 
 {hasReviews && (
-  <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="g-badge" aria-label={`Rated ${rating} out of 5 on Google — ${count} reviews`}>
+  <div class="g-badge" aria-label={`Rated ${rating} out of 5 on Google — ${count} reviews`}>
     <div class="g-badge-inner">
       <div class="g-badge-left">
         <svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true">
@@ -36,7 +36,7 @@ const mapsUrl = hasReviews ? reviewsData.mapsUrl : '#';
         <span class="g-badge-count-label">reviews</span>
       </div>
     </div>
-  </a>
+  </div>
 )}
 
 <style>
@@ -47,13 +47,6 @@ const mapsUrl = hasReviews ? reviewsData.mapsUrl : '#';
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.75rem 1.25rem;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
-    cursor: pointer;
-  }
-  .g-badge:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
-    transform: translateY(-1px);
   }
 
   .g-badge-inner {
