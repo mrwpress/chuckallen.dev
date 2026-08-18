@@ -8,7 +8,7 @@ const mapsUrl = hasReviews ? reviewsData.mapsUrl : '#';
 ---
 
 {hasReviews && (
-  <div class="g-badge" aria-label={`Rated ${rating} out of 5 on Google — ${count} reviews`}>
+  <div class="g-badge" role="img" aria-label={`Rated ${rating} out of 5 on Google — ${count} reviews`}>
     <div class="g-badge-inner">
       <div class="g-badge-left">
         <svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true">
