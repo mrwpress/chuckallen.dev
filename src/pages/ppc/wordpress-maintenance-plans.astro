@@ -1,0 +1,679 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import Contact from '../../shared/components/Contact.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
+import { site } from '../../config/site';
+---
+
+<Layout
+  title="WordPress Maintenance Plans Compared — Including the One That Ends | Chuck Allen"
+  description="Comparing WordPress maintenance plans? Basic ($49/mo), Pro ($149/mo), Premium ($299/mo) — or the Exit Plan: migrate to Astro for a one-time fee and pay $0/month forever."
+  noindex={false}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">WordPress Maintenance Plans — Compared</p>
+        <h1 class="hero-title">Every WordPress Maintenance Plan<br /><span class="hero-accent">Has the Same Problem.</span></h1>
+        <p class="hero-sub">You're comparing Bronze vs. Silver vs. Gold. $49/mo vs. $149/mo vs. $299/mo. But every plan shares one thing: you pay it forever. What if there was a plan that ends?</p>
+
+        <div class="hero-actions">
+          <a href="#plans" class="btn-primary">See the Plan Comparison</a>
+          <a href="#exit-plan" class="btn-outline">Skip to the Exit Plan &rarr;</a>
+        </div>
+        <div class="hero-badge">
+          <GoogleReviewBadge />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Bait: Typical Plans -->
+  <section id="plans" class="section">
+    <div class="section-container">
+      <h2 class="section-title">Here's What Every Maintenance Company Is Selling You</h2>
+      <p class="section-subtitle">These are real plan structures from the top WordPress maintenance providers.</p>
+
+      <div class="fake-pricing-grid">
+        <div class="fake-card card">
+          <h3 class="fake-tier">Basic</h3>
+          <span class="fake-price wp-red">$49–$75<span class="fake-mo">/mo</span></span>
+          <ul class="fake-features">
+            <li>WordPress core updates</li>
+            <li>Plugin updates (monthly)</li>
+            <li>Daily backups</li>
+            <li>Security monitoring</li>
+            <li>Uptime monitoring</li>
+            <li>Monthly report</li>
+            <li>30-min support</li>
+          </ul>
+        </div>
+        <div class="fake-card card">
+          <h3 class="fake-tier">Professional</h3>
+          <span class="fake-price wp-red">$99–$175<span class="fake-mo">/mo</span></span>
+          <ul class="fake-features">
+            <li>Everything in Basic</li>
+            <li>Plugin updates (weekly)</li>
+            <li>Malware removal</li>
+            <li>Speed optimization</li>
+            <li>SEO monitoring</li>
+            <li>Priority support</li>
+            <li>1 hour support</li>
+          </ul>
+        </div>
+        <div class="fake-card card">
+          <h3 class="fake-tier">Premium</h3>
+          <span class="fake-price wp-red">$199–$349<span class="fake-mo">/mo</span></span>
+          <ul class="fake-features">
+            <li>Everything in Professional</li>
+            <li>Daily plugin updates</li>
+            <li>White-glove security</li>
+            <li>Performance optimization</li>
+            <li>Content updates (2 hrs/mo)</li>
+            <li>24/7 emergency support</li>
+            <li>Monthly strategy call</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="multiply-callout">
+        <p class="multiply-line">Now multiply any of these by 36 months.</p>
+        <div class="multiply-totals">
+          <span>Basic: <strong class="wp-red">$1,764–$2,700</strong></span>
+          <span class="multiply-dot">&middot;</span>
+          <span>Professional: <strong class="wp-red">$3,564–$6,300</strong></span>
+          <span class="multiply-dot">&middot;</span>
+          <span>Premium: <strong class="wp-red">$7,164–$12,564</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Frame Break: Plan D -->
+  <section id="exit-plan" class="section">
+    <GridBackground blobColor="rgba(34,197,94,0.04)" />
+    <div class="section-container exit-container">
+      <h2 class="section-title">Plan D: The One They'll Never Offer You</h2>
+      <p class="section-subtitle">Because it puts them out of business.</p>
+
+      <div class="exit-card card">
+        <span class="exit-badge">The Exit Plan</span>
+        <span class="exit-price astro-green">$1,500–$3,000 <span class="exit-once">one time</span></span>
+        <p class="exit-sub">Migrate your WordPress site to Astro</p>
+        <ul class="exit-features">
+          <li><s>WordPress core updates</s> <span class="exit-alt">→ No WordPress</span></li>
+          <li><s>Plugin updates</s> <span class="exit-alt">→ No plugins</span></li>
+          <li><s>Security monitoring</s> <span class="exit-alt">→ No attack surface</span></li>
+          <li><s>Malware removal</s> <span class="exit-alt">→ Can't get malware</span></li>
+          <li><s>Speed optimization</s> <span class="exit-alt">→ Already under 1 second</span></li>
+          <li><s>Uptime monitoring</s> <span class="exit-alt">→ 99.99% on CDN by default</span></li>
+          <li><s>Database backups</s> <span class="exit-alt">→ No database</span></li>
+        </ul>
+        <div class="exit-bottom">
+          <div class="exit-stat">
+            <span class="exit-stat-label">Hosting</span>
+            <span class="exit-stat-val astro-green">$0/month</span>
+          </div>
+          <div class="exit-stat">
+            <span class="exit-stat-label">Maintenance</span>
+            <span class="exit-stat-val astro-green">$0/month. Forever.</span>
+          </div>
+        </div>
+      </div>
+
+      <blockquote class="exit-math">
+        Month 1: You pay more than a Basic plan. Month 12: You've broken even. Month 13 and every month after: pure savings. Month 36: You've saved $1,764–$10,564 compared to even the cheapest maintenance plan.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- The Math: Timeline -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">When the Exit Plan Wins</h2>
+      <p class="section-subtitle">The more you add to WordPress, the faster migration pays for itself.</p>
+
+      <!-- Scenario A -->
+      <div class="scenario">
+        <div class="scenario-header">
+          <h3 class="scenario-title">Scenario A: Simple Brochure Site</h3>
+          <p class="scenario-desc">SiteGround hosting + Gravity Forms. You handle maintenance yourself.</p>
+          <div class="scenario-breakdown">
+            <span class="scenario-item">Hosting: <strong class="wp-red">$29.99/mo</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">Gravity Forms: <strong class="wp-red">$59/yr</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">Total: <strong class="wp-red">~$35/mo</strong></span>
+          </div>
+        </div>
+        <div class="timeline-chart">
+          <div class="timeline-rows">
+            <div class="timeline-row">
+              <span class="timeline-month">Month 1</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:3%"></div><span class="timeline-val wp-red">$35</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:28%"></div><span class="timeline-val astro-green">$1,500</span></div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-month">Month 12</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:8%"></div><span class="timeline-val wp-red">$420</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:28%"></div><span class="timeline-val astro-green">$1,500</span></div>
+              </div>
+            </div>
+            <div class="timeline-row timeline-crossover">
+              <span class="timeline-month">Month 16</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:28%"></div><span class="timeline-val wp-red">$560</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:28%"></div><span class="timeline-val astro-green">$1,500</span></div>
+              </div>
+              <span class="crossover-label">Break-even at month 16</span>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-month">Month 36</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:100%"></div><span class="timeline-val wp-red">$1,260</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:28%"></div><span class="timeline-val astro-green">$1,500</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scenario-sources">
+          <a href="https://world.siteground.com/wordpress-hosting.htm" target="_blank" rel="noopener">SiteGround pricing</a>
+          <span class="scenario-dot">&middot;</span>
+          <a href="https://gravityforms.com/pricing/" target="_blank" rel="noopener">Gravity Forms pricing</a>
+        </div>
+      </div>
+
+      <!-- Scenario B -->
+      <div class="scenario">
+        <div class="scenario-header">
+          <h3 class="scenario-title">Scenario B: Add a Maintenance Plan + 2 More Plugins</h3>
+          <p class="scenario-desc">Same hosting, plus GoWP maintenance, Yoast Premium, and ACF Pro.</p>
+          <div class="scenario-breakdown">
+            <span class="scenario-item">Hosting: <strong class="wp-red">$29.99/mo</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">GoWP: <strong class="wp-red">$39/mo</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">3 plugins: <strong class="wp-red">$227/yr</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">Total: <strong class="wp-red">~$88/mo</strong></span>
+          </div>
+        </div>
+        <div class="timeline-chart">
+          <div class="timeline-rows">
+            <div class="timeline-row">
+              <span class="timeline-month">Month 1</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:3%"></div><span class="timeline-val wp-red">$88</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:60%"></div><span class="timeline-val astro-green">$2,000</span></div>
+              </div>
+            </div>
+            <div class="timeline-row timeline-crossover">
+              <span class="timeline-month">Month 6</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:16%"></div><span class="timeline-val wp-red">$528</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:60%"></div><span class="timeline-val astro-green">$2,000</span></div>
+              </div>
+              <span class="crossover-label">Break-even at month 6</span>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-month">Month 36</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:100%"></div><span class="timeline-val wp-red">$3,168</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:60%"></div><span class="timeline-val astro-green">$2,000</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scenario-sources">
+          <a href="https://www.gowp.com/pricing/" target="_blank" rel="noopener">GoWP pricing</a>
+          <span class="scenario-dot">&middot;</span>
+          <a href="https://yoast.com/how-much-does-yoast-seo-cost/" target="_blank" rel="noopener">Yoast pricing</a>
+          <span class="scenario-dot">&middot;</span>
+          <a href="https://www.advancedcustomfields.com/pro/" target="_blank" rel="noopener">ACF Pro pricing</a>
+        </div>
+      </div>
+
+      <!-- Scenario C -->
+      <div class="scenario">
+        <div class="scenario-header">
+          <h3 class="scenario-title">Scenario C: Professional Stack</h3>
+          <p class="scenario-desc">WP Engine hosting, WP Buffs maintenance, 4 premium plugins.</p>
+          <div class="scenario-breakdown">
+            <span class="scenario-item">WP Engine: <strong class="wp-red">$35/mo</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">WP Buffs: <strong class="wp-red">$89/mo</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">4 plugins: <strong class="wp-red">$387/yr</strong></span>
+            <span class="scenario-dot">&middot;</span>
+            <span class="scenario-item">Total: <strong class="wp-red">~$156/mo</strong></span>
+          </div>
+        </div>
+        <div class="timeline-chart">
+          <div class="timeline-rows">
+            <div class="timeline-row">
+              <span class="timeline-month">Month 1</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:3%"></div><span class="timeline-val wp-red">$156</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:45%"></div><span class="timeline-val astro-green">$2,500</span></div>
+              </div>
+            </div>
+            <div class="timeline-row timeline-crossover">
+              <span class="timeline-month">Month 4</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:11%"></div><span class="timeline-val wp-red">$624</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:45%"></div><span class="timeline-val astro-green">$2,500</span></div>
+              </div>
+              <span class="crossover-label">Break-even at month 4</span>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-month">Month 36</span>
+              <div class="timeline-bars">
+                <div class="timeline-bar-wrap"><div class="timeline-bar wp-bar" style="width:100%"></div><span class="timeline-val wp-red">$5,616</span></div>
+                <div class="timeline-bar-wrap"><div class="timeline-bar astro-bar" style="width:45%"></div><span class="timeline-val astro-green">$2,500</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scenario-sources">
+          <a href="https://wpengine.com/plans/" target="_blank" rel="noopener">WP Engine pricing</a>
+          <span class="scenario-dot">&middot;</span>
+          <a href="https://wpbuffs.com/plans/" target="_blank" rel="noopener">WP Buffs pricing</a>
+          <span class="scenario-dot">&middot;</span>
+          <a href="https://elementor.com/pricing/" target="_blank" rel="noopener">Elementor pricing</a>
+        </div>
+      </div>
+
+      <p class="chart-note">The more you add to WordPress, the faster the Exit Plan pays for itself. All pricing verified October 2026.</p>
+    </div>
+  </section>
+
+  <!-- Why Plans Exist -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">WordPress Maintenance Plans Exist Because WordPress Is Broken</h2>
+      <div class="truth-grid">
+        <div class="truth-card card">
+          <h3 class="truth-header"><span class="truth-icon" aria-hidden="true">🏗️</span> The Architecture Problem</h3>
+          <p class="truth-desc">WordPress was built in 2003 as a blogging tool. It uses PHP, MySQL, and a plugin architecture that was revolutionary 20 years ago and is now a liability. Every maintenance task exists to compensate for this architecture.</p>
+        </div>
+        <div class="truth-card card">
+          <h3 class="truth-header"><span class="truth-icon" aria-hidden="true">💰</span> The Incentive Problem</h3>
+          <p class="truth-desc">Maintenance companies make money when your site needs maintenance. They have zero financial incentive to suggest you move to a platform that doesn't need it. You're a recurring revenue line item.</p>
+        </div>
+        <div class="truth-card card">
+          <h3 class="truth-header"><span class="truth-icon" aria-hidden="true">⚓</span> The Switching Cost Problem</h3>
+          <p class="truth-desc">They know it's painful to switch. So they count on inertia. Every month you don't migrate, the sunk cost grows and the switch feels harder. But the math never changes — you're overpaying every single month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Migration Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">The Migration Process</h2>
+      <p class="section-subtitle">You're not switching maintenance providers. You're eliminating the need for one.</p>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> I Audit Your Site</h3>
+          <p class="step-desc">Map every page, form, and redirect. Fixed quote. 2–3 days.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> I Build Your Astro Site</h3>
+          <p class="step-desc">Same design, same content, dramatically faster. 1–3 weeks.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> I Deploy & You're Done</h3>
+          <p class="step-desc">DNS, redirects, SSL, cutover. Cancel your maintenance plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Your Site After Migration</h2>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="wp-col-head">Before (WordPress)</th>
+              <th class="astro-col-head">After (Astro)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Hosting bill</td><td class="wp-col">$30–$60/mo</td><td class="astro-col">$0/mo</td></tr>
+            <tr><td>Maintenance bill</td><td class="wp-col">$49–$349/mo</td><td class="astro-col">$0/mo</td></tr>
+            <tr><td>Page load speed</td><td class="wp-col">2.1–4.5 seconds</td><td class="astro-col">0.3–0.8 seconds</td></tr>
+            <tr><td>Google PageSpeed score</td><td class="wp-col">45–72</td><td class="astro-col">95–100</td></tr>
+            <tr><td>Security plugins needed</td><td class="wp-col">2–3</td><td class="astro-col">0</td></tr>
+            <tr><td>Plugins total</td><td class="wp-col">8–20</td><td class="astro-col">0</td></tr>
+            <tr><td>Monthly time spent</td><td class="wp-col">4–8 hours</td><td class="astro-col">0 hours</td></tr>
+            <tr><td>Stress level</td><td class="wp-col">Ongoing</td><td class="astro-col">None</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">The Numbers WordPress Doesn't Want You to See</h2>
+      <div class="bench-grid">
+        <div class="bench-card card">
+          <span class="bench-num">45<span class="bench-unit">%</span></span>
+          <p class="bench-label">Only 45% of WordPress sites pass Google's Core Web Vitals on mobile. Static sites pass by default — no server, no render delay.</p>
+          <cite class="bench-source"><a href="https://almanac.httparchive.org/en/2025/cms" target="_blank" rel="noopener">Web Almanac 2025</a></cite>
+        </div>
+        <div class="bench-card card">
+          <span class="bench-num">22<span class="bench-unit">/day</span></span>
+          <p class="bench-label">22 new WordPress vulnerabilities disclosed every day in 2024. 96% in plugins. Static sites have no plugins.</p>
+          <cite class="bench-source"><a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2025/" target="_blank" rel="noopener">Patchstack 2025</a></cite>
+        </div>
+        <div class="bench-card card">
+          <span class="bench-num">55M<span class="bench-unit">/day</span></span>
+          <p class="bench-label">55 million exploit attempts blocked daily across WordPress sites. Static sites have nothing to exploit — no server, no database, no login.</p>
+          <cite class="bench-source"><a href="https://www.wordfence.com/blog/2025/04/2024-annual-wordpress-security-report/" target="_blank" rel="noopener">Wordfence 2024</a></cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials title="What Clients Say After Migrating" />
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <GridBackground blobColor="rgba(34,197,94,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">The Exit Plan Pricing</h2>
+      <p class="section-subtitle">One invoice. Then nothing.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card card">
+          <h3 class="pricing-tier">Small</h3>
+          <p class="pricing-pages">&le;20 pages</p>
+          <span class="pricing-price">$1,500</span>
+          <span class="pricing-timeline">1–2 weeks</span>
+        </div>
+        <div class="pricing-card card pricing-featured">
+          <span class="pricing-badge">Most Common</span>
+          <h3 class="pricing-tier">Medium</h3>
+          <p class="pricing-pages">21–75 pages</p>
+          <span class="pricing-price">$2,000–$2,500</span>
+          <span class="pricing-timeline">2–3 weeks</span>
+        </div>
+        <div class="pricing-card card">
+          <h3 class="pricing-tier">Large</h3>
+          <p class="pricing-pages">76–200+ pages</p>
+          <span class="pricing-price">$2,500–$3,000</span>
+          <span class="pricing-timeline">3–4 weeks</span>
+        </div>
+      </div>
+
+      <div class="section-cta">
+        <a href="#contact" class="btn-primary">Get Your Free Migration Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Questions You're Already Asking</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Which WordPress maintenance plan should I get?</summary>
+          <p class="faq-answer">None of them. Every plan charges you monthly for problems that shouldn't exist. Migrate to a static site and the entire category disappears.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What if I only need Basic?</summary>
+          <p class="faq-answer">Even at $49/mo, you'll spend $1,764 over 3 years on updates, backups, and monitoring for a system that needs them only because it's WordPress. A migration costs $1,500–$3,000 once.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">My maintenance provider is great — they catch issues fast</summary>
+          <p class="faq-answer">They're catching issues that a static site doesn't have. Fast response to unnecessary problems is still unnecessary.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What about content updates — maintenance plans include that</summary>
+          <p class="faq-answer">Most "content update" allowances are 30–60 minutes/month. A headless CMS lets you update content yourself, instantly, with no support ticket.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Can I try Astro without committing to a full migration?</summary>
+          <p class="faq-answer">Yes. I'll show you a demo of your site rebuilt in Astro during the free audit. You'll see the speed, the Lighthouse score, and the hosting cost before committing.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What is Astro?</summary>
+          <p class="faq-answer">Astro is a modern web framework used by Google, Microsoft, and Porsche. It generates pure static HTML — no server, no database, nothing to hack, nothing to update.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section cta-section">
+    <GridBackground />
+    <div class="section-container cta-container">
+      <h2 class="section-title">There's a Plan That Doesn't Renew.</h2>
+      <p class="cta-sub">Pay once. Own your site. Cancel your maintenance plan.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Your Free Migration Audit</a>
+        <a href="#exit-plan" class="btn-outline">See the Exit Plan Again &uarr;</a>
+      </div>
+      <p class="cta-trust">No contracts. No retainers. No recurring charges.</p>
+    </div>
+  </section>
+
+  <Contact
+    site={site}
+    title="Ready for the Last Plan You'll Ever Buy?"
+    subtitle="Book a free 30-minute audit call. I'll map your site, give you a fixed quote, and show you what it looks like to cancel your maintenance plan for good."
+  />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .hero { position: relative; padding: 7rem 0 3rem; overflow: hidden; }
+  @media (min-width: 768px) { .hero { padding: 11.25rem 0 4rem; } }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-content { max-width: 720px; }
+  .hero-eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-accent-light); margin-bottom: 1rem; }
+  .hero-title { font-size: 2rem; font-weight: 500; color: var(--color-text); line-height: 1.2; margin-bottom: 1rem; }
+  @media (min-width: 768px) { .hero-title { font-size: 3rem; } }
+  @media (min-width: 1024px) { .hero-title { font-size: 3.5rem; } }
+  .hero-accent { color: var(--color-accent-light); }
+  .hero-sub { font-size: 1rem; line-height: 1.7; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 600px; }
+  @media (min-width: 768px) { .hero-sub { font-size: 1.125rem; } }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .hero-badge { margin-top: 0.5rem; }
+
+  .wp-red { color: #ef4444; }
+  .astro-green { color: #22c55e; }
+
+  /* ── Sections ── */
+  .section { position: relative; padding: 3rem 0; overflow: hidden; }
+  @media (min-width: 768px) { .section { padding: 4.5rem 0; } }
+  .section-title { font-size: 1.5rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.75rem; }
+  @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+  @media (min-width: 1024px) { .section-title { font-size: 3rem; } }
+  .section-subtitle { color: var(--color-text-muted); font-size: 0.9375rem; max-width: 600px; margin-bottom: 2rem; line-height: 1.7; }
+  @media (min-width: 768px) { .section-subtitle { font-size: 1.125rem; margin-bottom: 3rem; } }
+  .section-cta { margin-top: 2.5rem; text-align: center; }
+
+  /* ── Fake Pricing Grid ── */
+  .fake-pricing-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+  @media (min-width: 768px) { .fake-pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+
+  .fake-card { padding: 2rem 1.5rem; text-align: center; border-color: rgba(239, 68, 68, 0.15); }
+  .fake-tier { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.75rem; }
+  .fake-price { display: block; font-size: 1.5rem; font-weight: 700; font-family: var(--font-mono); margin-bottom: 1.25rem; }
+  .fake-mo { font-size: 0.875rem; font-weight: 500; color: var(--color-text-muted); }
+
+  .fake-features { list-style: none; padding: 0; margin: 0; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; }
+  .fake-features li { font-size: 0.8125rem; color: var(--color-text-muted); padding-left: 1.25rem; position: relative; }
+  .fake-features li::before { content: '✓'; position: absolute; left: 0; color: var(--color-text-dim); font-weight: 700; font-size: 0.75rem; }
+
+  /* ── Multiply Callout ── */
+  .multiply-callout { text-align: center; padding: 1.5rem; background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: var(--radius-lg); }
+  .multiply-line { font-size: 1rem; font-weight: 600; color: var(--color-text-secondary); margin-bottom: 0.75rem; }
+  .multiply-totals { font-size: 0.875rem; color: var(--color-text-muted); display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .multiply-dot { color: var(--color-text-dim); }
+
+  /* ── Exit Plan Card ── */
+  .exit-container { display: flex; flex-direction: column; align-items: center; }
+
+  .exit-card {
+    max-width: 520px; width: 100%; padding: 2.5rem 2rem; text-align: center;
+    border: 2px solid rgba(34, 197, 94, 0.3); position: relative;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.04), rgba(34, 197, 94, 0.01));
+  }
+
+  .exit-badge {
+    position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%);
+    background: #22c55e; color: #000; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 1.25rem;
+    border-radius: var(--radius-pill); white-space: nowrap;
+  }
+
+  .exit-price { display: block; font-size: 2rem; font-weight: 700; font-family: var(--font-mono); margin: 0.75rem 0 0.25rem; }
+  .exit-once { font-size: 0.875rem; font-weight: 500; color: var(--color-text-muted); font-family: var(--font-sans); }
+  .exit-sub { font-size: 0.9375rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+  .exit-features { list-style: none; padding: 0; margin: 0 0 1.5rem; text-align: left; display: flex; flex-direction: column; gap: 0.625rem; }
+  .exit-features li { font-size: 0.875rem; color: var(--color-text-secondary); }
+  .exit-features s { color: var(--color-text-dim); }
+  .exit-alt { color: #22c55e; font-weight: 600; font-size: 0.8125rem; }
+
+  .exit-bottom { display: flex; gap: 2rem; justify-content: center; padding-top: 1.25rem; border-top: 1px solid rgba(34, 197, 94, 0.15); }
+  .exit-stat { display: flex; flex-direction: column; gap: 0.125rem; }
+  .exit-stat-label { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+  .exit-stat-val { font-size: 1rem; font-weight: 700; font-family: var(--font-mono); }
+
+  .exit-math {
+    border-left: 3px solid #22c55e; padding: 1.25rem 1.5rem; margin-top: 2rem;
+    font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary);
+    background: rgba(34, 197, 94, 0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    max-width: 640px;
+  }
+
+  /* ── Timeline Chart ── */
+  .timeline-chart { max-width: 640px; }
+  .timeline-header { margin-bottom: 1.5rem; }
+  .timeline-axis-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+
+  .timeline-rows { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .timeline-row { display: grid; grid-template-columns: 5rem 1fr; gap: 0.75rem; align-items: start; }
+  .timeline-month { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); padding-top: 0.25rem; }
+  .timeline-bars { display: flex; flex-direction: column; gap: 0.375rem; }
+
+  .timeline-bar-wrap { height: 1.5rem; background: var(--color-surface-2); border-radius: var(--radius-sm); overflow: hidden; position: relative; }
+  .timeline-bar { height: 100%; border-radius: var(--radius-sm); }
+  .wp-bar { background: rgba(239, 68, 68, 0.5); }
+  .astro-bar { background: rgba(34, 197, 94, 0.5); }
+  .timeline-val { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); font-size: 0.6875rem; font-weight: 700; font-family: var(--font-mono); }
+
+  .timeline-crossover { position: relative; }
+  .crossover-label { grid-column: 1 / -1; font-size: 0.75rem; font-weight: 600; color: #22c55e; margin-top: 0.25rem; text-align: center; }
+
+  .chart-note { font-size: 0.75rem; color: var(--color-text-dim); margin-top: 1rem; font-style: italic; }
+
+  /* ── Truth Cards ── */
+  .truth-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  @media (min-width: 768px) { .truth-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  .truth-card { padding: 1.25rem; transition: border-color 0.2s ease; }
+  @media (min-width: 768px) { .truth-card { padding: 1.5rem; } }
+  .truth-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+  .truth-header { display: flex; align-items: center; gap: 0.625rem; font-size: 1rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+  @media (min-width: 768px) { .truth-header { font-size: 1.125rem; } }
+  .truth-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .truth-desc { font-size: 0.8125rem; line-height: 1.6; color: var(--color-text-muted); }
+  @media (min-width: 768px) { .truth-desc { font-size: 0.875rem; } }
+
+  /* ── Steps ── */
+  .steps-row { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  @media (min-width: 768px) { .steps-row { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  .step-card { padding: 1.5rem; transition: border-color 0.2s ease; }
+  .step-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+  .step-header { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+  @media (min-width: 768px) { .step-header { font-size: 1.125rem; } }
+  .step-num { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: var(--radius-full); background: var(--color-accent-dim); color: var(--color-accent-light); font-weight: 700; font-size: 0.8125rem; flex-shrink: 0; }
+  .step-desc { font-size: 0.8125rem; line-height: 1.6; color: var(--color-text-muted); padding-left: 2.5rem; }
+  @media (min-width: 768px) { .step-desc { font-size: 0.875rem; } }
+
+  /* ── Compare Table ── */
+  .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; min-width: 420px; }
+  .compare-table th, .compare-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+  .compare-table th { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+  .compare-table td { color: var(--color-text-secondary); }
+  .wp-col-head { color: #ef4444 !important; }
+  .astro-col-head { color: #22c55e !important; }
+  .wp-col { background: rgba(239, 68, 68, 0.04); }
+  .astro-col { background: rgba(34, 197, 94, 0.04); }
+
+  /* ── Benchmarks ── */
+  .bench-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  @media (min-width: 768px) { .bench-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  .bench-card { padding: 1.5rem; text-align: center; transition: border-color 0.2s ease; }
+  .bench-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+  .bench-num { display: block; font-size: 2rem; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem; }
+  @media (min-width: 768px) { .bench-num { font-size: 2.5rem; } }
+  .bench-unit { font-size: 1rem; font-weight: 500; color: var(--color-text-muted); }
+  @media (min-width: 768px) { .bench-unit { font-size: 1.25rem; } }
+  .bench-label { font-size: 0.8125rem; line-height: 1.6; color: var(--color-text-muted); }
+  .bench-source { display: block; margin-top: 0.75rem; font-size: 0.6875rem; font-style: normal; color: var(--color-text-dim); }
+  .bench-source a { color: var(--color-text-dim); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .bench-source a:hover { color: var(--color-text-muted); }
+
+  /* ── Scenarios ── */
+  .scenario { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-border); }
+  .scenario:last-of-type { border-bottom: none; margin-bottom: 1.5rem; padding-bottom: 0; }
+  .scenario-header { margin-bottom: 1.5rem; }
+  .scenario-title { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.375rem; }
+  @media (min-width: 768px) { .scenario-title { font-size: 1.25rem; } }
+  .scenario-desc { font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem; }
+  .scenario-breakdown { font-size: 0.8125rem; color: var(--color-text-muted); display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .scenario-item { white-space: nowrap; }
+  .scenario-dot { color: var(--color-text-dim); }
+  .scenario-sources { margin-top: 0.75rem; font-size: 0.6875rem; color: var(--color-text-dim); display: flex; flex-wrap: wrap; gap: 0.375rem; align-items: center; }
+  .scenario-sources a { color: var(--color-text-dim); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s ease; }
+  .scenario-sources a:hover { color: var(--color-text-muted); }
+
+  /* ── Pricing ── */
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 840px; margin: 0 auto; }
+  @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  .pricing-card { padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; transition: border-color 0.2s ease; position: relative; }
+  .pricing-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+  .pricing-featured { border-color: var(--color-accent); }
+  .pricing-badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: var(--color-text); font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 1rem; border-radius: var(--radius-pill); white-space: nowrap; }
+  .pricing-tier { font-size: 1.25rem; font-weight: 700; color: var(--color-text); }
+  .pricing-pages { font-size: 0.875rem; color: var(--color-text-muted); }
+  .pricing-price { font-size: 1.75rem; font-weight: 700; font-family: var(--font-mono); color: #22c55e; }
+  .pricing-timeline { font-size: 0.8125rem; color: var(--color-text-dim); }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 720px; display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid var(--color-border); }
+  .faq-question { padding: 1.25rem 0; font-size: 1rem; font-weight: 600; color: var(--color-text); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after { content: '+'; font-size: 1.25rem; color: var(--color-text-dim); font-weight: 300; flex-shrink: 0; margin-left: 1rem; }
+  details[open] .faq-question::after { content: '−'; }
+  .faq-answer { font-size: 0.875rem; line-height: 1.7; color: var(--color-text-muted); padding-bottom: 1.25rem; max-width: 600px; }
+
+  /* ── Final CTA ── */
+  .cta-section { text-align: center; }
+  .cta-container { display: flex; flex-direction: column; align-items: center; }
+  .cta-sub { font-size: 1rem; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 520px; line-height: 1.7; }
+  @media (min-width: 768px) { .cta-sub { font-size: 1.125rem; } }
+  .cta-trust { font-size: 0.8125rem; color: var(--color-text-dim); margin-top: 1.5rem; font-weight: 500; }
+</style>
