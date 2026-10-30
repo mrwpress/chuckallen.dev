@@ -652,3 +652,11 @@ const clients = [
 
   .faq-sidebar-btn { width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 0.5rem; }
 </style>
+
+<style is:global>
+  /* PPC header: logo left, no nav */
+  .nav-desktop,
+  .hamburger,
+  .mobile-overlay { display: none !important; }
+  .header-logo { position: static !important; transform: none !important; }
+</style>
