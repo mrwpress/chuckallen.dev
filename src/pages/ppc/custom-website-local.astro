@@ -1,0 +1,654 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
+import { site } from '../../config/site';
+
+const badgeItems = [
+  { label: 'Under 1 Second Load', icon: '/images/badge-performance.svg' },
+  { label: '$0/Month Hosting', icon: '/images/badge-security.svg' },
+  { label: 'Edit Your Own Content', icon: '/images/badge-automation.svg' },
+  { label: 'You Own Everything', icon: '/images/badge-api.svg' },
+  { label: 'Live in 10–14 Days', icon: '/images/badge-dataviz.svg' },
+  { label: 'PageSpeed 95–100', icon: '/images/badge-performance.svg' },
+  { label: 'Accessible', icon: '/images/badge-dataviz.svg' },
+  { label: 'W3C Validated', icon: '/images/badge-api.svg' },
+  { label: 'Secure', icon: '/images/badge-security.svg' },
+  { label: 'Economical', icon: '/images/badge-automation.svg' },
+  { label: 'Extendable', icon: '/images/badge-react.svg' },
+];
+
+import gearlinxLogo from '../../assets/images/clients/gearlinx-logo.png';
+import farrarborLogo from '../../assets/images/clients/farrarbor-logo.jpg';
+import alinkLogo from '../../assets/images/clients/alink-logo.avif';
+import csodLogo from '../../assets/images/clients/csod-logo.png';
+import blbtLogo from '../../assets/images/clients/blbt-logo.png';
+
+const clients = [
+  {
+    name: 'Gearlinx',
+    logo: gearlinxLogo,
+    logoInvert: false,
+    url: 'https://gearlinx.com',
+    type: 'IoT & Network Infrastructure',
+    metrics: [
+      { label: 'Monthly cost', before: '$149/mo', after: '$0/mo' },
+      { label: 'Page load', before: '4.1s', after: '0.6s' },
+      { label: 'PageSpeed', before: '42', after: '97' },
+    ],
+    quote: 'We went from a sluggish WordPress site to something our sales team actually wants to share with prospects.',
+    timeline: 'Built in 12 days',
+  },
+  // {
+  //   name: 'Farr Arbor',
+  //   logo: farrarborLogo,
+  //   logoInvert: true,
+  //   type: 'Tree Care Service',
+  //   metrics: [
+  //     { label: 'Monthly cost', before: '$89/mo', after: '$0/mo' },
+  //     { label: 'Page load', before: '3.4s', after: '0.5s' },
+  //     { label: 'PageSpeed', before: '51', after: '96' },
+  //   ],
+  //   quote: 'Placeholder quote — Chuck will replace.',
+  //   timeline: 'Built in 10 days',
+  // },
+  {
+    name: 'Alink CIS',
+    logo: alinkLogo,
+    logoInvert: false,
+    url: 'https://www.alinkcis.com',
+    type: 'Commercial IT Services',
+    metrics: [
+      { label: 'Monthly cost', before: '$129/mo', after: '$0/mo' },
+      { label: 'Page load', before: '3.8s', after: '0.4s' },
+      { label: 'PageSpeed', before: '48', after: '99' },
+    ],
+    quote: 'No more plugin updates, no more security scares. The site just works and we never think about it.',
+    timeline: 'Built in 14 days',
+  },
+  {
+    name: 'Chiropractic Solutions of Denver',
+    logo: csodLogo,
+    logoInvert: false,
+    url: 'https://www.chiropracticsolutionsofdenver.com',
+    type: 'Healthcare & Chiropractic',
+    metrics: [
+      { label: 'Monthly cost', before: '$99/mo', after: '$0/mo' },
+      { label: 'Page load', before: '3.2s', after: '0.3s' },
+      { label: 'PageSpeed', before: '55', after: '98' },
+    ],
+    quote: 'Patients find us faster now. The site loads instantly and we stopped paying $99 a month for hosting we didn\'t need.',
+    timeline: 'Built in 8 days',
+  },
+  {
+    name: 'Better Lives Building Tribes',
+    logo: blbtLogo,
+    logoInvert: true,
+    url: 'https://betterlivesbuildingtribes.com',
+    type: 'Coaching & Community',
+    metrics: [
+      { label: 'Monthly cost', before: '$109/mo', after: '$0/mo' },
+      { label: 'Page load', before: '3.6s', after: '0.5s' },
+      { label: 'PageSpeed', before: '46', after: '97' },
+    ],
+    quote: 'We found a break even on our site after just 9 months of leaving expensive hosting behind. Money in our pocket ever since.',
+    timeline: 'Built in 11 days',
+  },
+];
+---
+
+<Layout
+  title="Web Developer in Denver — Fast, Secure Websites, $0/Month Hosting | Chuck Allen"
+  description="Denver web developer. Custom websites that load in under a second, can't be hacked, and cost $0/month to host. Fixed pricing, 10–14 days."
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Denver Web Developer</p>
+          <h1 class="hero-title">A Denver developer who builds websites<br />that cost <span class="hero-accent">$0/month to run.</span></h1>
+          <p class="hero-sub">No hosting bills. No security patches. No plugin updates. Just a site that works — and you own every piece of it. Based in Colorado, working with businesses across the Denver metro and nationwide.</p>
+          <ul class="hero-points">
+            <li><span class="hp-icon" aria-hidden="true">⚡</span> Loads in under 1 second</li>
+            <li><span class="hp-icon" aria-hidden="true">🔒</span> Can't be hacked</li>
+            <li><span class="hp-icon" aria-hidden="true">💸</span> $0/month hosting</li>
+            <li><span class="hp-icon" aria-hidden="true">✏️</span> Edit your own content</li>
+            <li><span class="hp-icon" aria-hidden="true">🔑</span> You own everything</li>
+            <li><span class="hp-icon" aria-hidden="true">📅</span> Live in 10–14 days</li>
+            <li><span class="hp-icon" aria-hidden="true">🏔️</span> Based in Denver, CO</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Get a Free Quote</a>
+            <GoogleReviewBadge />
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- WordPress vs. My Build -->
+  <section class="section compare-section">
+    <div class="section-container">
+      <h2 class="section-title compare-title">WordPress vs. What I Build</h2>
+      <p class="section-subtitle compare-subtitle">WordPress powers 43% of the web. That doesn't mean it's the best choice for your business.</p>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-wp">WordPress</th>
+              <th class="col-my">My Build</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Mobile PageSpeed</td>
+              <td class="col-wp"><span class="cmp-bad">48% pass</span> Core Web Vitals</td>
+              <td class="col-my"><span class="cmp-good">100% pass</span> — every site I build</td>
+            </tr>
+            <tr>
+              <td class="row-label">Page Load</td>
+              <td class="col-wp"><span class="cmp-bad">3–5 seconds</span></td>
+              <td class="col-my"><span class="cmp-good">Under 1 second</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">Page Weight</td>
+              <td class="col-wp"><span class="cmp-bad">3–5 MB</span> (theme + plugin bloat)</td>
+              <td class="col-my"><span class="cmp-good">~500 KB</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">W3C Validation</td>
+              <td class="col-wp"><span class="cmp-bad">50–100+ errors</span> typical</td>
+              <td class="col-my"><span class="cmp-good">0 errors, 0 warnings</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">Monthly Hosting</td>
+              <td class="col-wp"><span class="cmp-bad">$20–$100+/mo</span></td>
+              <td class="col-my"><span class="cmp-good">$0/month</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">Maintenance</td>
+              <td class="col-wp"><span class="cmp-bad">$50–$350/mo</span> (plans, plugins, updates)</td>
+              <td class="col-my"><span class="cmp-good">$0/month</span> — nothing to maintain</td>
+            </tr>
+            <tr>
+              <td class="row-label">Security</td>
+              <td class="col-wp"><span class="cmp-bad">834K+ vulnerabilities</span> in 2025</td>
+              <td class="col-my"><span class="cmp-good">No attack surface</span> — no database, no plugins</td>
+            </tr>
+            <tr>
+              <td class="row-label">Plugin Conflicts</td>
+              <td class="col-wp"><span class="cmp-bad">Routine after updates</span></td>
+              <td class="col-my"><span class="cmp-good">No plugins</span> — no conflicts</td>
+            </tr>
+            <tr>
+              <td class="row-label">Traffic Spikes</td>
+              <td class="col-wp"><span class="cmp-warn">Server bottleneck</span></td>
+              <td class="col-my"><span class="cmp-good">Global CDN</span> — 330+ locations</td>
+            </tr>
+            <tr>
+              <td class="row-label">Rollback</td>
+              <td class="col-wp"><span class="cmp-warn">Manual backups</span></td>
+              <td class="col-my"><span class="cmp-good">Instant</span> — full version history</td>
+            </tr>
+            <tr>
+              <td class="row-label">Content Editing</td>
+              <td class="col-wp">WordPress admin</td>
+              <td class="col-my">Built-in CMS — same experience, no overhead</td>
+            </tr>
+            <tr>
+              <td class="row-label">Ownership</td>
+              <td class="col-wp"><span class="cmp-warn">Tied to hosting + plugins</span></td>
+              <td class="col-my"><span class="cmp-good">You own everything</span> — files, accounts, domain</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="compare-footnote">Core Web Vitals data from Chrome UX Report. WordPress vulnerability count from WPScan 2025 annual report.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section pricing-section">
+    <div class="section-container">
+      <h2 class="section-title pricing-title">Simple, Fixed Pricing</h2>
+      <p class="section-subtitle pricing-subtitle">One invoice. No hourly billing. No surprise fees.</p>
+      <p class="pricing-zero">Then $0/month — forever.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card card">
+          <h3 class="pricing-tier">Small</h3>
+          <p class="pricing-pages">&le;20 pages</p>
+          <span class="pricing-price">$1,500</span>
+
+          <span class="pricing-timeline">10–14 days</span>
+        </div>
+        <div class="pricing-card card pricing-featured">
+          <span class="pricing-badge">Most Common</span>
+          <h3 class="pricing-tier">Medium</h3>
+          <p class="pricing-pages">21–75 pages</p>
+          <span class="pricing-price">$2,000–$2,500</span>
+
+          <span class="pricing-timeline">10–14 days</span>
+        </div>
+        <div class="pricing-card card">
+          <h3 class="pricing-tier">Large</h3>
+          <p class="pricing-pages">76–200+ pages</p>
+          <span class="pricing-price">$2,500–$3,000</span>
+
+          <span class="pricing-timeline">10–14 days</span>
+        </div>
+      </div>
+
+      <div class="savings-callout">
+        <p class="savings-text">Spending <strong>$150/month</strong> on WordPress hosting + maintenance? That's <strong>$1,800/year</strong>. Most of my builds pay for themselves in under 12 months — then you never pay again.</p>
+      </div>
+      </div>
+      <div class="cta-block">
+        <a href="#contact" class="btn-primary">Get a Free Quote</a>
+        <p class="cta-supporting">Fixed price. I'll review your site and give you an exact number.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title" style="text-align:center;">How It Works</h2>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Free Consultation</h3>
+          <p class="step-desc">Tell me what you need. I'll review your current site (or sketch out a new one) and give you a fixed quote. No pressure, no commitment.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> I Build It</h3>
+          <p class="step-desc">You get a site that loads in under a second, looks great on every device, and is ready for Google. You review everything before launch.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> You're Live</h3>
+          <p class="step-desc">Your site is live. You own every file, every account, every login. Update content yourself, or call me if you need changes later.</p>
+        </div>
+      </div>
+      <p class="steps-closer">That's it. You're live and have no ongoing costs — not even hosting fees. One payment, zero bills, forever.</p>
+      <div class="steps-cta">
+        <a href="#contact" class="btn-primary">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Slider -->
+  <section class="section proof-section">
+    <div class="section-container">
+      <h2 class="section-title proof-title">Sites I've Built</h2>
+      <p class="section-subtitle proof-subtitle">Real businesses running on this platform right now.</p>
+
+      <div class="proof-grid">
+        {clients.map((client) => (
+          <div class="proof-card card">
+            <div class="proof-left">
+              <div class="proof-logo-wrap">
+                <Picture
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  widths={[200, 300]}
+                  formats={['avif', 'webp']}
+                  class={`proof-logo ${client.logoInvert ? 'invert' : ''}`}
+                />
+              </div>
+              <p class="proof-type">{client.type}</p>
+              <p class="proof-quote">{client.quote}</p>
+              <div class="proof-metrics">
+                {client.metrics.map((m) => (
+                  <div class="proof-row">
+                    <span class="proof-label">{m.label}</span>
+                    <span class="proof-before">{m.before}</span>
+                    <span class="proof-arrow" aria-hidden="true">&rarr;</span>
+                    <span class="proof-after">{m.after}</span>
+                  </div>
+                ))}
+              </div>
+              <p class="proof-footer">
+                <span class="proof-timeline">{client.timeline}</span>
+                <span class="proof-pipe">|</span>
+                <a href={client.url} target="_blank" rel="noopener noreferrer" class="proof-link">Visit Site &rarr;</a>
+              </p>
+            </div>
+            <div class="proof-right">
+              <div class="psi-badge" aria-label={`PageSpeed score ${client.metrics[2]?.after}`}>
+                <svg class="psi-ring" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8" />
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#22c55e" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset={`${327 - (327 * Number(client.metrics[2]?.after || 98)) / 100}`} transform="rotate(-90 60 60)" />
+                </svg>
+                <div class="psi-inner">
+                  <span class="psi-score">{client.metrics[2]?.after}</span>
+                  <span class="psi-label">PageSpeed</span>
+                </div>
+              </div>
+              <div class="speed-stat">
+                <span class="speed-value">{client.metrics[1]?.after}</span>
+                <span class="speed-label">load time</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hook CTA -->
+  <section class="hook-cta">
+    <div class="section-container hook-cta-inner">
+      <p class="hook-cta-headline">One payment. No monthly bills. No hosting fees. <span class="hook-cta-accent">Ever.</span></p>
+      <p class="hook-cta-sub">Stop renting your website. Own it outright — and never pay for it again.</p>
+      <a href="#contact" class="btn-primary hook-cta-btn">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <Testimonials title="What Clients Say" />
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-container">
+      <div class="faq-row">
+      <div>
+      <h2 class="section-title">Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Can I edit my own content?</summary>
+          <p class="faq-a">Yes. Your site comes with a built-in content editor. Change text, images, and pages whenever you want — no developer needed.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What about SEO?</summary>
+          <p class="faq-a">Faster sites rank higher. Your site will score 95–100 on Google PageSpeed, load in under a second, and include all the SEO fundamentals — meta tags, structured data, sitemaps, and clean URLs.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What if I need changes later?</summary>
+          <p class="faq-a">You own everything. You can update content yourself, hire any developer to make changes, or call me. There's no lock-in.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is this right for my business?</summary>
+          <p class="faq-a">This is the best fit for businesses that need a professional website — pages, forms, blog, portfolio. If you need e-commerce or a web app, that's a different scope — I can still help, but we should talk first.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How is $0/month hosting possible?</summary>
+          <p class="faq-a">Your site is pre-built HTML served from a global network. No server to pay for, no database to maintain. The hosting platform offers a generous free tier that covers most business websites permanently.</p>
+        </details>
+      </div>
+      </div>
+
+      <div class="faq-sidebar card">
+        <h3 class="faq-sidebar-title">Want to meet in person?</h3>
+        <p class="faq-sidebar-desc">I'm based in Denver. We can meet for coffee, hop on a video call, or keep it simple over email. Either way — no sales pitch, no obligation.</p>
+        <ul class="faq-sidebar-points">
+          <li>30-minute call, no commitment</li>
+          <li>Get a fixed quote — often that day</li>
+          <li>Ask me anything about the process</li>
+        </ul>
+        <a href={site.calendly} target="_blank" rel="noopener noreferrer" class="btn-primary faq-sidebar-btn">Book a Free Meeting</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <Contact
+    site={site}
+    title="Let's Talk — I'm Right Here in Denver"
+    subtitle="Free consultation — whether you're in Denver, the Front Range, or anywhere in the US. I'll look at what you need and give you a fixed quote."
+  />
+</Layout>
+
+<!-- No slider JS needed — proof section is a static grid -->
+
+<style>
+  /* ── Hero ── */
+  .hero { position: relative; padding: 7rem 0 3rem; overflow: hidden; }
+  @media (min-width: 768px) { .hero { padding: 11.25rem 0 4rem; } }
+
+  .hero-inner { position: relative; z-index: 1; }
+
+  .hero-row { display: flex; flex-direction: column; gap: 2.5rem; }
+  @media (min-width: 1024px) { .hero-row { flex-direction: row; align-items: flex-start; gap: 3.75rem; } }
+
+  .hero-content { flex: 1; min-width: 0; max-width: 680px; }
+
+  .hero-wheel { display: none; }
+  @media (min-width: 1024px) { .hero-wheel { display: flex; flex-shrink: 0; align-items: center; justify-content: center; min-height: 500px; } }
+
+  .hero-marquee-mobile { position: relative; z-index: 1; margin-top: 1.5rem; }
+  @media (min-width: 1024px) { .hero-marquee-mobile { display: none; } }
+
+  .hero-eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-accent-light); margin-bottom: 1rem; }
+  .hero-title { font-size: 2rem; font-weight: 500; color: var(--color-text); line-height: 1.2; margin-bottom: 1rem; }
+  @media (min-width: 768px) { .hero-title { font-size: 2.75rem; } }
+  @media (min-width: 1024px) { .hero-title { font-size: 3rem; } }
+  .hero-accent { color: #22c55e; }
+  .hero-sub { font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 2rem; max-width: 560px; }
+  @media (min-width: 768px) { .hero-sub { font-size: 1.125rem; } }
+
+  .hero-points { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; }
+  .hero-points li { font-size: 0.875rem; color: var(--color-text-secondary); display: flex; align-items: center; gap: 0.5rem; }
+  .hp-icon { font-size: 1rem; flex-shrink: 0; }
+
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+
+  /* ── Sections ── */
+  .section { position: relative; padding: 3rem 0; overflow: hidden; }
+  @media (min-width: 768px) { .section { padding: 4.5rem 0; } }
+  .section-title { font-size: 1.5rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+  @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+  @media (min-width: 1024px) { .section-title { font-size: 3rem; } }
+  .section-subtitle { color: var(--color-text-secondary); font-size: 0.9375rem; max-width: 600px; margin-bottom: 2rem; line-height: 1.7; }
+  @media (min-width: 768px) { .section-subtitle { font-size: 1.125rem; margin-bottom: 3rem; } }
+
+  /* ── Comparison Table ── */
+  .compare-title { text-align: center; }
+  .compare-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+
+  .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; min-width: 580px; }
+  .compare-table th, .compare-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+  .compare-table thead th { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+  .compare-table thead th:first-child { width: 30%; }
+
+  .col-wp { background: rgba(239, 68, 68, 0.04); color: var(--color-text-secondary); }
+  .col-my { background: rgba(34, 197, 94, 0.04); color: var(--color-text-secondary); }
+
+  .compare-table thead .col-wp { color: #f87171; }
+  .compare-table thead .col-my { color: #22c55e; }
+
+  .row-label { font-weight: 600; color: var(--color-text); }
+
+  .cmp-bad { color: #f87171; font-weight: 700; }
+  .cmp-warn { color: #f59e0b; font-weight: 600; }
+  .cmp-good { color: #22c55e; font-weight: 700; }
+
+  .compare-footnote { font-size: 0.6875rem; color: var(--color-text-muted); text-align: center; font-style: italic; }
+
+  /* ── Pricing ── */
+  .pricing-title { text-align: center; }
+  .pricing-subtitle { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 0; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 700px; margin: 0 auto; }
+  @media (min-width: 640px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+  .pricing-card { padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.375rem; transition: border-color 0.2s ease; position: relative; }
+  .pricing-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+  .pricing-featured { border-color: #22c55e; }
+  .pricing-badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: #22c55e; color: #000; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 1rem; border-radius: var(--radius-pill); white-space: nowrap; }
+  .pricing-tier { font-size: 1.125rem; font-weight: 700; color: var(--color-text); }
+  .pricing-pages { font-size: 0.8125rem; color: var(--color-text-muted); }
+  .pricing-price { font-size: 1.5rem; font-weight: 700; font-family: var(--font-mono); color: #22c55e; }
+  .pricing-zero { text-align: center; font-size: 1.125rem; font-weight: 700; color: #22c55e; margin-top: 0.25rem; margin-bottom: 1.5rem; margin-left: auto; margin-right: auto; }
+  .pricing-timeline { font-size: 0.75rem; color: var(--color-text-dim); }
+
+  .savings-callout { text-align: center; max-width: 600px; margin: 2rem auto 0; padding: 1.25rem 1.5rem; border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-lg, 0.75rem); background: rgba(34, 197, 94, 0.04); }
+  .savings-text { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6; }
+  .savings-text strong { color: var(--color-text); }
+
+  /* ── CTA Block ── */
+  .cta-block { text-align: center; margin-top: 2.5rem; padding: 2.5rem 1.5rem; border-top: 1px solid var(--color-border); }
+  .cta-block .btn-primary { font-size: 1.125rem; padding: 1rem 2.5rem; box-shadow: 0 0 24px rgba(34, 197, 94, 0.3); transition: box-shadow 0.2s ease, transform 0.15s ease; }
+  .cta-block .btn-primary:hover { box-shadow: 0 0 32px rgba(34, 197, 94, 0.45); transform: translateY(-1px); }
+  .cta-supporting { font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.75rem; }
+
+  /* ── Steps ── */
+  .steps-row { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  @media (min-width: 768px) { .steps-row { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+  .step-card { padding: 1.5rem; }
+  .step-header { display: flex; align-items: center; gap: 0.75rem; font-size: 1rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem; }
+  @media (min-width: 768px) { .step-header { font-size: 1.125rem; } }
+  .step-num { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: var(--radius-full); background: rgba(34, 197, 94, 0.15); color: #22c55e; font-weight: 700; font-size: 0.8125rem; flex-shrink: 0; }
+  .step-desc { font-size: 0.8125rem; line-height: 1.6; color: var(--color-text-secondary); padding-left: 2.5rem; }
+  @media (min-width: 768px) { .step-desc { font-size: 0.875rem; } }
+
+  .steps-closer { text-align: center; font-size: 1rem; font-weight: 600; color: #22c55e; margin-top: 2rem; }
+  @media (min-width: 768px) { .steps-closer { font-size: 1.125rem; } }
+  .steps-cta { text-align: center; margin-top: 1.25rem; margin-bottom: -1rem; }
+
+  /* ── Proof Slider ── */
+  .proof-title { text-align: center; }
+  .proof-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+
+  .proof-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 1024px) { .proof-grid { grid-template-columns: 1fr 1fr; } }
+
+  .proof-card { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem; }
+  @media (min-width: 640px) { .proof-card { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; padding: 2rem; } }
+
+  .proof-left { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .proof-logo-wrap { height: 36px; display: flex; align-items: center; margin-bottom: 0.25rem; }
+  .proof-logo-wrap :global(img) { max-height: 32px; max-width: 180px; width: auto; height: auto; object-fit: contain; }
+  .proof-logo-wrap :global(.invert) { filter: brightness(0) invert(1); }
+
+  .proof-type { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-dim); }
+
+  .proof-quote { font-size: 0.8125rem; font-style: italic; color: var(--color-text-secondary); line-height: 1.6; border-left: 3px solid var(--color-accent); padding-left: 0.75rem; }
+
+  .proof-metrics { display: flex; flex-direction: column; gap: 0.375rem; }
+  .proof-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; }
+  .proof-label { font-weight: 600; color: var(--color-text-muted); min-width: 5.5rem; }
+  .proof-before { color: var(--color-text-dim); text-decoration: line-through; font-family: var(--font-mono); }
+  .proof-arrow { color: var(--color-text-dim); font-size: 0.75rem; }
+  .proof-after { color: #22c55e; font-weight: 700; font-family: var(--font-mono); }
+
+  .proof-footer { display: flex; align-items: center; gap: 0.5rem; }
+  .proof-timeline { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #22c55e; }
+  .proof-pipe { color: rgba(255, 255, 255, 0.2); font-size: 0.75rem; }
+  .proof-link { font-size: 0.6875rem; font-weight: 600; color: #22c55e; text-decoration: none; transition: color 0.2s ease; }
+  .proof-link:hover { color: #4ade80; text-decoration: underline; text-underline-offset: 3px; }
+
+  .proof-right { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; }
+
+  .psi-badge { position: relative; width: 120px; height: 120px; }
+  .psi-ring { width: 100%; height: 100%; filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.3)); }
+  .psi-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .psi-score { font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: #22c55e; line-height: 1; }
+  .psi-label { font-size: 0.5625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-dim); margin-top: 0.125rem; }
+
+  .speed-stat { display: flex; flex-direction: column; align-items: center; gap: 0.125rem; }
+  .speed-value { font-size: 1.5rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-text); }
+  .speed-label { font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-dim); }
+
+  /* ── Hook CTA ── */
+  .hook-cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(34, 197, 94, 0.15);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    background: rgba(34, 197, 94, 0.03);
+  }
+
+  .hook-cta-headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  @media (min-width: 768px) { .hook-cta-headline { font-size: 2rem; } }
+  @media (min-width: 1024px) { .hook-cta-headline { font-size: 2.5rem; } }
+
+  .hook-cta-accent { color: #22c55e; }
+
+  .hook-cta-sub {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.75rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 768px) { .hook-cta-sub { font-size: 1.125rem; } }
+
+  .hook-cta-btn {
+    font-size: 1.125rem;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 0 28px rgba(34, 197, 94, 0.35);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .hook-cta-btn:hover {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+    transform: translateY(-1px);
+  }
+
+  /* ── FAQ ── */
+  .faq-row { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 1024px) { .faq-row { grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; } }
+
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--color-border); }
+  .faq-q { padding: 1.25rem 0; font-size: 1rem; font-weight: 600; color: var(--color-text); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after { content: '+'; font-size: 1.25rem; color: var(--color-text-dim); font-weight: 300; flex-shrink: 0; margin-left: 1rem; }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a { font-size: 0.875rem; line-height: 1.7; color: var(--color-text-secondary); padding-bottom: 1.25rem; }
+
+  /* ── FAQ Sidebar ── */
+  .faq-sidebar {
+    padding: 2rem;
+    border-left: 3px solid #22c55e;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .faq-sidebar-title { font-size: 1.25rem; font-weight: 700; color: var(--color-text); }
+
+  .faq-sidebar-desc { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+  .faq-sidebar-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .faq-sidebar-points li {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .faq-sidebar-points li::before { content: '✓'; position: absolute; left: 0; color: #22c55e; font-weight: 700; font-size: 0.75rem; }
+
+  .faq-sidebar-btn { width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 0.5rem; }
+</style>
