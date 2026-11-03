@@ -641,7 +641,7 @@ const clients = [
   .faq-sidebar-btn { width: 100%; display: flex; align-items: center; justify-content: center; margin-top: 0.5rem; }
 
   /* ── Sticky Phone Bar ── */
-  .sticky-phone-bar {
+  :global(.sticky-phone-bar) {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -653,21 +653,22 @@ const clients = [
     text-align: center;
   }
 
-  .sticky-phone-link {
+  :global(.sticky-phone-link) {
     color: var(--color-text);
     text-decoration: none;
     font-size: 0.875rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
   }
 
-  .sticky-phone-link strong {
+  :global(.sticky-phone-link strong) {
     color: #22c55e;
     font-family: var(--font-mono);
   }
 
-  .sticky-phone-icon { font-size: 1rem; }
+  :global(.sticky-phone-icon) { font-size: 1rem; }
 </style>
 
 <style is:global>
