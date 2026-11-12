@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
+import chuckPhoto from '../assets/images/chuck-allen.png';
+import Contact from '../shared/components/Contact.astro';
+import Testimonials from '../components/Testimonials.astro';
+import { site } from '../config/site';
+import { yearsExperience } from '../shared/utils/config';
+
+const years = yearsExperience(site);
+---
+
+<Layout
+  title="About Chuck Allen — Senior Developer & Technical Lead"
+  description={`${years} years building for agencies, startups, and enterprise teams. Based in Colorado, specializing in automation, integrations, data visualization, and modern web architecture.`}
+>
+  <section id="about" class="section">
+    <div class="section-container">
+      <div class="about-row">
+        <div class="about-photo">
+          <Picture
+            src={chuckPhoto}
+            formats={['avif', 'webp']}
+            loading="eager"
+            decoding="async"
+            alt="Chuck Allen"
+            class="about-img"
+          />
+        </div>
+        <div class="about-content">
+          <h1 class="section-title">Hi, I'm Chuck.</h1>
+          <p>{years} years building for agencies, startups, and enterprise teams. I've seen what breaks at scale and what survives — you get that instinct from day one.</p>
+          <p>I take the time to understand what you're actually trying to accomplish, and I stick with it until it's done. I don't disappear after launch. I don't ghost when things get hard. I'd rather build a real working relationship than chase the next gig.</p>
+          <p>I use AI-assisted tooling to move faster without cutting corners — smarter testing, faster prototyping, more thorough reviews. You get senior-level thinking at modern speed.</p>
+          <p>Based in Colorado, available during US business hours. Calls, screen shares, Slack — whatever works for your team. White-label friendly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <Contact
+    site={site}
+    title='Want to <span class="text-accent">Work Together?</span>'
+    subtitle="Tell me what you're building. I'll tell you how I can help."
+  />
+</Layout>
+
+<style>
+  #about { padding-top: 3rem; }
+  @media (min-width: 768px) { #about { padding-top: 4.5rem; } }
+
+  .about-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .about-row {
+      flex-direction: row;
+      gap: 3.75rem;
+      align-items: flex-start;
+    }
+  }
+
+  .about-photo {
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  .about-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border-light);
+  }
+  @media (min-width: 768px) {
+    .about-img {
+      max-width: 360px;
+    }
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    min-width: 0;
+  }
+  @media (min-width: 768px) {
+    .about-content {
+      font-size: 1.0625rem;
+      gap: 1rem;
+    }
+  }
+</style>
