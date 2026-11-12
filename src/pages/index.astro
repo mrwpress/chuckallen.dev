@@ -230,6 +230,8 @@ const badgeItems = [
                   alt={`${client.name} logo`}
                   widths={[200, 300]}
                   formats={['avif', 'webp']}
+                  loading="lazy"
+                  decoding="async"
                   class={`proof-logo ${client.logoInvert ? 'invert' : ''}`}
                 />
               </div>
