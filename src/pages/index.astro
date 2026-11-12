@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Picture } from 'astro:assets';
-import chuckPhoto from '../assets/images/chuck-allen.png';
 import GridBackground from '../shared/components/GridBackground.astro';
 import BadgeWheel from '../shared/components/BadgeWheel.astro';
 import Contact from '../shared/components/Contact.astro';
@@ -24,9 +23,11 @@ const clients = [
     type: 'IoT & Network Infrastructure',
     metrics: [
       { label: 'Monthly cost', before: '$149/mo', after: '$0/mo' },
-      { label: 'Page load', before: '4.1s', after: '0.6s' },
-      { label: 'PageSpeed', before: '42', after: '97' },
+      { label: 'Maintenance', before: '6 hrs/mo', after: '0 hrs/mo' },
+      { label: 'Core Web Vitals', before: '1/3', after: '3/3' },
     ],
+    psiScore: 97,
+    loadTime: '0.6s',
     quote: 'We went from a sluggish WordPress site to something our sales team actually wants to share with prospects.',
     timeline: 'Built in 12 days',
   },
@@ -38,9 +39,11 @@ const clients = [
     type: 'Commercial IT Services',
     metrics: [
       { label: 'Monthly cost', before: '$129/mo', after: '$0/mo' },
-      { label: 'Page load', before: '3.8s', after: '0.4s' },
-      { label: 'PageSpeed', before: '48', after: '99' },
+      { label: 'Maintenance', before: '4 hrs/mo', after: '0 hrs/mo' },
+      { label: 'Core Web Vitals', before: '1/3', after: '3/3' },
     ],
+    psiScore: 99,
+    loadTime: '0.4s',
     quote: 'No more plugin updates, no more security scares. The site just works and we never think about it.',
     timeline: 'Built in 14 days',
   },
@@ -52,9 +55,11 @@ const clients = [
     type: 'Healthcare & Chiropractic',
     metrics: [
       { label: 'Monthly cost', before: '$99/mo', after: '$0/mo' },
-      { label: 'Page load', before: '3.2s', after: '0.3s' },
-      { label: 'PageSpeed', before: '55', after: '98' },
+      { label: 'Maintenance', before: '3 hrs/mo', after: '0 hrs/mo' },
+      { label: 'Core Web Vitals', before: '0/3', after: '3/3' },
     ],
+    psiScore: 98,
+    loadTime: '0.5s',
     quote: 'Patients find us faster now. The site loads instantly and we stopped paying $99 a month for hosting we didn\'t need.',
     timeline: 'Built in 8 days',
   },
@@ -66,9 +71,11 @@ const clients = [
     type: 'Coaching & Community',
     metrics: [
       { label: 'Monthly cost', before: '$109/mo', after: '$0/mo' },
-      { label: 'Page load', before: '3.6s', after: '0.5s' },
-      { label: 'PageSpeed', before: '46', after: '97' },
+      { label: 'Maintenance', before: '5 hrs/mo', after: '0 hrs/mo' },
+      { label: 'Core Web Vitals', before: '1/3', after: '3/3' },
     ],
+    psiScore: 97,
+    loadTime: '0.5s',
     quote: 'We found a break even on our site after just 9 months of leaving expensive hosting behind. Money in our pocket ever since.',
     timeline: 'Built in 11 days',
   },
@@ -124,31 +131,6 @@ const badgeItems = [
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="section-container">
-      <div class="about-row">
-        <div class="about-photo">
-          <Picture
-            src={chuckPhoto}
-            formats={['avif', 'webp']}
-            loading="lazy"
-            decoding="async"
-            alt="Chuck Allen"
-            class="about-img"
-          />
-        </div>
-        <div class="about-content">
-          <h2 class="section-title">Hi, I'm Chuck.</h2>
-          <p>{years} years building for agencies, startups, and enterprise teams. I've seen what breaks at scale and what survives — you get that instinct from day one.</p>
-          <p>I take the time to understand what you're actually trying to accomplish, and I stick with it until it's done. I don't disappear after launch. I don't ghost when things get hard. I'd rather build a real working relationship than chase the next gig.</p>
-          <p>I use AI-assisted tooling to move faster without cutting corners — smarter testing, faster prototyping, more thorough reviews. You get senior-level thinking at modern speed.</p>
-          <p>Based in Colorado, available during US business hours. Calls, screen shares, Slack — whatever works for your team. White-label friendly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Services -->
   <section id="services" class="section">
     <div class="section-container">
@@ -158,58 +140,69 @@ const badgeItems = [
       </p>
       <div class="services-grid">
         <div class="service-card card">
-          <h3 class="service-name">Performance That Pays For Itself</h3>
-          <p class="service-desc">Your slow site is costing you customers — every second of delay cuts conversions. I build on Astro, Next.js, Vue, and React with performance as a requirement, not an afterthought.</p>
-        </div>
-        <div class="service-card card">
-          <h3 class="service-name">Integrations That Don't Break</h3>
-          <p class="service-desc">Tired of duct-taped API connections that fail silently? I build robust integrations — payment gateways, shipping APIs, CRMs, and custom connectors — with error handling and alerts built in.</p>
-        </div>
-        <div class="service-card card">
-          <h3 class="service-name">Dashboards You'll Actually Use</h3>
-          <p class="service-desc">Your data is buried in spreadsheets and nobody's acting on it. I build real-time dashboards that surface what matters — so your team spots problems in minutes, not days.</p>
-        </div>
-        <div class="service-card card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/><path d="M16 3.13a4 4 0 0 1 0 17.74M8 3.13a4 4 0 0 0 0 17.74"/></svg>
           <h3 class="service-name">Automation That Gives You Hours Back</h3>
-          <p class="service-desc">Your team shouldn't be doing the same manual work every week. I build workflows, scheduled tasks, and intelligent alerts that eliminate the repetitive stuff and catch issues before your customers do.</p>
+          <ul class="service-list">
+            <li>Eliminate repetitive manual work costing you money</li>
+            <li>Workflows, scheduled tasks, and real-time alerts</li>
+            <li>Reclaim your team's time and raise productivity</li>
+          </ul>
         </div>
         <div class="service-card card">
-          <h3 class="service-name">Architecture That Scales With You</h3>
-          <p class="service-desc">Don't rebuild everything the moment you grow. Serverless, edge functions, Cloudflare Workers — I design systems that handle ten times the traffic without ten times the cost.</p>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 5 5-9"/></svg>
+          <h3 class="service-name">Data You Can Actually See</h3>
+          <ul class="service-list">
+            <li>Clean data pipelines from scattered sources</li>
+            <li>Visualizations that drive decisions</li>
+            <li>Stop building reports by hand every week</li>
+          </ul>
         </div>
         <div class="service-card card">
-          <h3 class="service-name">A Developer Who Stays</h3>
-          <p class="service-desc">No vanishing acts. No handoff to a junior. I manage your project end-to-end — planning, building, communicating, and supporting it after launch. Your point of contact is the person writing the code.</p>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="5" cy="5.5" r="0.5" fill="currentColor"/><circle cx="7.5" cy="5.5" r="0.5" fill="currentColor"/><circle cx="10" cy="5.5" r="0.5" fill="currentColor"/><line x1="2" y1="7.5" x2="22" y2="7.5"/><rect x="4.5" y="10" width="5" height="4" rx="0.5"/><line x1="12" y1="10" x2="19.5" y2="10"/><line x1="12" y1="12" x2="17" y2="12"/><line x1="4.5" y1="16.5" x2="12" y2="16.5"/><line x1="4.5" y1="18.5" x2="10" y2="18.5"/><rect x="15" y="15" width="4.5" height="4" rx="0.5"/></svg>
+          <h3 class="service-name">Custom Dashboards</h3>
+          <ul class="service-list">
+            <li>Custom-built for how your team works</li>
+            <li>Real-time metrics, role-based views</li>
+            <li>Zero learning curve</li>
+          </ul>
+        </div>
+        <div class="service-card card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <h3 class="service-name">Integrations That Don't Break</h3>
+          <ul class="service-list">
+            <li>Payment gateways, CRMs, ERPs, custom connectors</li>
+            <li>Error handling and monitoring built in</li>
+            <li>No more silent failures</li>
+          </ul>
+        </div>
+        <div class="service-card card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h2m2 0h4"/><path d="M7 12h8"/></svg>
+          <h3 class="service-name">Web Apps That Work Like Software</h3>
+          <ul class="service-list">
+            <li>Portals, calculators, intake systems, booking flows</li>
+            <li>Solve specific problems, run anywhere</li>
+            <li>Custom tools your team uses daily</li>
+          </ul>
+        </div>
+        <div class="service-card card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h3 class="service-name">Websites That Perform From Day One</h3>
+          <ul class="service-list">
+            <li>Sub-second loads, 95+ PageSpeed scores</li>
+            <li>Astro, Next.js, modern frameworks</li>
+            <li>$0/month hosting, fixed pricing</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cost of Inaction -->
-  <section id="cost" class="section">
-    <div class="section-container">
-      <h2 class="section-title">Are These Affecting Your Bottom Line?</h2>
-      <p class="section-subtitle">
-        These aren't hypotheticals. These are the measurable costs businesses pay every day for outdated systems and manual processes.
-      </p>
-      <div class="cost-grid">
-        <div class="cost-item card">
-          <span class="cost-stat">1% sales lost</span>
-          <p class="cost-desc">For every 100ms a site takes to load. Slow pages don't just frustrate visitors — they cost real revenue before anyone even sees the product. <a href="https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/" target="_blank" rel="noopener" class="cost-cite">Amazon Study</a></p>
-        </div>
-        <div class="cost-item card">
-          <span class="cost-stat">30–60%</span>
-          <p class="cost-desc">Cost reduction achieved by operations centers that automate manual, repetitive tasks — while also increasing delivery quality. <a href="https://www.mckinsey.com/capabilities/operations/our-insights/operations-management-reshaped-by-robotic-automation" target="_blank" rel="noopener" class="cost-cite">McKinsey</a></p>
-        </div>
-        <div class="cost-item card">
-          <span class="cost-stat">7x more likely</span>
-          <p class="cost-desc">To qualify a lead when the response happens within an hour. The average business takes 42 hours. Automated workflows respond in seconds — around the clock. <a href="https://ainora.lt/blog/lead-response-time-statistics-every-study-2026" target="_blank" rel="noopener" class="cost-cite">HBR Study via AInora</a></p>
-        </div>
-        <div class="cost-item card">
-          <span class="cost-stat">$12.9M/year</span>
-          <p class="cost-desc">Average annual cost of poor data quality across organizations. Clean data pipelines and real-time dashboards turn that liability into insight. <a href="https://www.dataversity.net/articles/putting-a-number-on-bad-data/" target="_blank" rel="noopener" class="cost-cite">Gartner via Dataversity</a></p>
-        </div>
-      </div>
+  <!-- Hook CTA -->
+  <section class="hook-cta">
+    <div class="section-container hook-cta-inner">
+      <p class="hook-cta-headline">Stop paying for problems. <span class="hook-cta-accent">Start solving them.</span></p>
+      <p class="hook-cta-sub">Tell me what's broken. I'll tell you exactly how I'd fix it — no pitch, no pressure.</p>
+      <a href="#contact" class="btn-primary hook-cta-btn">Let's Talk</a>
     </div>
   </section>
 
@@ -218,7 +211,7 @@ const badgeItems = [
     <GridBackground blobColor="rgba(0,118,157,0.05)" />
     <div class="section-container">
       <h2 class="section-title">Sites I've Built</h2>
-      <p class="section-subtitle">Real businesses running on this platform right now.</p>
+      <p class="section-subtitle">Real businesses running on clean, modern and stable architecture.</p>
 
       <div class="proof-grid">
         {clients.map((client) => (
@@ -254,18 +247,18 @@ const badgeItems = [
               </p>
             </div>
             <div class="proof-right">
-              <div class="psi-badge" aria-label={`PageSpeed score ${client.metrics[2]?.after}`}>
+              <div class="psi-badge" aria-label={`PageSpeed score ${client.psiScore}`}>
                 <svg class="psi-ring" viewBox="0 0 120 120">
                   <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8" />
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="#22c55e" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset={`${327 - (327 * Number(client.metrics[2]?.after || 98)) / 100}`} transform="rotate(-90 60 60)" />
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="#22c55e" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset={`${327 - (327 * client.psiScore) / 100}`} transform="rotate(-90 60 60)" />
                 </svg>
                 <div class="psi-inner">
-                  <span class="psi-score">{client.metrics[2]?.after}</span>
+                  <span class="psi-score">{client.psiScore}</span>
                   <span class="psi-label">PageSpeed</span>
                 </div>
               </div>
               <div class="speed-stat">
-                <span class="speed-value">{client.metrics[1]?.after}</span>
+                <span class="speed-value">{client.loadTime}</span>
                 <span class="speed-label">load time</span>
               </div>
             </div>
@@ -275,13 +268,50 @@ const badgeItems = [
     </div>
   </section>
 
+  <!-- Hook CTA 2 -->
+  <section class="hook-cta">
+    <div class="section-container hook-cta-inner">
+      <p class="hook-cta-headline">Real results. Real businesses. <span class="hook-cta-accent">Ready for yours?</span></p>
+      <p class="hook-cta-sub">Same architecture, same performance, same zero monthly cost.</p>
+      <a href="#contact" class="btn-primary hook-cta-btn">Let's Talk</a>
+    </div>
+  </section>
+
   <!-- Testimonials -->
   <Testimonials />
+
+  <!-- Cost of Inaction -->
+  <section id="cost" class="section">
+    <div class="section-container">
+      <h2 class="section-title">Are These Affecting Your Bottom Line?</h2>
+      <p class="section-subtitle">
+        These aren't hypotheticals. These are the measurable costs businesses pay every day for outdated systems and manual processes.
+      </p>
+      <div class="cost-grid">
+        <div class="cost-item card">
+          <span class="cost-stat">1% sales lost</span>
+          <p class="cost-desc">For every 100ms a site takes to load. Slow pages don't just frustrate visitors — they cost real revenue before anyone even sees the product. <a href="https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/" target="_blank" rel="noopener" class="cost-cite">Amazon Study</a></p>
+        </div>
+        <div class="cost-item card">
+          <span class="cost-stat">30–60%</span>
+          <p class="cost-desc">Cost reduction achieved by operations centers that automate manual, repetitive tasks — while also increasing delivery quality. <a href="https://www.mckinsey.com/capabilities/operations/our-insights/operations-management-reshaped-by-robotic-automation" target="_blank" rel="noopener" class="cost-cite">McKinsey</a></p>
+        </div>
+        <div class="cost-item card">
+          <span class="cost-stat">7x more likely</span>
+          <p class="cost-desc">To qualify a lead when the response happens within an hour. The average business takes 42 hours. Automated workflows respond in seconds — around the clock. <a href="https://ainora.lt/blog/lead-response-time-statistics-every-study-2026" target="_blank" rel="noopener" class="cost-cite">HBR Study via AInora</a></p>
+        </div>
+        <div class="cost-item card">
+          <span class="cost-stat">$12.9M/year</span>
+          <p class="cost-desc">Average annual cost of poor data quality across organizations. Clean data pipelines and real-time dashboards turn that liability into insight. <a href="https://www.dataversity.net/articles/putting-a-number-on-bad-data/" target="_blank" rel="noopener" class="cost-cite">Gartner via Dataversity</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact -->
   <Contact
     site={site}
-    title="Ready to Stop Losing Time to Bad Tooling?"
+    title='Ready to <span class="text-danger">Stop Losing Money</span> to Bad Tooling?'
     subtitle="Tell me what's not working. I'll tell you how to fix it — no pitch, no pressure."
   />
 
@@ -357,12 +387,12 @@ const badgeItems = [
   /* ── Hero ── */
   .hero {
     position: relative;
-    padding: 7rem 0 1.5rem;
+    padding: 2.5rem 0 1.5rem;
     overflow: hidden;
   }
   @media (min-width: 768px) {
     .hero {
-      padding: 11.25rem 0 2rem;
+      padding: 5rem 0 2rem;
     }
   }
 
@@ -611,72 +641,87 @@ const badgeItems = [
     border-color: rgba(255, 255, 255, 0.15);
   }
 
+  .service-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent-light);
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+  }
+
   .service-name {
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
   }
   @media (min-width: 768px) {
     .service-name { font-size: 1.125rem; }
   }
 
-  .service-desc {
+  .service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .service-list li {
     font-size: 0.8125rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--color-text-muted);
+    padding-left: 1.125rem;
+    position: relative;
+  }
+  .service-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.6875rem;
   }
   @media (min-width: 768px) {
-    .service-desc { font-size: 0.875rem; }
+    .service-list li { font-size: 0.875rem; }
   }
 
-  /* ── About ── */
-  .about-row {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+  /* ── Hook CTA ── */
+  .hook-cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(34, 197, 94, 0.15);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    background: rgba(34, 197, 94, 0.03);
   }
-  @media (min-width: 768px) {
-    .about-row {
-      flex-direction: row;
-      gap: 3.75rem;
-      align-items: flex-start;
-    }
+  .hook-cta-headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
   }
-
-  .about-photo {
-    flex-shrink: 0;
-    max-width: 100%;
+  @media (min-width: 768px) { .hook-cta-headline { font-size: 2rem; } }
+  @media (min-width: 1024px) { .hook-cta-headline { font-size: 2.5rem; } }
+  .hook-cta-accent { color: #22c55e; }
+  .hook-cta-sub {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.75rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .about-img {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border-radius: 1rem;
-    border: 1px solid var(--color-border-light);
+  @media (min-width: 768px) { .hook-cta-sub { font-size: 1.125rem; } }
+  .hook-cta-btn {
+    font-size: 1.125rem;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 0 28px rgba(34, 197, 94, 0.35);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
   }
-  @media (min-width: 768px) {
-    .about-img {
-      max-width: 360px;
-    }
-  }
-
-  .about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-    color: var(--color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    min-width: 0;
-  }
-  @media (min-width: 768px) {
-    .about-content {
-      font-size: 1.0625rem;
-      gap: 1rem;
-    }
+  .hook-cta-btn:hover {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+    transform: translateY(-1px);
   }
 
   /* ── Cost of Inaction ── */
