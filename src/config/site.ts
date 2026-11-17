@@ -16,7 +16,10 @@ export const site: SiteConfig = {
   phone: '7207847604',
   phoneFormatted: '(720) 784-7604',
   address: {
+    street: '11479 Pine Dr',
+    city: 'Parker',
     region: 'CO',
+    postalCode: '80134',
     country: 'US',
   },
 

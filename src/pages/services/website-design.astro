@@ -1,0 +1,1074 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Picture } from 'astro:assets';
+import GridBackground from '../../shared/components/GridBackground.astro';
+import BadgeWheel from '../../shared/components/BadgeWheel.astro';
+import Contact from '../../shared/components/Contact.astro';
+import { site } from '../../config/site';
+import { yearsExperience } from '../../shared/utils/config';
+import { serviceSchema } from '../../shared/utils/schema';
+import GoogleReviewBadge from '../../components/GoogleReviewBadge.astro';
+import Testimonials from '../../components/Testimonials.astro';
+
+const years = yearsExperience(site);
+const pageUrl = new URL('/services/website-design/', site.url).href;
+
+const baseSchema = serviceSchema({
+  name: 'Custom Website Design & Development',
+  description: `Professional website design and development for small businesses across Colorado. Fixed pricing, sub-second load times, $0/month hosting. ${years}+ years experience.`,
+  url: pageUrl,
+  site,
+});
+
+const schema = {
+  ...baseSchema,
+  areaServed: [
+    { '@type': 'City', name: 'Aurora' },
+    { '@type': 'City', name: 'Denver' },
+    { '@type': 'City', name: 'Parker' },
+    { '@type': 'City', name: 'Boulder' },
+    { '@type': 'City', name: 'Lakewood' },
+    { '@type': 'City', name: 'Englewood' },
+    { '@type': 'City', name: 'Lone Tree' },
+    { '@type': 'City', name: 'Centennial' },
+    { '@type': 'City', name: 'Northglenn' },
+    { '@type': 'City', name: 'Castle Rock' },
+    { '@type': 'City', name: 'Westminster' },
+    { '@type': 'City', name: 'Highlands Ranch' },
+    { '@type': 'City', name: 'Colorado Springs' },
+    { '@type': 'City', name: 'Castle Pines' },
+    { '@type': 'State', name: 'Colorado' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Website Design Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Hands-Off Website',
+        price: '149',
+        priceCurrency: 'USD',
+        description: 'Monthly subscription — I build, host, and maintain your site',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Own It Outright',
+        price: '1500',
+        priceCurrency: 'USD',
+        description: 'One-time build, then $0/month forever',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Own It + Content Management',
+        price: '1500',
+        priceCurrency: 'USD',
+        description: 'One-time build plus $75/month content updates',
+      },
+    ],
+  },
+};
+
+const badgeItems = [
+  { label: 'Loads in Under 1 Second', icon: '/images/badge-zap.svg' },
+  { label: '$0/Month Hosting', icon: '/images/badge-piggybank.svg' },
+  { label: 'You Own Everything', icon: '/images/badge-key.svg' },
+  { label: 'Looks Great on Every Device', icon: '/images/badge-performance.svg' },
+  { label: 'Live in 10–14 Days', icon: '/images/badge-cloud.svg' },
+  { label: 'No Maintenance Required', icon: '/images/badge-wrench-off.svg' },
+];
+
+import gearlinxLogo from '../../assets/images/clients/gearlinx-logo.png';
+import alinkLogo from '../../assets/images/clients/alink-logo.avif';
+import csodLogo from '../../assets/images/clients/csod-logo.png';
+import blbtLogo from '../../assets/images/clients/blbt-logo.png';
+
+const clients = [
+  {
+    name: 'Gearlinx',
+    logo: gearlinxLogo,
+    logoInvert: false,
+    url: 'https://gearlinx.com',
+    type: 'IoT & Network Infrastructure',
+    psiScore: 97,
+    loadTime: '0.6s',
+    quote: 'We went from a sluggish site to something our sales team actually wants to share with prospects.',
+    timeline: 'Built in 12 days',
+  },
+  {
+    name: 'Alink CIS',
+    logo: alinkLogo,
+    logoInvert: false,
+    url: 'https://www.alinkcis.com',
+    type: 'Commercial IT Services',
+    psiScore: 99,
+    loadTime: '0.4s',
+    quote: 'The site just works and we never think about it. No maintenance, no surprise bills.',
+    timeline: 'Built in 14 days',
+  },
+  {
+    name: 'Chiropractic Solutions of Denver',
+    logo: csodLogo,
+    logoInvert: false,
+    url: 'https://www.chiropracticsolutionsofdenver.com',
+    type: 'Healthcare & Chiropractic',
+    psiScore: 98,
+    loadTime: '0.5s',
+    quote: 'Patients find us faster now. The site loads instantly and we stopped paying for hosting we didn\'t need.',
+    timeline: 'Built in 8 days',
+  },
+  {
+    name: 'Better Lives Building Tribes',
+    logo: blbtLogo,
+    logoInvert: true,
+    url: 'https://betterlivesbuildingtribes.com',
+    type: 'Coaching & Community',
+    psiScore: 99,
+    loadTime: '0.4s',
+    quote: 'We found a break even on our site after just 9 months. Money in our pocket ever since.',
+    timeline: 'Built in 11 days',
+  },
+];
+---
+
+<Layout
+  title="Custom Website Design & Development — Colorado | Chuck Allen"
+  description={`Custom website design and development for businesses across the Denver metro area. Fixed pricing from $1,500 — then $0/month forever. Sub-second loads, PageSpeed 95+. ${years}+ years experience.`}
+  extraSchemas={[schema]}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <GridBackground />
+    <div class="hero-inner section-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Website Design & Development</p>
+          <h1 class="hero-title">A website that actually<br /><span class="hero-accent">works for your business.</span></h1>
+          <p class="hero-sub">
+            Most small business websites are slow, overpriced, and locked into platforms
+            you don't control. I build fast, modern websites for businesses across
+            Colorado — fixed pricing, no monthly hosting fees, and you own everything.
+          </p>
+          <ul class="hero-points">
+            <li><span class="hero-icon" aria-hidden="true">⚡</span>Sub-second load times</li>
+            <li><span class="hero-icon" aria-hidden="true">💸</span>$0/month hosting</li>
+            <li><span class="hero-icon" aria-hidden="true">🔑</span>You own everything</li>
+            <li><span class="hero-icon" aria-hidden="true">📱</span>Mobile-first design</li>
+            <li><span class="hero-icon" aria-hidden="true">🏆</span>PageSpeed 95–100</li>
+            <li><span class="hero-icon" aria-hidden="true">📅</span>Live in 10–14 days</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn-primary">See Pricing</a>
+            <a href={site.calendly} target="_blank" rel="noopener" class="btn-outline">Book a Free Call</a>
+            <GoogleReviewBadge />
+          </div>
+        </div>
+        <div class="hero-wheel">
+          <BadgeWheel items={badgeItems} checkmarkIcon="/images/badge-checkmark.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-marquee-mobile">
+      <BadgeWheel items={badgeItems} />
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Sound Familiar?</h2>
+      <p class="section-subtitle">
+        These are the problems I hear from business owners every week. If any of them hit close to home, you're not alone — and they're all fixable.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">💸</span> Paying too much for a site that doesn't perform</h3>
+          <p class="card-desc">Between hosting fees, maintenance plans, and plugin subscriptions, you're spending $100–$200/month on a website that still loads in 4+ seconds and embarrasses you on mobile.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">👻</span> Your developer disappeared</h3>
+          <p class="card-desc">The agency that built your site moved on. The freelancer stopped returning calls. Now you're stuck with a site you can't update and nobody to call when something breaks.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">😬</span> Your site looks outdated</h3>
+          <p class="card-desc">You hesitate to send prospects to your website. The design is five years old, the content is stale, and it doesn't reflect the business you've built since then.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🐌</span> Slow loads are costing you customers</h3>
+          <p class="card-desc">Every second of load time costs you visitors. Google penalizes slow sites in search results, and 53% of mobile visitors leave if a page takes longer than 3 seconds.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🔒</span> Locked into a platform you can't control</h3>
+          <p class="card-desc">Wix, Squarespace, WordPress — they all own your site in some way. You can't move it, you can't truly customize it, and you're paying rent on something that should be yours.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="card-icon" aria-hidden="true">🤷</span> No idea what you're actually paying for</h3>
+          <p class="card-desc">Your monthly invoice says "website maintenance" but nothing ever changes. You're paying for peace of mind that doesn't exist — just a recurring charge nobody questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="section">
+    <GridBackground blobColor="rgba(34,197,94,0.04)" />
+    <div class="section-container">
+      <h2 class="section-title">What You Get</h2>
+      <p class="section-subtitle">
+        Every site I build follows the same standard — fast, affordable, and entirely yours. No exceptions.
+      </p>
+      <div class="card-grid">
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Sub-second load times</h3>
+          <p class="card-desc">Your site loads in under a second on any device. Not a marketing claim — a measured result. Every client site I've delivered scores 95+ on Google PageSpeed Insights.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> $0/month hosting — forever</h3>
+          <p class="card-desc">No hosting bills. No renewal fees. No "managed WordPress" charges. Your site runs on a free-tier CDN that's faster than the hosting you're paying for now.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> You own every file and account</h3>
+          <p class="card-desc">The code, the design, the domain, the hosting account — all yours. If you ever want to walk away and take everything with you, there's nothing stopping you.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Built-in content editor</h3>
+          <p class="card-desc">Update your own text, images, and pages without touching code. No WordPress backend, no learning curve — just a clean editor that does what you need.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> Mobile-first, accessible design</h3>
+          <p class="card-desc">Every page is designed for phones first, then scaled up. Meets WCAG accessibility standards so every visitor can use your site — and Google rewards you for it.</p>
+        </div>
+        <div class="card-item card">
+          <h3 class="card-header"><span class="check-icon" aria-hidden="true">&#10003;</span> No maintenance required</h3>
+          <p class="card-desc">No plugins to update. No security patches. No database backups. The architecture eliminates every category of ongoing maintenance that makes traditional sites expensive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <div class="section-container">
+      <h2 class="cta-band-headline">Your next website should be the <span class="cta-band-accent">last one you pay for.</span></h2>
+      <p class="cta-band-sub">One fixed price. No hosting bills, no maintenance fees, no surprises — ever again.</p>
+      <a href="#pricing" class="btn-primary cta-band-btn">See Pricing</a>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="proof" class="section proof-section">
+    <div class="section-container">
+      <h2 class="section-title proof-title">Colorado Businesses Running on This Platform</h2>
+      <p class="section-subtitle proof-subtitle">Real companies with real results. Every one of these sites loads in under a second, costs $0/month to run, and scores 95+ on PageSpeed.</p>
+
+      <div class="proof-grid">
+        {clients.map((client) => (
+          <div class="proof-card card">
+            <div class="proof-left">
+              <div class="proof-logo-wrap">
+                <Picture
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  widths={[200, 300]}
+                  formats={['avif', 'webp']}
+                  loading="lazy"
+                  decoding="async"
+                  class={`proof-logo ${client.logoInvert ? 'invert' : ''}`}
+                />
+              </div>
+              <p class="proof-type">{client.type}</p>
+              <p class="proof-quote">{client.quote}</p>
+            </div>
+            <div class="proof-right">
+              <div class="psi-badge">
+                <svg class="psi-ring" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="6" />
+                  <circle cx="60" cy="60" r="54" fill="none" stroke="#22c55e" stroke-width="6"
+                    stroke-dasharray={`${(client.psiScore / 100) * 339.292} 339.292`}
+                    stroke-dashoffset="0" stroke-linecap="round"
+                    transform="rotate(-90 60 60)" />
+                </svg>
+                <div class="psi-inner">
+                  <span class="psi-score">{client.psiScore}</span>
+                  <span class="psi-label">PageSpeed</span>
+                </div>
+              </div>
+              <div class="speed-stat">
+                <span class="speed-value">{client.loadTime}</span>
+                <span class="speed-label">Load time</span>
+              </div>
+              <div class="proof-footer">
+                <span class="proof-timeline">{client.timeline}</span>
+                {client.url && (
+                  <>
+                    <span class="proof-pipe">|</span>
+                    <a href={client.url} target="_blank" rel="noopener noreferrer" class="proof-link">Visit site &rarr;</a>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section pricing-section">
+    <div class="section-container">
+      <h2 class="section-title pricing-title">Simple, Fixed Pricing</h2>
+      <p class="section-subtitle pricing-subtitle">Three ways to get a custom website. Pick the one that fits.</p>
+
+      <div class="pricing-tiles">
+        <button class="pricing-tile card" data-tier="handsoff" type="button">
+          <span class="tile-eyebrow">Hands-Off</span>
+          <span class="tile-price">$149<span class="tile-price-unit">/mo</span></span>
+          <span class="tile-desc">I build it, host it, and maintain it. You just use it.</span>
+          <span class="tile-cta">See Details &darr;</span>
+        </button>
+
+        <button class="pricing-tile card" data-tier="own" type="button">
+          <span class="tile-eyebrow">Own It Outright</span>
+          <span class="tile-starting">starting at</span>
+          <span class="tile-price">$1,500<span class="tile-price-unit">+</span></span>
+          <span class="tile-desc">One invoice. Then $0/month — forever. You own everything.</span>
+          <span class="tile-cta">See Details &darr;</span>
+        </button>
+
+        <button class="pricing-tile card" data-tier="managed" type="button">
+          <span class="tile-eyebrow">Own It + Stay Fresh</span>
+          <span class="tile-price">+$75<span class="tile-price-unit">/mo</span></span>
+          <span class="tile-desc">Everything in "Own It" — plus I keep the content current.</span>
+          <span class="tile-cta">See Details &darr;</span>
+        </button>
+      </div>
+
+      <!-- Detail panels -->
+      <div class="pricing-detail" id="pricing-detail" hidden>
+        <div class="detail-inner" id="detail-handsoff">
+          <h3 class="detail-title">The Hands-Off Plan</h3>
+          <p class="detail-subtitle">$149/month — $0 upfront</p>
+          <div class="detail-columns">
+            <div>
+              <h4 class="detail-heading">What's Included</h4>
+              <ul class="detail-list">
+                <li>Custom-designed website built to your specs</li>
+                <li>Hosting, SSL, and security — all handled</li>
+                <li>Ongoing updates and technical maintenance</li>
+                <li>Performance monitoring and uptime checks</li>
+                <li>Content changes when you need them</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="detail-heading">What to Expect</h4>
+              <ul class="detail-list">
+                <li>Site live in 10–14 days</li>
+                <li>No contracts — cancel anytime</li>
+                <li>I own the site; you use it as long as you're subscribed</li>
+                <li>No surprise fees, no hourly billing</li>
+              </ul>
+              <h4 class="detail-heading">Best For</h4>
+              <p class="detail-text">Business owners who want a professional site without the upfront investment or technical responsibility.</p>
+            </div>
+          </div>
+          <div class="detail-cta">
+            <a href="#contact" class="btn-primary pricing-cta-btn">Get Started — $0 Upfront</a>
+            <p class="pricing-cta-sub">I'll look at your site and respond the same day.</p>
+          </div>
+        </div>
+
+        <div class="detail-inner" id="detail-own">
+          <h3 class="detail-title">Own It Outright</h3>
+          <p class="detail-subtitle">From $1,500 — then $0/month forever</p>
+          <div class="detail-columns">
+            <div>
+              <h4 class="detail-heading">What's Included</h4>
+              <ul class="detail-list">
+                <li>Custom-designed, hand-coded website</li>
+                <li>Sub-second load times, 95+ PageSpeed score</li>
+                <li>Built-in content editor — update it yourself</li>
+                <li>You own the code, design, and hosting account</li>
+                <li>$0/month to run — free hosting tier covers it</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="detail-heading">What to Expect</h4>
+              <ul class="detail-list">
+                <li>Site live in 10–14 days</li>
+                <li>One fixed-price invoice — no hourly billing</li>
+                <li>Most projects land between $1,500 and $3,000</li>
+                <li>Full ownership — it's yours to keep forever</li>
+              </ul>
+              <h4 class="detail-heading">Best For</h4>
+              <p class="detail-text">Business owners who want full control, zero ongoing costs, and a site that pays for itself.</p>
+            </div>
+          </div>
+          <div class="savings-callout">
+            <p class="savings-text">Spending <strong>$120/month</strong> on hosting and maintenance? That's <strong>$1,440/year</strong>. Most of my builds pay for themselves in under 12 months — then you never pay again.</p>
+          </div>
+          <div class="detail-cta">
+            <a href="#contact" class="btn-primary pricing-cta-btn">Get Your Free Quote</a>
+            <p class="pricing-cta-sub">I'll look at what you need and respond the same day.</p>
+          </div>
+        </div>
+
+        <div class="detail-inner" id="detail-managed">
+          <h3 class="detail-title">Own It + Stay Fresh</h3>
+          <p class="detail-subtitle">From $1,500 build + $75/month content management</p>
+          <div class="detail-columns">
+            <div>
+              <h4 class="detail-heading">What's Included</h4>
+              <ul class="detail-list">
+                <li>Everything in "Own It Outright" — you own the site</li>
+                <li>I handle all content updates — text, images, new pages</li>
+                <li>You email me what to change, I take care of it</li>
+                <li>No login required, no CMS learning curve</li>
+                <li>Updates typically live within 24 hours</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="detail-heading">What to Expect</h4>
+              <ul class="detail-list">
+                <li>Site live in 10–14 days</li>
+                <li>One fixed-price invoice for the build</li>
+                <li>$75/month for ongoing content management</li>
+                <li>No contracts — cancel the content plan anytime</li>
+              </ul>
+              <h4 class="detail-heading">Best For</h4>
+              <p class="detail-text">Business owners who want ownership and zero hosting costs — but don't want to deal with making content changes themselves.</p>
+            </div>
+          </div>
+          <div class="detail-cta">
+            <a href="#contact" class="btn-primary pricing-cta-btn">Get Your Free Quote</a>
+            <p class="pricing-cta-sub">I'll look at what you need and respond the same day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title" style="text-align:center;">How It Works</h2>
+      <div class="steps-row">
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">1</span> Free Consultation</h3>
+          <p class="step-desc">Tell me what you need. I'll review your current site — or sketch out a new one — and give you a fixed quote. No pressure, no commitment.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">2</span> I Build It</h3>
+          <p class="step-desc">You get a site that loads in under a second, looks great on every device, and is ready for Google. You review everything before launch.</p>
+        </div>
+        <div class="step-card card">
+          <h3 class="step-header"><span class="step-num">3</span> You're Live</h3>
+          <p class="step-desc">Your site is live. You own every file, every account, every login. Update content yourself, or let me handle it for $75/month.</p>
+        </div>
+      </div>
+      <p class="steps-closer">That's it. No ongoing costs, no surprise bills, no fine print.</p>
+      <div class="steps-cta">
+        <a href="#contact" class="btn-primary">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials />
+
+  <!-- Contact -->
+  <Contact
+    site={site}
+    title='Let&apos;s talk about <span class="text-accent">your website.</span>'
+    subtitle="Free consultation for Colorado businesses. I'll look at what you need and give you a fixed quote — no pressure, no commitment."
+  />
+</Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tiles = document.querySelectorAll('.pricing-tile');
+    const detail = document.getElementById('pricing-detail');
+    if (!tiles.length || !detail) return;
+
+    const panels = detail.querySelectorAll('.detail-inner');
+    let activeTier: string | null = null;
+
+    tiles.forEach((tile) => {
+      tile.addEventListener('click', () => {
+        const tier = (tile as HTMLElement).dataset.tier!;
+
+        if (activeTier === tier) return;
+
+        activeTier = tier;
+        tiles.forEach((t) => t.classList.remove('pricing-tile--active'));
+        tile.classList.add('pricing-tile--active');
+
+        panels.forEach((p) => p.classList.remove('is-visible'));
+        const target = document.getElementById(`detail-${tier}`);
+        if (target) target.classList.add('is-visible');
+
+        detail.classList.add('is-open');
+      });
+    });
+  });
+</script>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 5.5rem 0 1.5rem;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero { padding: 8rem 0 1.5rem; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3.75rem;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-wheel {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-wheel {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+
+  .hero-marquee-mobile {
+    position: relative;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hero-marquee-mobile { display: none; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    margin-bottom: 0.625rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: 4rem; }
+  }
+
+  .hero-accent {
+    color: var(--color-accent-light);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    max-width: 560px;
+  }
+  @media (min-width: 768px) {
+    .hero-sub { font-size: 1.125rem; }
+  }
+
+  .hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points { gap: 1rem 2.5rem; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-points { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .hero-points li {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .hero-points li { font-size: 1.125rem; }
+  }
+
+  .hero-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 4.5rem 0; }
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+  }
+
+  .section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ── Card Grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card-item {
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+  @media (min-width: 768px) {
+    .card-item { padding: 1.5rem; }
+  }
+  .card-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .card-header { font-size: 1.125rem; }
+  }
+
+  .card-icon {
+    display: block;
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 768px) {
+    .card-desc { font-size: 0.875rem; }
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA Band ── */
+  .cta-band {
+    padding: 3.5rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(34, 197, 94, 0.15);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    background: rgba(34, 197, 94, 0.03);
+  }
+
+  .cta-band-headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  @media (min-width: 768px) { .cta-band-headline { font-size: 2rem; } }
+  @media (min-width: 1024px) { .cta-band-headline { font-size: 2.5rem; } }
+
+  .cta-band-accent { color: var(--color-accent-light); }
+
+  .cta-band-sub {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.75rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 768px) { .cta-band-sub { font-size: 1.125rem; } }
+
+  .cta-band-btn {
+    font-size: 1.125rem;
+    padding: 1rem 2.5rem;
+  }
+
+  /* ── Proof Grid ── */
+  .proof-title { text-align: center; }
+  .proof-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+
+  .proof-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 1024px) { .proof-grid { grid-template-columns: 1fr 1fr; } }
+
+  .proof-card { display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem; }
+  @media (min-width: 640px) { .proof-card { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; padding: 2rem; } }
+
+  .proof-left { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .proof-logo-wrap { height: 36px; display: flex; align-items: center; margin-bottom: 0.25rem; }
+  .proof-logo-wrap :global(img) { max-height: 32px; max-width: 180px; width: auto; height: auto; object-fit: contain; }
+  .proof-logo-wrap :global(.invert) { filter: brightness(0) invert(1); }
+
+  .proof-type { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-dim); }
+
+  .proof-quote { font-size: 0.8125rem; font-style: italic; color: var(--color-text-secondary); line-height: 1.6; border-left: 3px solid var(--color-accent); padding-left: 0.75rem; }
+
+  .proof-footer { display: flex; align-items: center; gap: 0.5rem; }
+  .proof-timeline { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #22c55e; }
+  .proof-pipe { color: rgba(255, 255, 255, 0.2); font-size: 0.75rem; }
+  .proof-link { font-size: 0.6875rem; font-weight: 600; color: #22c55e; text-decoration: none; transition: color 0.2s ease; }
+  .proof-link:hover { color: #4ade80; text-decoration: underline; text-underline-offset: 3px; }
+
+  .proof-right { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; }
+
+  .psi-badge { position: relative; width: 120px; height: 120px; }
+  .psi-ring { width: 100%; height: 100%; filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.3)); }
+  .psi-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .psi-score { font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: #22c55e; line-height: 1; }
+  .psi-label { font-size: 0.5625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-dim); margin-top: 0.125rem; }
+
+  .speed-stat { display: flex; flex-direction: column; align-items: center; gap: 0.125rem; }
+  .speed-value { font-size: 1.5rem; font-weight: 800; font-family: var(--font-mono); color: var(--color-text); }
+  .speed-label { font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-dim); }
+
+  /* ── Pricing ── */
+  .pricing-title { text-align: center; }
+  .pricing-subtitle { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 0; }
+
+  .pricing-tiles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) {
+    .pricing-tiles { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pricing-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: var(--color-surface);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    color: inherit;
+    text-align: center;
+    width: 100%;
+  }
+  .pricing-tile:hover {
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+  .pricing-tile--active {
+    border-color: #22c55e;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+  }
+
+  .tile-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #22c55e;
+  }
+
+  .tile-starting {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+  }
+
+  .tile-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+  .tile-price-unit {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .tile-desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .tile-cta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #22c55e;
+    margin-top: auto;
+    transition: color 0.2s ease;
+  }
+  .pricing-tile:hover .tile-cta { color: #4ade80; }
+  .pricing-tile--active .tile-cta { display: none; }
+
+  /* ── Detail Panel ── */
+  .pricing-detail {
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+  }
+  .pricing-detail.is-open {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 1.5rem;
+  }
+  .pricing-detail[hidden] { display: block; }
+
+  .detail-inner {
+    display: none;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-lg, 0.75rem);
+    background: var(--color-surface);
+  }
+  .detail-inner.is-visible { display: block; }
+
+  .detail-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+  .detail-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #22c55e;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .detail-columns { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+
+  .detail-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .detail-heading:first-child { margin-top: 0; }
+
+  .detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .detail-list li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .detail-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .detail-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .detail-cta { text-align: center; margin-top: 1.5rem; }
+
+  .pricing-cta-btn { font-size: 1.125rem; padding: 1rem 2.5rem; box-shadow: 0 0 24px rgba(34, 197, 94, 0.3); transition: box-shadow 0.2s ease, transform 0.15s ease; }
+  .pricing-cta-btn:hover { box-shadow: 0 0 32px rgba(34, 197, 94, 0.45); transform: translateY(-1px); }
+  .pricing-cta-sub { font-size: 0.8125rem; color: var(--color-text-muted); margin-top: 0.75rem; }
+
+  .savings-callout { text-align: center; max-width: 600px; margin: 1.5rem auto 0; padding: 1.25rem 1.5rem; border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-lg, 0.75rem); background: rgba(34, 197, 94, 0.04); }
+  .savings-text { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.6; }
+  .savings-text strong { color: var(--color-text); }
+
+  /* ── Steps ── */
+  .steps-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .steps-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .step-card {
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-header { font-size: 1.125rem; }
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent-dim);
+    color: var(--color-accent-light);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    flex-shrink: 0;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    padding-left: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .step-desc { font-size: 0.875rem; }
+  }
+
+  .steps-closer {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-accent-light);
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) { .steps-closer { font-size: 1.125rem; } }
+
+  .steps-cta {
+    text-align: center;
+    margin-top: 1.25rem;
+    margin-bottom: -1rem;
+  }
+</style>
