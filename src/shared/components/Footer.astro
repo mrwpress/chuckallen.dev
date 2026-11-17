@@ -56,6 +56,12 @@ const year = new Date().getFullYear();
       <!-- Email -->
       <a href={`mailto:${site.email}`} class="footer-email">{site.email}</a>
 
+      <!-- NAP -->
+      <p class="footer-nap">
+        {site.address.street && `${site.address.street}, `}{site.address.city && `${site.address.city}, `}{site.address.region}{site.address.postalCode && ` ${site.address.postalCode}`}
+      </p>
+      <a href={`tel:+1${site.phone}`} class="footer-nap-link">{site.phoneFormatted}</a>
+
       <!-- Legal links -->
       {site.legalLinks.length > 0 && (
         <nav class="footer-legal" aria-label="Legal links">
@@ -215,6 +221,21 @@ const year = new Date().getFullYear();
     transition: color 0.2s ease;
   }
   .footer-email:hover {
+    color: var(--color-text);
+  }
+
+  /* ── NAP ── */
+  .footer-nap {
+    color: var(--color-text-secondary, #d6d6d6);
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .footer-nap-link {
+    color: var(--color-text-secondary, #d6d6d6);
+    transition: color 0.2s ease;
+  }
+  .footer-nap-link:hover {
     color: var(--color-text);
   }
 
