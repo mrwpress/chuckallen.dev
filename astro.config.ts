@@ -7,7 +7,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const path = new URL(page).pathname;
-        return !path.startsWith('/ppc/') && !path.startsWith('/services/');
+        return !path.startsWith('/ppc/');
       },
     }),
   ],
