@@ -65,12 +65,12 @@ const slots = [
           >
             {item.label}
           </span>
-          {slot.highlighted && checkmarkIcon && (
+          {checkmarkIcon && (
             <img
               src={checkmarkIcon}
               alt=""
               class="badge-checkmark"
-              style="width:22px;height:22px;right:-1px;top:-5px;"
+              style={`width:22px;height:22px;right:-1px;top:-5px;opacity:${slot.highlighted ? 1 : 0};`}
             />
           )}
         </div>
@@ -128,23 +128,29 @@ const slots = [
     gap: 10px;
     border: 1px solid rgba(105, 105, 105, 0.5);
     flex-shrink: 0;
-    transition: width 0.6s ease, border-radius 0.6s ease, padding 0.6s ease, background 0.6s ease, opacity 0.6s ease;
+    transition: width 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+                border-radius 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+                padding 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+                background 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+                opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .badge-icon {
     flex-shrink: 0;
-    transition: width 0.6s ease, height 0.6s ease;
+    transition: width 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+                height 0.7s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .badge-label {
     color: var(--color-text);
     white-space: nowrap;
     line-height: 1.2;
-    transition: font-size 0.6s ease;
+    transition: font-size 0.7s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .badge-checkmark {
     position: absolute;
+    transition: opacity 0.35s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   /* ── Mobile marquee ── */
@@ -238,74 +244,142 @@ const slots = [
     let interval: ReturnType<typeof setInterval>;
     let isAnimating = false;
 
-    function applySlotVisuals(el: HTMLElement, slot: any, item: any) {
-      el.style.width = slot.width + 'px';
-      el.style.borderRadius = slot.rounded + 'px';
-      el.style.padding = slot.py + 'px 16px';
-      el.style.background = slot.highlighted
+    // Apply a slot config's visual properties (shape only, not content)
+    function applyShape(el: HTMLElement, cfg: any) {
+      el.style.width = cfg.width + 'px';
+      el.style.borderRadius = cfg.rounded + 'px';
+      el.style.padding = cfg.py + 'px 16px';
+      el.style.background = cfg.highlighted
         ? 'rgba(255,255,255,0.08)'
         : 'rgba(0,0,0,0.08)';
-      el.style.opacity = slot.opacity;
+      el.style.opacity = String(cfg.opacity);
 
       const icon = el.querySelector('.badge-icon') as HTMLImageElement;
       if (icon) {
-        icon.src = item.icon;
-        icon.style.width = slot.iconSize + 'px';
-        icon.style.height = slot.iconSize + 'px';
+        icon.style.width = cfg.iconSize + 'px';
+        icon.style.height = cfg.iconSize + 'px';
       }
-
       const label = el.querySelector('.badge-label') as HTMLElement;
       if (label) {
-        label.textContent = item.label;
-        label.style.fontSize = slot.textSize + 'px';
-        label.style.fontWeight = slot.fontWeight;
+        label.style.fontSize = cfg.textSize + 'px';
+        label.style.fontWeight = String(cfg.fontWeight);
       }
-
       const checkmark = el.querySelector('.badge-checkmark') as HTMLElement;
       if (checkmark) {
-        checkmark.style.display = slot.highlighted ? '' : 'none';
+        checkmark.style.opacity = cfg.highlighted ? '1' : '0';
       }
     }
 
-    function applyState() {
-      slotEls.forEach((el, slotIndex) => {
-        const slot = slots[slotIndex];
-        const itemIndex = (slotIndex + offset) % items.length;
-        const item = items[itemIndex];
-        applySlotVisuals(el, slot, item);
+    // Set content (icon + label text)
+    function setContent(el: HTMLElement, item: any) {
+      const icon = el.querySelector('.badge-icon') as HTMLImageElement;
+      if (icon) icon.src = item.icon;
+      const label = el.querySelector('.badge-label') as HTMLElement;
+      if (label) label.textContent = item.label;
+    }
+
+    // Create buffer slot (hidden below visible area)
+    const bufferEl = slotEls[slotEls.length - 1].cloneNode(true) as HTMLElement;
+    wheel.appendChild(bufferEl);
+    const allEls = [...slotEls, bufferEl];
+
+    // Lock wrapper height so buffer is clipped
+    const wrapper = wheel.parentElement as HTMLElement;
+    if (wrapper) wrapper.style.height = wrapper.offsetHeight + 'px';
+
+    // Full state reset: each slot gets its natural config + content
+    function applyFullState() {
+      slotEls.forEach((el, i) => {
+        applyShape(el, slots[i]);
+        setContent(el, items[(i + offset) % items.length]);
+      });
+      applyShape(bufferEl, slots[slots.length - 1]);
+      setContent(bufferEl, items[(slotEls.length + offset) % items.length]);
+    }
+
+    // Disable all CSS transitions for atomic snap
+    function freezeTransitions() {
+      allEls.forEach(el => {
+        el.style.transition = 'none';
+        const icon = el.querySelector('.badge-icon') as HTMLElement;
+        const label = el.querySelector('.badge-label') as HTMLElement;
+        const check = el.querySelector('.badge-checkmark') as HTMLElement;
+        if (icon) icon.style.transition = 'none';
+        if (label) label.style.transition = 'none';
+        if (check) check.style.transition = 'none';
+      });
+      wheel.style.transition = 'none';
+    }
+
+    // Re-enable CSS transitions (restore to stylesheet values)
+    function unfreezeTransitions() {
+      allEls.forEach(el => {
+        el.style.transition = '';
+        const icon = el.querySelector('.badge-icon') as HTMLElement;
+        const label = el.querySelector('.badge-label') as HTMLElement;
+        const check = el.querySelector('.badge-checkmark') as HTMLElement;
+        if (icon) icon.style.transition = '';
+        if (label) label.style.transition = '';
+        if (check) check.style.transition = '';
       });
     }
 
+    applyFullState();
+
+    // Measure initial roll distance
     const rollDistance = slotEls[0].offsetHeight + 8;
 
     function cycle() {
       if (isAnimating) return;
       isAnimating = true;
 
-      wheel.style.transition = 'transform 0.4s cubic-bezier(0.33, 1, 0.68, 1)';
+      // 1) Morph each slot to look like the position above it
+      //    (CSS transitions animate this smoothly over 0.7s)
+      slotEls.forEach((el, i) => {
+        if (i === 0) {
+          // Top slot fades out as it exits
+          el.style.opacity = '0';
+        } else {
+          applyShape(el, slots[i - 1]);
+        }
+      });
+      // Buffer morphs to look like the bottom visible slot
+      applyShape(bufferEl, slots[slots.length - 1]);
+
+      // 2) Simultaneously roll the whole wheel up
+      wheel.style.willChange = 'transform';
+      wheel.style.transition = 'transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)';
       wheel.style.transform = `translateY(-${rollDistance}px)`;
 
-      setTimeout(() => {
-        wheel.style.transition = 'none';
+      function onEnd(e: TransitionEvent) {
+        if (e.target !== wheel || e.propertyName !== 'transform') return;
+        wheel.removeEventListener('transitionend', onEnd);
+
+        // 3) Atomic snap — invisible because end-state matches
+        freezeTransitions();
         wheel.style.transform = 'translateY(0)';
+        wheel.style.willChange = '';
 
         offset = (offset + 1) % items.length;
-        applyState();
+        applyFullState();
 
-        requestAnimationFrame(() => {
-          isAnimating = false;
-        });
-      }, 400);
+        // Force paint of the snapped state
+        void wheel.offsetHeight;
+
+        // Re-enable transitions for the next cycle
+        unfreezeTransitions();
+        isAnimating = false;
+      }
+
+      wheel.addEventListener('transitionend', onEnd);
     }
 
-    applyState();
-
-    setTimeout(cycle, 800);
-    interval = setInterval(cycle, 2500);
+    setTimeout(cycle, 1200);
+    interval = setInterval(cycle, 2800);
 
     wheel.addEventListener('mouseenter', () => clearInterval(interval));
     wheel.addEventListener('mouseleave', () => {
-      interval = setInterval(cycle, 2500);
+      interval = setInterval(cycle, 2800);
     });
   });
 </script>
