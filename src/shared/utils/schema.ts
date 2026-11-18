@@ -6,34 +6,71 @@
 
 import type { SiteConfig } from './config';
 
+/* ── Private helpers ─────────────────────────────────────── */
+
+function buildAreaServed(site: SiteConfig): Record<string, unknown>[] | undefined {
+  if (!site.serviceAreaCities?.length) return undefined;
+  return [
+    ...site.serviceAreaCities.map((city) => ({ '@type': 'City', name: city })),
+    { '@type': 'State', name: 'Colorado' },
+    { '@type': 'Country', name: 'US' },
+  ];
+}
+
+/* ── Service Schema ──────────────────────────────────────── */
+
 export function serviceSchema(options: {
   name: string;
   description: string;
   url: string;
   site: SiteConfig;
+  serviceType?: string;
+  category?: string;
 }): Record<string, unknown> {
+  const areaServed = buildAreaServed(options.site);
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: options.name,
     description: options.description,
     url: options.url,
+    ...(options.serviceType && { serviceType: options.serviceType }),
+    ...(options.category && { category: options.category }),
     provider: {
       '@type': 'ProfessionalService',
       name: options.site.name,
       url: options.site.url,
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'US',
-    },
+    areaServed: areaServed ?? { '@type': 'Country', name: 'US' },
+    availableChannel: [
+      {
+        '@type': 'ServiceChannel',
+        serviceUrl: options.url,
+        servicePhone: `+1${options.site.phone}`,
+        name: 'Website',
+      },
+      {
+        '@type': 'ServiceChannel',
+        servicePhone: `+1${options.site.phone}`,
+        name: 'Phone',
+      },
+    ],
+    termsOfService: new URL('/terms/', options.site.url).href,
   };
 }
+
+/* ── Organization Schema ─────────────────────────────────── */
 
 export function organizationSchema(site: SiteConfig): Record<string, unknown> {
   const logo = site.defaultOgImage.startsWith('http')
     ? site.defaultOgImage
     : new URL(site.defaultOgImage, site.url).href;
+
+  const areaServed = buildAreaServed(site);
+  const images = site.images?.map((img) =>
+    img.startsWith('http') ? img : new URL(img, site.url).href,
+  );
 
   return {
     '@context': 'https://schema.org',
@@ -55,9 +92,42 @@ export function organizationSchema(site: SiteConfig): Record<string, unknown> {
       ...(site.address.postalCode && { postalCode: site.address.postalCode }),
       addressCountry: site.address.country,
     },
+    ...(site.geo && {
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: site.geo.latitude,
+        longitude: site.geo.longitude,
+      },
+    }),
+    ...(site.openingHours && {
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: site.openingHours.days,
+          opens: site.openingHours.opens,
+          closes: site.openingHours.closes,
+        },
+      ],
+    }),
+    ...(areaServed && { areaServed }),
+    ...(images?.length && { image: images }),
+    ...(site.knowsAbout?.length && { knowsAbout: site.knowsAbout }),
+    ...(site.contactPoint && {
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: site.contactPoint.telephone,
+        contactType: site.contactPoint.contactType,
+        ...(site.contactPoint.areaServed && { areaServed: site.contactPoint.areaServed }),
+        ...(site.contactPoint.availableLanguage && { availableLanguage: site.contactPoint.availableLanguage }),
+      },
+    }),
+    ...(site.naicsCode && { naics: site.naicsCode }),
+    numberOfEmployees: { '@type': 'QuantitativeValue', value: 1 },
     ...(site.sameAs.length > 0 && { sameAs: site.sameAs }),
   };
 }
+
+/* ── WebSite Schema ──────────────────────────────────────── */
 
 export function websiteSchema(site: SiteConfig): Record<string, unknown> {
   return {
@@ -67,6 +137,8 @@ export function websiteSchema(site: SiteConfig): Record<string, unknown> {
     url: site.url,
   };
 }
+
+/* ── WebPage Schema ──────────────────────────────────────── */
 
 export function webPageSchema(options: {
   title: string;
@@ -113,6 +185,42 @@ export function webPageSchema(options: {
     },
   };
 }
+
+/* ── ProfilePage Schema ──────────────────────────────────── */
+
+export function profilePageSchema(options: {
+  site: SiteConfig;
+  personName: string;
+  personDescription: string;
+  personImage?: string;
+  jobTitle?: string;
+  dateCreated?: string;
+  dateModified?: string;
+}): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    ...(options.dateCreated && { dateCreated: options.dateCreated }),
+    ...(options.dateModified && { dateModified: options.dateModified }),
+    mainEntity: {
+      '@type': 'Person',
+      name: options.personName,
+      description: options.personDescription,
+      ...(options.personImage && { image: options.personImage }),
+      url: new URL('/about/', options.site.url).href,
+      ...(options.jobTitle && { jobTitle: options.jobTitle }),
+      ...(options.site.knowsAbout?.length && { knowsAbout: options.site.knowsAbout }),
+      ...(options.site.sameAs.length > 0 && { sameAs: options.site.sameAs }),
+      worksFor: {
+        '@type': 'Organization',
+        name: options.site.legalName,
+        url: options.site.url,
+      },
+    },
+  };
+}
+
+/* ── Breadcrumb Schema ───────────────────────────────────── */
 
 export function breadcrumbSchema(
   pathname: string,

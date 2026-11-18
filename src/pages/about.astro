@@ -6,13 +6,25 @@ import Contact from '../shared/components/Contact.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { site } from '../config/site';
 import { yearsExperience } from '../shared/utils/config';
+import { profilePageSchema } from '../shared/utils/schema';
 
 const years = yearsExperience(site);
+
+const aboutSchema = profilePageSchema({
+  site,
+  personName: 'Chuck Allen',
+  personDescription: `Senior web developer with ${years} years of experience specializing in automation, integrations, data visualization, and modern web architecture. Based in Colorado.`,
+  personImage: new URL('/images/og-default.png', site.url).href,
+  jobTitle: 'Senior Web Developer & Technical Lead',
+  dateCreated: '2025-01-01',
+  dateModified: '2026-11-17',
+});
 ---
 
 <Layout
   title="About Chuck Allen — Senior Developer & Technical Lead"
   description={`${years} years building for agencies, startups, and enterprise teams. Based in Colorado, specializing in automation, integrations, data visualization, and modern web architecture.`}
+  extraSchemas={[aboutSchema]}
 >
   <section id="about" class="section">
     <div class="section-container">

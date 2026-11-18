@@ -30,6 +30,39 @@ export const site: SiteConfig = {
   turnstileSiteKey: '0x4AAAAAADoUBaBwjmsdmruu',
   gtmId: 'GTM-TPNHQVVD',
 
+  geo: { latitude: 39.50749, longitude: -104.75993 },
+
+  serviceAreaCities: [
+    'Aurora', 'Denver', 'Parker', 'Boulder', 'Lakewood',
+    'Englewood', 'Lone Tree', 'Centennial', 'Northglenn',
+    'Castle Rock', 'Westminster', 'Highlands Ranch',
+    'Colorado Springs', 'Castle Pines',
+  ],
+
+  naicsCode: '541511',
+
+  openingHours: {
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
+
+  knowsAbout: [
+    'Web Development', 'Astro Framework', 'React', 'Next.js',
+    'Vue.js', 'Node.js', 'Workflow Automation', 'API Integration',
+    'Data Visualization', 'Serverless Architecture',
+    'Cloudflare Workers', 'TypeScript',
+  ],
+
+  images: ['/images/og-default.png'],
+
+  contactPoint: {
+    telephone: '+17207847604',
+    contactType: 'customer service',
+    areaServed: 'US',
+    availableLanguage: 'English',
+  },
+
   navItems: [
     { label: 'Services', href: '/#services' },
     { label: 'Work', href: '/#work' },

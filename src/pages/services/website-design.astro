@@ -18,27 +18,12 @@ const baseSchema = serviceSchema({
   description: `Professional website design and development for small businesses across Colorado. Fixed pricing, sub-second load times, $0/month hosting. ${years}+ years experience.`,
   url: pageUrl,
   site,
+  serviceType: 'Website Design & Development',
+  category: 'Web Development',
 });
 
 const schema = {
   ...baseSchema,
-  areaServed: [
-    { '@type': 'City', name: 'Aurora' },
-    { '@type': 'City', name: 'Denver' },
-    { '@type': 'City', name: 'Parker' },
-    { '@type': 'City', name: 'Boulder' },
-    { '@type': 'City', name: 'Lakewood' },
-    { '@type': 'City', name: 'Englewood' },
-    { '@type': 'City', name: 'Lone Tree' },
-    { '@type': 'City', name: 'Centennial' },
-    { '@type': 'City', name: 'Northglenn' },
-    { '@type': 'City', name: 'Castle Rock' },
-    { '@type': 'City', name: 'Westminster' },
-    { '@type': 'City', name: 'Highlands Ranch' },
-    { '@type': 'City', name: 'Colorado Springs' },
-    { '@type': 'City', name: 'Castle Pines' },
-    { '@type': 'State', name: 'Colorado' },
-  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Website Design Services',
