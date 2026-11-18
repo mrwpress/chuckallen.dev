@@ -48,6 +48,26 @@ export interface SiteConfig {
   calendly?: string;
   timezone?: string;
 
+  // ── Geo & Service Area ──
+  geo?: { latitude: number; longitude: number };
+  serviceAreaCities?: string[];
+
+  // ── Business Details ──
+  naicsCode?: string;
+  openingHours?: { days: string[]; opens: string; closes: string };
+  knowsAbout?: string[];
+
+  // ── Images ──
+  images?: string[];
+
+  // ── Contact ──
+  contactPoint?: {
+    telephone: string;
+    contactType: string;
+    areaServed?: string;
+    availableLanguage?: string;
+  };
+
   // ── Third-Party Keys (public/client-side only) ──
   gtmId?: string;
   turnstileSiteKey?: string;

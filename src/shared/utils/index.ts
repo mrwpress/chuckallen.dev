@@ -5,4 +5,6 @@ export {
   websiteSchema,
   webPageSchema,
   breadcrumbSchema,
+  serviceSchema,
+  profilePageSchema,
 } from './schema';
