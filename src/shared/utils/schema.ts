@@ -38,9 +38,7 @@ export function serviceSchema(options: {
     ...(options.serviceType && { serviceType: options.serviceType }),
     ...(options.category && { category: options.category }),
     provider: {
-      '@type': 'ProfessionalService',
-      name: options.site.name,
-      url: options.site.url,
+      '@id': `${options.site.url}/#organization`,
     },
     areaServed: areaServed ?? { '@type': 'Country', name: 'US' },
     availableChannel: [
@@ -75,6 +73,7 @@ export function organizationSchema(site: SiteConfig): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': `${site.url}/#organization`,
     name: site.name,
     legalName: site.legalName,
     url: site.url,
